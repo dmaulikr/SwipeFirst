@@ -14,32 +14,43 @@
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     
-    myLabel.text = @"Hello, World!";
+    myLabel.text = @"Swipe First!";
     myLabel.fontSize = 65;
     myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                   CGRectGetMidY(self.frame));
+                                   self.frame.size.height - 65);
     
     [self addChild:myLabel];
+    
+    CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"CardBack"];
+    
+    sprite.xScale = 0.5;
+    sprite.yScale = 0.5;
+    sprite.position = location;
+    
+    [self addChild:sprite];
+    
+    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
+    recognizer.direction = UISwipeGestureRecognizerDirectionUp;
+    [[self view] addGestureRecognizer:recognizer];
+    
+    UISwipeGestureRecognizer *recognizer2 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDown:)];
+    recognizer2.direction = UISwipeGestureRecognizerDirectionDown;
+    [[self view] addGestureRecognizer:recognizer2];
+
+}
+
+- (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
+    NSLog(@"Swipe Up");
+}
+
+- (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender{
+    NSLog(@"Swipe Down");
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.xScale = 0.5;
-        sprite.yScale = 0.5;
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
-    }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
