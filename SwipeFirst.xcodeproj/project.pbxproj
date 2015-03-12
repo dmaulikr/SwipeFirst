@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FD06AD51AB1C9E40002FFBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06AD41AB1C9E40002FFBB /* main.m */; };
+		3FD06AD81AB1C9E40002FFBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06AD71AB1C9E40002FFBB /* AppDelegate.m */; };
+		3FD06ADB1AB1C9E40002FFBB /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06ADA1AB1C9E40002FFBB /* GameScene.m */; };
+		3FD06ADD1AB1C9E40002FFBB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06ADC1AB1C9E40002FFBB /* GameScene.sks */; };
+		3FD06AE01AB1C9E40002FFBB /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06ADF1AB1C9E40002FFBB /* GameViewController.m */; };
+		3FD06AE31AB1C9E40002FFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06AE11AB1C9E40002FFBB /* Main.storyboard */; };
+		3FD06AE51AB1C9E40002FFBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06AE41AB1C9E40002FFBB /* Images.xcassets */; };
+		3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */; };
+		3FD06AF41AB1C9E40002FFBB /* SwipeFirstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3FD06AEE1AB1C9E40002FFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FD06AC71AB1C9E40002FFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FD06ACE1AB1C9E40002FFBB;
+			remoteInfo = SwipeFirst;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3FD06ACF1AB1C9E40002FFBB /* SwipeFirst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeFirst.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FD06AD31AB1C9E40002FFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FD06AD41AB1C9E40002FFBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3FD06AD61AB1C9E40002FFBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3FD06AD71AB1C9E40002FFBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3FD06AD91AB1C9E40002FFBB /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		3FD06ADA1AB1C9E40002FFBB /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		3FD06ADC1AB1C9E40002FFBB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		3FD06ADE1AB1C9E40002FFBB /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		3FD06ADF1AB1C9E40002FFBB /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		3FD06AE21AB1C9E40002FFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3FD06AE41AB1C9E40002FFBB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3FD06AE71AB1C9E40002FFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3FD06AED1AB1C9E40002FFBB /* SwipeFirstTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeFirstTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FD06AF21AB1C9E40002FFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeFirstTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FD06ACC1AB1C9E40002FFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FD06AEA1AB1C9E40002FFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FD06AC61AB1C9E40002FFBB = {
+			isa = PBXGroup;
+			children = (
+				3FD06AD11AB1C9E40002FFBB /* SwipeFirst */,
+				3FD06AF01AB1C9E40002FFBB /* SwipeFirstTests */,
+				3FD06AD01AB1C9E40002FFBB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FD06AD01AB1C9E40002FFBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FD06ACF1AB1C9E40002FFBB /* SwipeFirst.app */,
+				3FD06AED1AB1C9E40002FFBB /* SwipeFirstTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FD06AD11AB1C9E40002FFBB /* SwipeFirst */ = {
+			isa = PBXGroup;
+			children = (
+				3FD06AD61AB1C9E40002FFBB /* AppDelegate.h */,
+				3FD06AD71AB1C9E40002FFBB /* AppDelegate.m */,
+				3FD06AD91AB1C9E40002FFBB /* GameScene.h */,
+				3FD06ADA1AB1C9E40002FFBB /* GameScene.m */,
+				3FD06ADC1AB1C9E40002FFBB /* GameScene.sks */,
+				3FD06ADE1AB1C9E40002FFBB /* GameViewController.h */,
+				3FD06ADF1AB1C9E40002FFBB /* GameViewController.m */,
+				3FD06AE11AB1C9E40002FFBB /* Main.storyboard */,
+				3FD06AE41AB1C9E40002FFBB /* Images.xcassets */,
+				3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */,
+				3FD06AD21AB1C9E40002FFBB /* Supporting Files */,
+			);
+			path = SwipeFirst;
+			sourceTree = "<group>";
+		};
+		3FD06AD21AB1C9E40002FFBB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FD06AD31AB1C9E40002FFBB /* Info.plist */,
+				3FD06AD41AB1C9E40002FFBB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FD06AF01AB1C9E40002FFBB /* SwipeFirstTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */,
+				3FD06AF11AB1C9E40002FFBB /* Supporting Files */,
+			);
+			path = SwipeFirstTests;
+			sourceTree = "<group>";
+		};
+		3FD06AF11AB1C9E40002FFBB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FD06AF21AB1C9E40002FFBB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FD06ACE1AB1C9E40002FFBB /* SwipeFirst */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FD06AF71AB1C9E40002FFBB /* Build configuration list for PBXNativeTarget "SwipeFirst" */;
+			buildPhases = (
+				3FD06ACB1AB1C9E40002FFBB /* Sources */,
+				3FD06ACC1AB1C9E40002FFBB /* Frameworks */,
+				3FD06ACD1AB1C9E40002FFBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwipeFirst;
+			productName = SwipeFirst;
+			productReference = 3FD06ACF1AB1C9E40002FFBB /* SwipeFirst.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3FD06AEC1AB1C9E40002FFBB /* SwipeFirstTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FD06AFA1AB1C9E40002FFBB /* Build configuration list for PBXNativeTarget "SwipeFirstTests" */;
+			buildPhases = (
+				3FD06AE91AB1C9E40002FFBB /* Sources */,
+				3FD06AEA1AB1C9E40002FFBB /* Frameworks */,
+				3FD06AEB1AB1C9E40002FFBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FD06AEF1AB1C9E40002FFBB /* PBXTargetDependency */,
+			);
+			name = SwipeFirstTests;
+			productName = SwipeFirstTests;
+			productReference = 3FD06AED1AB1C9E40002FFBB /* SwipeFirstTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FD06AC71AB1C9E40002FFBB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = CCHS;
+				TargetAttributes = {
+					3FD06ACE1AB1C9E40002FFBB = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					3FD06AEC1AB1C9E40002FFBB = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 3FD06ACE1AB1C9E40002FFBB;
+					};
+				};
+			};
+			buildConfigurationList = 3FD06ACA1AB1C9E40002FFBB /* Build configuration list for PBXProject "SwipeFirst" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3FD06AC61AB1C9E40002FFBB;
+			productRefGroup = 3FD06AD01AB1C9E40002FFBB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FD06ACE1AB1C9E40002FFBB /* SwipeFirst */,
+				3FD06AEC1AB1C9E40002FFBB /* SwipeFirstTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FD06ACD1AB1C9E40002FFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */,
+				3FD06AE51AB1C9E40002FFBB /* Images.xcassets in Resources */,
+				3FD06ADD1AB1C9E40002FFBB /* GameScene.sks in Resources */,
+				3FD06AE31AB1C9E40002FFBB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FD06AEB1AB1C9E40002FFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FD06ACB1AB1C9E40002FFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FD06AE01AB1C9E40002FFBB /* GameViewController.m in Sources */,
+				3FD06AD81AB1C9E40002FFBB /* AppDelegate.m in Sources */,
+				3FD06ADB1AB1C9E40002FFBB /* GameScene.m in Sources */,
+				3FD06AD51AB1C9E40002FFBB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FD06AE91AB1C9E40002FFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FD06AF41AB1C9E40002FFBB /* SwipeFirstTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3FD06AEF1AB1C9E40002FFBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FD06ACE1AB1C9E40002FFBB /* SwipeFirst */;
+			targetProxy = 3FD06AEE1AB1C9E40002FFBB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3FD06AE11AB1C9E40002FFBB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FD06AE21AB1C9E40002FFBB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FD06AE71AB1C9E40002FFBB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3FD06AF51AB1C9E40002FFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FD06AF61AB1C9E40002FFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FD06AF81AB1C9E40002FFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SwipeFirst/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3FD06AF91AB1C9E40002FFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SwipeFirst/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3FD06AFB1AB1C9E40002FFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwipeFirstTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwipeFirst.app/SwipeFirst";
+			};
+			name = Debug;
+		};
+		3FD06AFC1AB1C9E40002FFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwipeFirstTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwipeFirst.app/SwipeFirst";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FD06ACA1AB1C9E40002FFBB /* Build configuration list for PBXProject "SwipeFirst" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FD06AF51AB1C9E40002FFBB /* Debug */,
+				3FD06AF61AB1C9E40002FFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FD06AF71AB1C9E40002FFBB /* Build configuration list for PBXNativeTarget "SwipeFirst" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FD06AF81AB1C9E40002FFBB /* Debug */,
+				3FD06AF91AB1C9E40002FFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3FD06AFA1AB1C9E40002FFBB /* Build configuration list for PBXNativeTarget "SwipeFirstTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FD06AFB1AB1C9E40002FFBB /* Debug */,
+				3FD06AFC1AB1C9E40002FFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FD06AC71AB1C9E40002FFBB /* Project object */;
+}
