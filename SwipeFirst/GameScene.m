@@ -10,6 +10,8 @@
 
 @implementation GameScene
 
+SKSpriteNode *sprite;
+
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
@@ -22,7 +24,7 @@
     [self addChild:myLabel];
     
     CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"CardBack"];
+    sprite = [SKSpriteNode spriteNodeWithImageNamed:@"CardBack"];
     
     sprite.xScale = 0.5;
     sprite.yScale = 0.5;
@@ -50,7 +52,12 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    
+    for (UITouch *touch in touches){
+        CGPoint location = [touch locationInView: self.view];
+        if([sprite containsPoint: location]){
+            NSLog(@"CARD TAPPED");
+        }
+    }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
