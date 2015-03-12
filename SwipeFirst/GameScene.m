@@ -7,10 +7,11 @@
 //
 
 #import "GameScene.h"
+#import "PlayingCard.h"
 
 @implementation GameScene
 
-SKSpriteNode *sprite;
+PlayingCard *card;
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
@@ -24,13 +25,13 @@ SKSpriteNode *sprite;
     [self addChild:myLabel];
     
     CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    sprite = [SKSpriteNode spriteNodeWithImageNamed:@"CardBack"];
+    card.sprite = [SKSpriteNode spriteNodeWithImageNamed:@"CardBack"];
     
-    sprite.xScale = 0.5;
-    sprite.yScale = 0.5;
-    sprite.position = location;
+    card.sprite.xScale = 0.5;
+    card.sprite.yScale = 0.5;
+    card.sprite.position = location;
     
-    [self addChild:sprite];
+    [self addChild: [card sprite]];
     
     UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
     recognizer.direction = UISwipeGestureRecognizerDirectionUp;
@@ -53,9 +54,10 @@ SKSpriteNode *sprite;
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     for (UITouch *touch in touches){
-        CGPoint location = [touch locationInView: self.view];
-        if([sprite containsPoint: location]){
+        CGPoint location = [touch locationInNode: self];
+        if([card.sprite containsPoint: location]){
             NSLog(@"CARD TAPPED");
+            [card flip];
         }
     }
 }

@@ -20,11 +20,11 @@
 
 -(void) flip{
     if (self.isFrontFancing == YES) {
-        self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
+        [self sprite].texture = [SKTexture textureWithImageNamed: @"CardBack"];
         [self setFrontFacing:NO];
     } else {
         NSLog(@"name: %@", self.name);
-        self.texture = [SKTexture textureWithImageNamed: @"cardfront"];
+        self.sprite.texture = [SKTexture textureWithImageNamed: @"cardfront"];
         [self setFrontFacing:YES];
     }
 }

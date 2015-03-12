@@ -9,11 +9,12 @@
 #import <SpriteKit/SpriteKit.h>
 #import <Foundation/Foundation.h>
 
-@interface PlayingCard : SKSpriteNode
+@interface PlayingCard : NSObject 
 
 -(id) initWithName: (NSString*) me;
 -(void) flip;
 
+@property SKSpriteNode* sprite;
 @property NSString* name;
 @property (setter=setFrontFacing:) bool isFrontFancing;
 @property bool isMatched;
