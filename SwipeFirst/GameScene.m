@@ -8,13 +8,18 @@
 
 #import "GameScene.h"
 #import "PlayingCard.h"
+#import "Deck.h"
 
 @implementation GameScene
 
 PlayingCard *card;
+Deck *deck;
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
+    
+    deck = [[Deck alloc] init];
+    
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     
     myLabel.text = @"Swipe First!";
@@ -59,6 +64,8 @@ PlayingCard *card;
         CGPoint location = [touch locationInNode: self];
         if([card containsPoint: location]){
             NSLog(@"CARD TAPPED");
+            if(!card.isFrontFancing)
+                card.name = [[deck getRandomCard] name];
             [card flip];
         }
     }

@@ -26,7 +26,7 @@
         [self setFrontFacing:NO];
     } else {
         NSLog(@"name: %@", self.name);
-        self.texture = [SKTexture textureWithImageNamed: @"cardfront"];
+        self.texture = [SKTexture textureWithImageNamed: self.name];
         [self setFrontFacing:YES];
     }
 }
