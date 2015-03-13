@@ -12,19 +12,21 @@
 @implementation PlayingCard
 
 -(id) initWithName: (NSString*) me{
+    self = [super initWithImageNamed: @"CardBack"];
+    //self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
     self.name = me;
-    self.isFrontFancing = false;
+    [self setFrontFacing: false];
     self.isMatched = false;
     return self;
 }
 
 -(void) flip{
     if (self.isFrontFancing == YES) {
-        [self sprite].texture = [SKTexture textureWithImageNamed: @"CardBack"];
+        self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
         [self setFrontFacing:NO];
     } else {
         NSLog(@"name: %@", self.name);
-        self.sprite.texture = [SKTexture textureWithImageNamed: @"cardfront"];
+        self.texture = [SKTexture textureWithImageNamed: @"cardfront"];
         [self setFrontFacing:YES];
     }
 }

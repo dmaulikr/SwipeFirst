@@ -25,13 +25,15 @@ PlayingCard *card;
     [self addChild:myLabel];
     
     CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    card.sprite = [SKSpriteNode spriteNodeWithImageNamed:@"CardBack"];
     
-    card.sprite.xScale = 0.5;
-    card.sprite.yScale = 0.5;
-    card.sprite.position = location;
+    card = [[PlayingCard  alloc] initWithName: @"NAME"];
     
-    [self addChild: [card sprite]];
+    card.xScale = 0.5;
+    card.yScale = 0.5;
+    card.position = location;
+    
+    NSLog(@"SWAG");
+    [self addChild: card];
     
     UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
     recognizer.direction = UISwipeGestureRecognizerDirectionUp;
@@ -55,7 +57,7 @@ PlayingCard *card;
     /* Called when a touch begins */
     for (UITouch *touch in touches){
         CGPoint location = [touch locationInNode: self];
-        if([card.sprite containsPoint: location]){
+        if([card containsPoint: location]){
             NSLog(@"CARD TAPPED");
             [card flip];
         }
