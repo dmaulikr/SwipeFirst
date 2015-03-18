@@ -13,6 +13,7 @@
 
 -(id) initWithName: (NSString*) me;
 -(void) flip;
+-(void) update;
 
 @property NSString* name;
 @property (setter=setFrontFacing:) bool isFrontFancing;

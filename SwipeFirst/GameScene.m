@@ -37,7 +37,6 @@ Deck *deck;
     card.yScale = 0.5;
     card.position = location;
     
-    NSLog(@"SWAG");
     [self addChild: card];
     
     UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
@@ -47,27 +46,38 @@ Deck *deck;
     UISwipeGestureRecognizer *recognizer2 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDown:)];
     recognizer2.direction = UISwipeGestureRecognizerDirectionDown;
     [[self view] addGestureRecognizer:recognizer2];
+    
+    card.name = [[deck getRandomCard] name];
+    [card flip];
 
 }
 
 - (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
     NSLog(@"Swipe Up");
+    if(true /*make this is EVEN*/){
+        card.name = [[deck getRandomCard] name];
+        [card update];
+    }
 }
 
 - (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender{
     NSLog(@"Swipe Down");
+    if(true /*make this is ODD*/){
+        card.name = [[deck getRandomCard] name];
+        [card update];
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     for (UITouch *touch in touches){
-        CGPoint location = [touch locationInNode: self];
+        /*CGPoint location = [touch locationInNode: self];
         if([card containsPoint: location]){
             NSLog(@"CARD TAPPED");
             if(!card.isFrontFancing)
                 card.name = [[deck getRandomCard] name];
             [card flip];
-        }
+        }*/
     }
 }
 

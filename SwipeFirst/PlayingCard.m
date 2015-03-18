@@ -20,6 +20,14 @@
     return self;
 }
 
+-(void) update{
+    if(self.isFrontFancing){
+        self.texture = [SKTexture textureWithImageNamed:self.name];
+    } else {
+        self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
+    }
+}
+
 -(void) flip{
     if (self.isFrontFancing == YES) {
         self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
