@@ -39,6 +39,20 @@
     }
 }
 
+-(BOOL) isEven{
+    int number = [[self.name substringFromIndex:1] intValue];
+    if(number % 2 == 1)
+        return false;
+    return true;
+}
+
+-(BOOL) isRed{
+    NSString *suit = [self.name substringToIndex:1];
+    if([suit isEqualToString:@"H"] || [suit isEqualToString:@"D"])
+        return true;
+    return false;
+}
+
 
 
 @end

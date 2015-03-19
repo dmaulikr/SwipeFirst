@@ -20,7 +20,7 @@ Deck *deck;
     
     deck = [[Deck alloc] init];
     
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Times"];
     
     myLabel.text = @"Swipe First!";
     myLabel.fontSize = 65;
@@ -57,6 +57,8 @@ Deck *deck;
     if(true /*make this is EVEN*/){
         card.name = [[deck getRandomCard] name];
         [card update];
+    }else{
+        
     }
 }
 
@@ -65,6 +67,8 @@ Deck *deck;
     if(true /*make this is ODD*/){
         card.name = [[deck getRandomCard] name];
         [card update];
+    }else{
+        
     }
 }
 

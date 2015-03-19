@@ -14,6 +14,8 @@
 -(id) initWithName: (NSString*) me;
 -(void) flip;
 -(void) update;
+-(BOOL) isEven;
+-(BOOL) isRed;
 
 @property NSString* name;
 @property (setter=setFrontFacing:) bool isFrontFancing;
