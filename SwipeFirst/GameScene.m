@@ -14,31 +14,34 @@
 
 PlayingCard *card;
 Deck *deck;
+bool isPlaying;
+SKLabelNode *topLabel;
+NSTimeInterval startTime;
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     
+    isPlaying = false;
+    
     deck = [[Deck alloc] init];
-    
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Times"];
-    
-    myLabel.text = @"Swipe First!";
-    myLabel.fontSize = 65;
-    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+    topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
+    topLabel.text = @"Swipe First!";
+    topLabel.fontSize = 40;
+    topLabel.position = CGPointMake(CGRectGetMidX(self.frame),
                                    self.frame.size.height - 65);
-    
-    [self addChild:myLabel];
-    
+    [self addChild:topLabel];
     CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    
     card = [[PlayingCard  alloc] initWithName: @"NAME"];
-    
     card.xScale = 0.5;
     card.yScale = 0.5;
     card.position = location;
-    
     [self addChild: card];
-    
+    [self addSwipeGestures];
+    card.name = [[deck getRandomCard] name];
+    [card flip];
+}
+
+-(void) addSwipeGestures{
     UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
     recognizer.direction = UISwipeGestureRecognizerDirectionUp;
     [[self view] addGestureRecognizer:recognizer];
@@ -47,29 +50,89 @@ Deck *deck;
     recognizer2.direction = UISwipeGestureRecognizerDirectionDown;
     [[self view] addGestureRecognizer:recognizer2];
     
-    card.name = [[deck getRandomCard] name];
-    [card flip];
-
+    UISwipeGestureRecognizer *recognizer3 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)];
+    recognizer3.direction = UISwipeGestureRecognizerDirectionRight;
+    [[self view] addGestureRecognizer:recognizer3];
+    
+    UISwipeGestureRecognizer *recognizer4 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)];
+    recognizer4.direction = UISwipeGestureRecognizerDirectionLeft;
+    [[self view] addGestureRecognizer:recognizer4];
 }
+
+- (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
+    NSLog(@"Swipe Left");
+    if(!isPlaying){
+        //NEED TO SWIPER THROUGH CATEGORIES
+        topLabel.text = @"Left";
+    }else{
+        return;
+    }
+}
+
+- (void)handleSwipeRight:(UISwipeGestureRecognizer *)sender{
+    NSLog(@"Swipe Right");
+    if(!isPlaying){
+        //NEED TO SWIPE THROUGH CATEGORIES
+        topLabel.text = @"Right";
+    }else{
+        return;
+    }
+}
+
 
 - (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
     NSLog(@"Swipe Up");
-    if(true /*make this is EVEN*/){
-        card.name = [[deck getRandomCard] name];
-        [card update];
+    if(isPlaying == false){
+        isPlaying = true;
+        startTime = [NSDate timeIntervalSinceReferenceDate];
+        [self update];
     }else{
-        
+        if(true /*make this is EVEN*/){
+            if([deck.arrayOfCards count] != 0){
+                card.name = [[deck getRandomCard] name];
+                [card update];
+            }else{
+                //END GAME
+                isPlaying = false;
+            }
+        }else{
+            
+        }
     }
 }
 
 - (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender{
     NSLog(@"Swipe Down");
-    if(true /*make this is ODD*/){
-        card.name = [[deck getRandomCard] name];
-        [card update];
+    if(isPlaying == false){
+        isPlaying = true;
+        startTime = [NSDate timeIntervalSinceReferenceDate];
+        [self update];
     }else{
-        
+        if(true /*make this is ODD*/){
+            if([deck.arrayOfCards count] != 0){
+                card.name = [[deck getRandomCard] name];
+                [card update];
+            }else{
+                //END GAME
+                isPlaying = false;
+            }
+        }else{
+            
+        }
     }
+}
+
+-(void) update{
+    if(isPlaying == false)
+        return;
+    NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+    NSTimeInterval elapsedTime = currentTime - startTime;
+    // We calculate the minutes.
+    int minutes = (int)(elapsedTime / 60.0);
+    // We calculate the seconds.
+    double seconds = (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
+    topLabel.text = [NSString stringWithFormat:@"%d:%.4f", minutes, seconds];
+[self performSelector:@selector(update) withObject:nil afterDelay:.05];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
