@@ -39,8 +39,9 @@
     }
 }
 
--(BOOL) isEven{
+-(BOOL) isEven{ //This doesn't work for face cards
     int number = [[self.name substringFromIndex:1] intValue];
+    if(number)
     if(number % 2 == 1)
         return false;
     return true;
