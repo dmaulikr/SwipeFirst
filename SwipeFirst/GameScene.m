@@ -160,7 +160,10 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
             [overlayCard flip];
             overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
             [self addChild: overlayCard];
-            SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.2];
+            double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
+            SKAction *twistNode = [SKAction rotateByAngle:(twistAmount) duration:.3];
+            [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
+            SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.3];
             [overlayCard runAction: moveNodeUp];
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard] name];
@@ -193,6 +196,9 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
             [overlayCard flip];
             overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
             [self addChild: overlayCard];
+            double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
+            SKAction *twistNode = [SKAction rotateByAngle:(-twistAmount) duration:.3];
+            [overlayCard runAction: twistNode];
             SKAction *moveNodeDown = [SKAction moveByX:0.0 y:-self.frame.size.height duration:.2];
             [overlayCard runAction: moveNodeDown];
             if([deck.arrayOfCards count] != 0){
