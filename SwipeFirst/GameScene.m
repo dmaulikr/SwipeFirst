@@ -6,6 +6,19 @@
 //  Copyright (c) 2015 CCHS. All rights reserved.
 //
 
+/**
+TODO LIST:
+ - "Swipe to begin"
+ - Make some text pop up when you swipe the wrong way
+ - Home screen and interface
+ - Different categories of sorting
+ - Go to end screen after deck is done
+ - GameCenter
+ - Card rotation
+ - Save highscores
+ - Add zero to seconds counter in timer
+**/
+
 #import "GameScene.h"
 #import "PlayingCard.h"
 #import "Deck.h"
@@ -20,6 +33,7 @@ SKLabelNode *bottomLabel;
 SKLabelNode *topSort;
 SKLabelNode *bottomSort;
 NSTimeInterval startTime;
+double penalty = 0;
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
@@ -119,7 +133,7 @@ NSTimeInterval startTime;
             [overlayCard flip];
             overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
             [self addChild: overlayCard];
-            SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.4];
+            SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.2];
             [overlayCard runAction: moveNodeUp];
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard] name];
@@ -129,7 +143,7 @@ NSTimeInterval startTime;
                 [self resetGame];
             }
         }else{
-            
+            penalty += 0.5;
         }
     }
     bottomLabel.text = [NSString stringWithFormat: @"%lu", (unsigned long)[deck.arrayOfCards count]];
@@ -152,7 +166,7 @@ NSTimeInterval startTime;
             [overlayCard flip];
             overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
             [self addChild: overlayCard];
-            SKAction *moveNodeDown = [SKAction moveByX:0.0 y:-self.frame.size.height duration:.4];
+            SKAction *moveNodeDown = [SKAction moveByX:0.0 y:-self.frame.size.height duration:.2];
             [overlayCard runAction: moveNodeDown];
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard] name];
@@ -162,7 +176,7 @@ NSTimeInterval startTime;
                 [self resetGame];
             }
         }else{
-            
+            penalty += 0.5;
         }
     }
     bottomLabel.text = [NSString stringWithFormat: @"%lu", (unsigned long)[deck.arrayOfCards count]];
@@ -172,6 +186,7 @@ NSTimeInterval startTime;
     deck = [[Deck alloc] init];
     [card flip];
     isPlaying = false;
+    penalty = 0;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -193,11 +208,12 @@ NSTimeInterval startTime;
         return;
     NSTimeInterval instantTime = [NSDate timeIntervalSinceReferenceDate];
     NSTimeInterval elapsedTime = instantTime - startTime;
+    elapsedTime += penalty;
     // We calculate the minutes.
     int minutes = (int)(elapsedTime / 60.0);
     // We calculate the seconds.
     double seconds = (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
-    topLabel.text = [NSString stringWithFormat:@"%d:%.4f", minutes, seconds];
+    topLabel.text = [NSString stringWithFormat:@"%d:%7.4f", minutes, seconds];
 }
 
 @end
