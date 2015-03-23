@@ -12,10 +12,10 @@ TODO LIST:
  - Make some text pop up when you swipe the wrong way
  - Home screen and interface
  - Different categories of sorting (DONE: JARED)
- - Fix the check for even an odd
+ - Fix the check for even and odd
  - Go to end screen after deck is done
  - GameCenter
- - Card rotation
+ - Card rotation (DONE NEEDS TO BE STANDARDIZED)
  - Save highscores
  - Add zero to seconds counter in timer
 **/
@@ -199,7 +199,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
             double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
             SKAction *twistNode = [SKAction rotateByAngle:(-twistAmount) duration:.3];
             [overlayCard runAction: twistNode];
-            SKAction *moveNodeDown = [SKAction moveByX:0.0 y:-self.frame.size.height duration:.2];
+            SKAction *moveNodeDown = [SKAction moveByX:0.0 y:-self.frame.size.height duration:.3];
             [overlayCard runAction: moveNodeDown];
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard] name];
