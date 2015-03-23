@@ -54,6 +54,12 @@
     return false;
 }
 
+-(BOOL) isFace{
+    int number = [[self.name substringFromIndex:1] intValue];
+    if(number >= 2 && number <= 10)
+            return false;
+    return true;
+}
 
 
 @end

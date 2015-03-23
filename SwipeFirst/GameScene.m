@@ -11,7 +11,8 @@ TODO LIST:
  - "Swipe to begin"
  - Make some text pop up when you swipe the wrong way
  - Home screen and interface
- - Different categories of sorting
+ - Different categories of sorting (DONE: JARED)
+ - Fix the check for even an odd
  - Go to end screen after deck is done
  - GameCenter
  - Card rotation
@@ -34,6 +35,7 @@ SKLabelNode *topSort;
 SKLabelNode *bottomSort;
 NSTimeInterval startTime;
 double penalty = 0;
+int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
@@ -96,9 +98,11 @@ double penalty = 0;
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
     NSLog(@"Swipe Left");
     if(!isPlaying){
-        //NEED TO SWIPER THROUGH CATEGORIES
-        topSort.text = @"Even";
-        bottomSort.text = @"Odd";
+        //NEED TO SWIPE THROUGH CATEGORIES
+        if(gameMode != 0){
+            gameMode--;
+        }
+        [self updateLabels];
     }else{
         return;
     }
@@ -108,10 +112,33 @@ double penalty = 0;
     NSLog(@"Swipe Right");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
-        topSort.text = @"Red";
-        bottomSort.text = @"Black";
+        if(gameMode != 2){
+            gameMode++;
+        }
+        [self updateLabels];
     }else{
         return;
+    }
+}
+
+-(void) updateLabels{
+    //THIS IS CALLED EVERYTIME THE GAME SWITCHES
+    NSLog(@"%d", gameMode);
+    switch (gameMode) {
+        case 0:
+            topSort.text = @"Even";
+            bottomSort.text = @"Odd";
+            break;
+        case 1:
+            topSort.text = @"Red";
+            bottomSort.text = @"Black";
+            break;
+        case 2:
+            topSort.text = @"Face";
+            bottomSort.text = @"Number";
+            break;
+        default:
+            break;
     }
 }
 
@@ -123,7 +150,7 @@ double penalty = 0;
         isPlaying = true;
         startTime = [NSDate timeIntervalSinceReferenceDate];
     }else{
-        if(card.isRed == true){
+        if([self checkValidCardSwipe: @"up"]){
             PlayingCard *overlayCard;
             CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
             overlayCard = [[PlayingCard  alloc] initWithName: card.name];
@@ -156,7 +183,7 @@ double penalty = 0;
         isPlaying = true;
         startTime = [NSDate timeIntervalSinceReferenceDate];
     }else{
-        if(card.isRed == false){
+        if([self checkValidCardSwipe: @"down"]){
             PlayingCard *overlayCard;
             CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
             overlayCard = [[PlayingCard  alloc] initWithName: card.name];
@@ -180,6 +207,39 @@ double penalty = 0;
         }
     }
     bottomLabel.text = [NSString stringWithFormat: @"%lu", (unsigned long)[deck.arrayOfCards count]];
+}
+
+-(BOOL) checkValidCardSwipe: (NSString*) direction{
+    switch (gameMode) {
+        case 0:
+            //Even
+            if([direction isEqualToString:@"up"]){
+                return card.isEven;
+            }else if([direction isEqualToString:@"down"]){
+                return !card.isEven;
+            }
+            break;
+        case 1:
+            //Color
+            if([direction isEqualToString:@"up"]){
+                return card.isRed;
+            }else if([direction isEqualToString:@"down"]){
+                return !card.isRed;
+            }
+            break;
+        case 2:
+            //Face
+            if([direction isEqualToString:@"up"]){
+                return card.isFace;
+            }else if([direction isEqualToString:@"down"]){
+                return !card.isFace;
+            }
+            break;
+        default:
+            break;
+    }
+    NSLog(@"ERROR: should not have reached this line in checkValidCardSwipe");
+    return false;
 }
 
 -(void) resetGame{

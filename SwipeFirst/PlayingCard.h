@@ -16,6 +16,7 @@
 -(void) update;
 -(BOOL) isEven;
 -(BOOL) isRed;
+-(BOOL) isFace;
 
 @property NSString* name;
 @property (setter=setFrontFacing:) bool isFrontFancing;
