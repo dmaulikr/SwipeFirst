@@ -41,9 +41,15 @@
 
 -(BOOL) isEven{ //This doesn't work for face cards
     int number = [[self.name substringFromIndex:1] intValue];
-    if(number)
     if(number % 2 == 1)
         return false;
+    NSString *cardName = [self.name substringFromIndex:1];
+    if(self.isFace){
+        if([cardName isEqual: @"Q"]){
+            return true;
+        }
+        return false;
+    }
     return true;
 }
 

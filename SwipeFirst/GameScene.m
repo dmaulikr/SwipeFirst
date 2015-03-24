@@ -12,7 +12,7 @@ TODO LIST:
  - Make some text pop up when you swipe the wrong way
  - Home screen and interface
  - Different categories of sorting (DONE: JARED)
- - Fix the check for even and odd
+ - Fix the check for even and odd (DONE: IAN)
  - Go to end screen after deck is done
  - GameCenter
  - Card rotation (DONE NEEDS TO BE STANDARDIZED)
