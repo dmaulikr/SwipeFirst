@@ -29,6 +29,7 @@ TODO LIST:
 PlayingCard *card;
 Deck *deck;
 bool isPlaying;
+bool isEnd;
 SKLabelNode *topLabel;
 SKLabelNode *bottomLabel;
 SKLabelNode *topSort;
@@ -145,11 +146,24 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
 
 - (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
     NSLog(@"Swipe Up");
-    if(isPlaying == false){
+    if(isPlaying == false && isEnd == false){
         [card flip];
         isPlaying = true;
         startTime = [NSDate timeIntervalSinceReferenceDate];
-    }else{
+        PlayingCard *overlayCard;
+        CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        overlayCard = [[PlayingCard  alloc] initWithName: card.name];
+        overlayCard.xScale = 0.38;
+        overlayCard.yScale = 0.38;
+        overlayCard.position = location;
+        overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
+        [self addChild: overlayCard];
+        double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
+        SKAction *twistNode = [SKAction rotateByAngle:(twistAmount) duration:.3];
+        [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
+        SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.3];
+        [overlayCard runAction: moveNodeUp];
+    }else if(isPlaying == true && isEnd == false){
         if([self checkValidCardSwipe: @"up"]){
             PlayingCard *overlayCard;
             CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -170,10 +184,16 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
                 [card update];
             }else{
                 //END GAME
-                [self resetGame];
+                [card removeFromParent];
+                isPlaying = false;
+                isEnd = true;
+                //[self resetGame];
             }
         }else{
+            NSLog(@"PENALTY");
             penalty += 0.5;
+            self.backgroundColor = [UIColor redColor];
+            [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
         }
     }
     bottomLabel.text = [NSString stringWithFormat: @"%lu", (unsigned long)[deck.arrayOfCards count]];
@@ -181,11 +201,24 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
 
 - (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender{
     NSLog(@"Swipe Down");
-    if(isPlaying == false){
+    if(isPlaying == false && isEnd == false){
         [card flip];
         isPlaying = true;
         startTime = [NSDate timeIntervalSinceReferenceDate];
-    }else{
+        PlayingCard *overlayCard;
+        CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        overlayCard = [[PlayingCard  alloc] initWithName: card.name];
+        overlayCard.xScale = 0.38;
+        overlayCard.yScale = 0.38;
+        overlayCard.position = location;
+        overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
+        [self addChild: overlayCard];
+        double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
+        SKAction *twistNode = [SKAction rotateByAngle:(-twistAmount) duration:.3];
+        [overlayCard runAction: twistNode];
+        SKAction *moveNodeDown = [SKAction moveByX:0.0 y:-self.frame.size.height duration:.3];
+        [overlayCard runAction: moveNodeDown];
+    }else if(isPlaying == true && isEnd == false){
         if([self checkValidCardSwipe: @"down"]){
             PlayingCard *overlayCard;
             CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -206,13 +239,27 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
                 [card update];
             }else{
                 //END GAME
-                [self resetGame];
+                [card removeFromParent];
+                isPlaying = false;
+                isEnd = true;
+                //[self resetGame];
             }
         }else{
+            NSLog(@"PENALTY");
             penalty += 0.5;
+            self.backgroundColor = [UIColor redColor];
+            topLabel.color = [UIColor darkTextColor]; //Changing the text color isn't working
+            [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
         }
     }
     bottomLabel.text = [NSString stringWithFormat: @"%lu", (unsigned long)[deck.arrayOfCards count]];
+}
+
+-(void) resetAfterPenalty{
+    //ERROR: THIS ENDS FOR THE NEAREST PENALTY TWO IN QUICK SUCCESSION WILL END EARLY
+    NSLog(@"RESET");
+    //Called half a second after each penalty
+    self.backgroundColor = [UIColor grayColor];
 }
 
 -(BOOL) checkValidCardSwipe: (NSString*) direction{
@@ -251,6 +298,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
 -(void) resetGame{
     deck = [[Deck alloc] init];
     [card flip];
+    isEnd = false;
     isPlaying = false;
     penalty = 0;
 }
