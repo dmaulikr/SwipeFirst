@@ -18,6 +18,8 @@
 		3FD06AE51AB1C9E40002FFBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06AE41AB1C9E40002FFBB /* Images.xcassets */; };
 		3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */; };
 		3FD06AF41AB1C9E40002FFBB /* SwipeFirstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */; };
+		7FAC0E781AC1C8D200126858 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAC0E771AC1C8D200126858 /* AVFoundation.framework */; };
+		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		3FD06AED1AB1C9E40002FFBB /* SwipeFirstTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeFirstTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD06AF21AB1C9E40002FFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeFirstTests.m; sourceTree = "<group>"; };
+		7FAC0E771AC1C8D200126858 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardMove.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FAC0E781AC1C8D200126858 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,7 @@
 		3FD06AC61AB1C9E40002FFBB = {
 			isa = PBXGroup;
 			children = (
+				7FAC0E771AC1C8D200126858 /* AVFoundation.framework */,
 				3FD06AD11AB1C9E40002FFBB /* SwipeFirst */,
 				3FD06AF01AB1C9E40002FFBB /* SwipeFirstTests */,
 				3FD06AD01AB1C9E40002FFBB /* Products */,
@@ -114,6 +120,7 @@
 		3FD06AD21AB1C9E40002FFBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */,
 				3FD06AD31AB1C9E40002FFBB /* Info.plist */,
 				3FD06AD41AB1C9E40002FFBB /* main.m */,
 			);
@@ -217,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */,
 				3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */,
 				3FD06AE51AB1C9E40002FFBB /* Images.xcassets in Resources */,
 				3FD06ADD1AB1C9E40002FFBB /* GameScene.sks in Resources */,

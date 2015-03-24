@@ -166,6 +166,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
         [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
         SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.3];
         [overlayCard runAction: moveNodeUp];
+        [self playSoundWithFileName:@"CardMove.mp3"];
         if(gameMode == 3){
             isShuffleMode = true;
         }
@@ -189,6 +190,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
             [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
             SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height * ((dir == 0)? 1 : -1) duration:.3];
             [overlayCard runAction: moveNodeUp];
+            [self playSoundWithFileName:@"CardMove.mp3"];
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard] name];
                 [card update];
@@ -283,6 +285,17 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
             [card flip];
         }*/
     }
+}
+
+- (void) playSoundWithFileName: (NSString*) audioName{
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], audioName]];
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    audioPlayer.numberOfLoops = 0;
+    //if (audioPlayer == nil)
+    //    NSLog(@"%@",[error description]);
+    //else
+    [audioPlayer play];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

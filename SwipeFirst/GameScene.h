@@ -7,6 +7,10 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface GameScene : SKScene
+
 @end
+
+AVAudioPlayer *audioPlayer;
