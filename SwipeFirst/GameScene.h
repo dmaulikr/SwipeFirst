@@ -11,6 +11,8 @@
 
 @interface GameScene : SKScene
 
+-(void) resetGame;
+
 @end
 
 AVAudioPlayer *audioPlayer;

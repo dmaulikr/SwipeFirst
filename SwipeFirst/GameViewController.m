@@ -53,6 +53,10 @@
 {
     return YES;
 }
+- (IBAction)shuffleDeck:(id)sender {
+    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    [scene resetGame];
+}
 
 - (NSUInteger)supportedInterfaceOrientations
 {

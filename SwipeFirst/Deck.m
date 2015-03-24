@@ -34,7 +34,7 @@
 }
 
 -(PlayingCard*) getRandomCard;{
-    NSLog(@"%d", [self.arrayOfCards count]);
+    NSLog(@"%d", (int)[self.arrayOfCards count]);
     int loc = arc4random() % [self.arrayOfCards count];
     PlayingCard* cardName = ((PlayingCard*)[self.arrayOfCards objectAtIndex: loc]);
     [self.arrayOfCards removeObjectAtIndex:loc];

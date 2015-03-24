@@ -9,12 +9,13 @@
 /**
 TODO LIST:
  - "Swipe to begin"
+ - Fix the reset method
  - Make some text pop up when you swipe the wrong way
  - Home screen and interface
  - Go to end screen after deck is done
  - GameCenter
  - Card rotation (DONE NEEDS TO BE STANDARDIZED)
- - Save highscores
+ - Save highscores (DONE NEEDS QA TEST) 
  - Add zero to seconds counter in timer
  - Import Sound Files
 **/
@@ -147,7 +148,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     }
 }
 
--(void) handleSwipe: (UISwipeGestureRecognizer *) sender direction: (int*) dir {
+-(void) handleSwipe: (UISwipeGestureRecognizer *) sender direction: (int) dir {
     NSLog(@"Swipe Up");
     if(isPlaying == false && isEnd == false){
         [card flip];
@@ -196,10 +197,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
                 [card update];
             }else{
                 //END GAME
-                [card removeFromParent];
-                isPlaying = false;
-                isEnd = true;
-                isShuffleMode = false;
+                [self endGame];
                 //[self resetGame];
             }
             if(isShuffleMode){
@@ -222,6 +220,30 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 - (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender{
     [self handleSwipe:sender direction: 1];
+}
+
+-(void) endGame{
+    [card removeFromParent];
+    isPlaying = false;
+    isEnd = true;
+    isShuffleMode = false;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSTimeInterval currentScore = ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty;
+    NSLog(@"Current Score at the end of the game is: %f", currentScore);
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",gameMode]] != 0){
+        double currentHS = [prefs doubleForKey: [NSString stringWithFormat:@"HS%d",gameMode]];
+        NSLog(@"Current HS at the end of the game is: %f", currentHS);
+        if(currentScore < currentHS){
+            //New Highscore
+            NSLog(@"Setting the new highscore");
+            [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",gameMode]];
+        }else{
+            NSLog(@"Did not set a new highscore");
+        }
+    }else{
+        NSLog(@"No current highscore");
+        [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",gameMode]];
+    }
 }
 
 -(void) resetAfterPenalty{
@@ -266,12 +288,19 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) resetGame{
+    //RESET METHOD DOES NOT WORK
     deck = [[Deck alloc] init];
     [card flip];
     isEnd = false;
     isPlaying = false;
     isShuffleMode = gameMode == 4;
     penalty = 0;
+    CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    card = [[PlayingCard  alloc] initWithName: @"NAME"];
+    card.xScale = 0.4;
+    card.yScale = 0.4;
+    card.position = location;
+    [self addChild: card];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
