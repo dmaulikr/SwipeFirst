@@ -10,14 +10,13 @@
 TODO LIST:
  - "Swipe to begin"
  - Fix the reset method
- - Make some text pop up when you swipe the wrong way
  - Home screen and interface
  - Go to end screen after deck is done
  - GameCenter
  - Card rotation (DONE NEEDS TO BE STANDARDIZED)
- - Save highscores (DONE NEEDS QA TEST) 
- - Add zero to seconds counter in timer
+ - Save highscores (DONE NEEDS QA TEST)
  - Import Sound Files
+ - Initial Card always slides up
 **/
 
 #import "GameScene.h"
@@ -98,7 +97,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
-    NSLog(@"Swipe Left");
+    //NSLog(@"Swipe Left");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
         if(gameMode != 0){
@@ -111,7 +110,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 - (void)handleSwipeRight:(UISwipeGestureRecognizer *)sender{
-    NSLog(@"Swipe Right");
+    //NSLog(@"Swipe Right");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
         if(gameMode != 3){
@@ -289,6 +288,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 -(void) resetGame{
     //RESET METHOD DOES NOT WORK
+    /*
     deck = [[Deck alloc] init];
     [card flip];
     isEnd = false;
@@ -296,11 +296,12 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     isShuffleMode = gameMode == 4;
     penalty = 0;
     CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    card = [[PlayingCard  alloc] initWithName: @"NAME"];
     card.xScale = 0.4;
     card.yScale = 0.4;
     card.position = location;
     [self addChild: card];
+     */
+    [self didMoveToView:self.view];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
