@@ -11,13 +11,12 @@ TODO LIST:
  - "Swipe to begin"
  - Make some text pop up when you swipe the wrong way
  - Home screen and interface
- - Different categories of sorting (DONE: JARED)
- - Fix the check for even and odd (DONE: IAN)
  - Go to end screen after deck is done
  - GameCenter
  - Card rotation (DONE NEEDS TO BE STANDARDIZED)
  - Save highscores
  - Add zero to seconds counter in timer
+ - Sound effects
 **/
 
 #import "GameScene.h"
@@ -30,6 +29,7 @@ PlayingCard *card;
 Deck *deck;
 bool isPlaying;
 bool isEnd;
+bool isShuffleMode = false;
 SKLabelNode *topLabel;
 SKLabelNode *bottomLabel;
 SKLabelNode *topSort;
@@ -113,7 +113,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
     NSLog(@"Swipe Right");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
-        if(gameMode != 2){
+        if(gameMode != 3){
             gameMode++;
         }
         [self updateLabels];
@@ -137,6 +137,10 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
         case 2:
             topSort.text = @"Face";
             bottomSort.text = @"Number";
+            break;
+        case 3:
+            topSort.text = @"Even/Red/Face";
+            bottomSort.text = @"Odd/Black/Number";
             break;
         default:
             break;
@@ -162,6 +166,13 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
         [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
         SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.3];
         [overlayCard runAction: moveNodeUp];
+        if(gameMode == 3){
+            isShuffleMode = true;
+        }
+        if(isShuffleMode){
+            gameMode = 0;
+            [self updateLabels];
+        }
     }else if(isPlaying == true && isEnd == false){
         if([self checkValidCardSwipe: (dir == 0)? @"up" : @"down"]){
             PlayingCard *overlayCard;
@@ -186,7 +197,12 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
                 [card removeFromParent];
                 isPlaying = false;
                 isEnd = true;
+                isShuffleMode = false;
                 //[self resetGame];
+            }
+            if(isShuffleMode){
+                gameMode = (gameMode+1)%3;
+                [self updateLabels];
             }
         }else{
             NSLog(@"PENALTY");
@@ -214,6 +230,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
 }
 
 -(BOOL) checkValidCardSwipe: (NSString*) direction{
+    NSLog(@"%d", gameMode);
     switch (gameMode) {
         case 0:
             //Even
@@ -251,6 +268,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
     [card flip];
     isEnd = false;
     isPlaying = false;
+    isShuffleMode = gameMode == 4;
     penalty = 0;
 }
 
