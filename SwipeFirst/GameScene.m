@@ -143,8 +143,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
     }
 }
 
-
-- (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
+-(void) handleSwipe: (UISwipeGestureRecognizer *) sender direction: (int*) dir {
     NSLog(@"Swipe Up");
     if(isPlaying == false && isEnd == false){
         [card flip];
@@ -164,7 +163,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
         SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.3];
         [overlayCard runAction: moveNodeUp];
     }else if(isPlaying == true && isEnd == false){
-        if([self checkValidCardSwipe: @"up"]){
+        if([self checkValidCardSwipe: (dir == 0)? @"up" : @"down"]){
             PlayingCard *overlayCard;
             CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
             overlayCard = [[PlayingCard  alloc] initWithName: card.name];
@@ -175,9 +174,9 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
             overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
             [self addChild: overlayCard];
             double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
-            SKAction *twistNode = [SKAction rotateByAngle:(twistAmount) duration:.3];
+            SKAction *twistNode = [SKAction rotateByAngle:(twistAmount * ((dir == 0)? 1 : -1)) duration:.3];
             [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
-            SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.3];
+            SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height * ((dir == 0)? 1 : -1) duration:.3];
             [overlayCard runAction: moveNodeUp];
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard] name];
@@ -199,60 +198,12 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
     bottomLabel.text = [NSString stringWithFormat: @"%lu", (unsigned long)[deck.arrayOfCards count]];
 }
 
+- (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
+    [self handleSwipe: sender direction: 0];
+}
+
 - (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender{
-    NSLog(@"Swipe Down");
-    if(isPlaying == false && isEnd == false){
-        [card flip];
-        isPlaying = true;
-        startTime = [NSDate timeIntervalSinceReferenceDate];
-        PlayingCard *overlayCard;
-        CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        overlayCard = [[PlayingCard  alloc] initWithName: card.name];
-        overlayCard.xScale = 0.38;
-        overlayCard.yScale = 0.38;
-        overlayCard.position = location;
-        overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
-        [self addChild: overlayCard];
-        double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
-        SKAction *twistNode = [SKAction rotateByAngle:(-twistAmount) duration:.3];
-        [overlayCard runAction: twistNode];
-        SKAction *moveNodeDown = [SKAction moveByX:0.0 y:-self.frame.size.height duration:.3];
-        [overlayCard runAction: moveNodeDown];
-    }else if(isPlaying == true && isEnd == false){
-        if([self checkValidCardSwipe: @"down"]){
-            PlayingCard *overlayCard;
-            CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-            overlayCard = [[PlayingCard  alloc] initWithName: card.name];
-            overlayCard.xScale = 0.38;
-            overlayCard.yScale = 0.38;
-            overlayCard.position = location;
-            [overlayCard flip];
-            overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
-            [self addChild: overlayCard];
-            double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
-            SKAction *twistNode = [SKAction rotateByAngle:(-twistAmount) duration:.3];
-            [overlayCard runAction: twistNode];
-            SKAction *moveNodeDown = [SKAction moveByX:0.0 y:-self.frame.size.height duration:.3];
-            [overlayCard runAction: moveNodeDown];
-            if([deck.arrayOfCards count] != 0){
-                card.name = [[deck getRandomCard] name];
-                [card update];
-            }else{
-                //END GAME
-                [card removeFromParent];
-                isPlaying = false;
-                isEnd = true;
-                //[self resetGame];
-            }
-        }else{
-            NSLog(@"PENALTY");
-            penalty += 0.5;
-            self.backgroundColor = [UIColor redColor];
-            topLabel.color = [UIColor darkTextColor]; //Changing the text color isn't working
-            [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
-        }
-    }
-    bottomLabel.text = [NSString stringWithFormat: @"%lu", (unsigned long)[deck.arrayOfCards count]];
+    [self handleSwipe:sender direction: 1];
 }
 
 -(void) resetAfterPenalty{
