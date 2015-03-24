@@ -16,7 +16,7 @@ TODO LIST:
  - Card rotation (DONE NEEDS TO BE STANDARDIZED)
  - Save highscores
  - Add zero to seconds counter in timer
- - Sound effects
+ - Import Sound Files
 **/
 
 #import "GameScene.h"
@@ -36,7 +36,7 @@ SKLabelNode *topSort;
 SKLabelNode *bottomSort;
 NSTimeInterval startTime;
 double penalty = 0;
-int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
+int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is rave
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
@@ -287,7 +287,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
     }
 }
 
-- (void) playSoundWithFileName: (NSString*) audioName{
+-(void) playSoundWithFileName: (NSString*) audioName{
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], audioName]];
     NSError *error;
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
@@ -309,7 +309,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face |
     int minutes = (int)(elapsedTime / 60.0);
     // We calculate the seconds.
     double seconds = (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
-    topLabel.text = [NSString stringWithFormat:@"%d:%7.4f", minutes, seconds];
+    topLabel.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
 }
 
 @end
