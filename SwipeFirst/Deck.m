@@ -18,7 +18,7 @@
     NSArray* suits = [NSArray arrayWithObjects:@"C", @"D", @"H", @"S", nil];
     
     for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 2; j++) {
+        for (int j = 0; j < 13; j++) {
             NSString *num = [number objectAtIndex:j];
             NSString *suit = [suits objectAtIndex:i];
             NSString *cardName = [NSString stringWithFormat:@"%@%@", suit, num];

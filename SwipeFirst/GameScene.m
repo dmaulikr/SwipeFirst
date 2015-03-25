@@ -302,6 +302,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     }else{
         NSLog(@"No current highscore");
         highscore.text = @"New Highscore";
+        highscoreDouble.text = @"";
         [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",gameMode]];
     }
 }
