@@ -20,8 +20,8 @@
 		3FD06AF41AB1C9E40002FFBB /* SwipeFirstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */; };
 		7FAC0E781AC1C8D200126858 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAC0E771AC1C8D200126858 /* AVFoundation.framework */; };
 		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
-		EF83BEF41AC324FD009A5A71 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF83BEF21AC324FC009A5A71 /* shuffle.mp3 */; };
-		EF83BEF51AC324FD009A5A71 /* cardFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF83BEF31AC324FD009A5A71 /* cardFlip.mp3 */; };
+		EF07723D1AC334A900A683D6 /* cardFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723B1AC334A900A683D6 /* cardFlip.mp3 */; };
+		EF07723E1AC334A900A683D6 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723C1AC334A900A683D6 /* shuffle.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeFirstTests.m; sourceTree = "<group>"; };
 		7FAC0E771AC1C8D200126858 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardMove.mp3; sourceTree = "<group>"; };
-		EF83BEF21AC324FC009A5A71 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = shuffle.mp3; path = ../../../../../../Desktop/shuffle.mp3; sourceTree = "<group>"; };
-		EF83BEF31AC324FD009A5A71 /* cardFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cardFlip.mp3; path = ../../../../../../Desktop/cardFlip.mp3; sourceTree = "<group>"; };
+		EF07723B1AC334A900A683D6 /* cardFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFlip.mp3; sourceTree = "<group>"; };
+		EF07723C1AC334A900A683D6 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +124,8 @@
 		3FD06AD21AB1C9E40002FFBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EF83BEF21AC324FC009A5A71 /* shuffle.mp3 */,
-				EF83BEF31AC324FD009A5A71 /* cardFlip.mp3 */,
+				EF07723B1AC334A900A683D6 /* cardFlip.mp3 */,
+				EF07723C1AC334A900A683D6 /* shuffle.mp3 */,
 				7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */,
 				3FD06AD31AB1C9E40002FFBB /* Info.plist */,
 				3FD06AD41AB1C9E40002FFBB /* main.m */,
@@ -232,9 +232,9 @@
 			files = (
 				7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */,
 				3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */,
-				EF83BEF41AC324FD009A5A71 /* shuffle.mp3 in Resources */,
 				3FD06AE51AB1C9E40002FFBB /* Images.xcassets in Resources */,
-				EF83BEF51AC324FD009A5A71 /* cardFlip.mp3 in Resources */,
+				EF07723D1AC334A900A683D6 /* cardFlip.mp3 in Resources */,
+				EF07723E1AC334A900A683D6 /* shuffle.mp3 in Resources */,
 				3FD06ADD1AB1C9E40002FFBB /* GameScene.sks in Resources */,
 				3FD06AE31AB1C9E40002FFBB /* Main.storyboard in Resources */,
 			);
