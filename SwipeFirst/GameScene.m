@@ -228,6 +228,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
             NSLog(@"PENALTY");
             penalty += 0.5;
             self.backgroundColor = [UIColor redColor];
+            [self playSoundWithFileName:@"wrongCard.mp3"];
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
         }
     }

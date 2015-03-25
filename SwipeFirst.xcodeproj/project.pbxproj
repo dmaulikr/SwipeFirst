@@ -22,6 +22,7 @@
 		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
 		EF07723D1AC334A900A683D6 /* cardFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723B1AC334A900A683D6 /* cardFlip.mp3 */; };
 		EF07723E1AC334A900A683D6 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723C1AC334A900A683D6 /* shuffle.mp3 */; };
+		EF6165541AC337DE00C5FDC2 /* wrongCard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardMove.mp3; sourceTree = "<group>"; };
 		EF07723B1AC334A900A683D6 /* cardFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFlip.mp3; sourceTree = "<group>"; };
 		EF07723C1AC334A900A683D6 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle.mp3; sourceTree = "<group>"; };
+		EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongCard.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		3FD06AD21AB1C9E40002FFBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */,
 				EF07723B1AC334A900A683D6 /* cardFlip.mp3 */,
 				EF07723C1AC334A900A683D6 /* shuffle.mp3 */,
 				7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */,
@@ -232,6 +235,7 @@
 			files = (
 				7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */,
 				3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */,
+				EF6165541AC337DE00C5FDC2 /* wrongCard.mp3 in Resources */,
 				3FD06AE51AB1C9E40002FFBB /* Images.xcassets in Resources */,
 				EF07723D1AC334A900A683D6 /* cardFlip.mp3 in Resources */,
 				EF07723E1AC334A900A683D6 /* shuffle.mp3 in Resources */,
