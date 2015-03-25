@@ -17,6 +17,7 @@ TODO LIST:
  - Save highscores (DONE NEEDS QA TEST)
  - Import Sound Files
  - Initial Card always slides up
+ - Set the text of the shuffle button
 **/
 
 #import "GameScene.h"
@@ -35,12 +36,15 @@ SKLabelNode *bottomLabel;
 SKLabelNode *topSort;
 SKLabelNode *bottomSort;
 SKSpriteNode *shuffleButton;
+SKLabelNode *highscore;
+SKLabelNode *highscoreDouble;
 NSTimeInterval startTime;
 double penalty = 0;
 int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is rave
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
+    self.backgroundColor = [UIColor darkGrayColor];
     isPlaying = false;
     [self addLabels];
     deck = [[Deck alloc] init];
@@ -54,7 +58,8 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     card.name = [[deck getRandomCard] name];
     //[card flip];
     
-    shuffleButton = [[SKSpriteNode alloc] initWithColor: [UIColor redColor] size:CGSizeMake(100, 50)];
+    shuffleButton = [[SKSpriteNode alloc] initWithColor: [UIColor whiteColor] size:CGSizeMake(card.size.width - 10, card.size.height / 10)];
+    // shuffleButton.text = @"Shuffle to Play Again";
     [shuffleButton setPosition: location];
     [self addChild: shuffleButton];
 }
@@ -80,6 +85,19 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     bottomSort.fontSize = 20;
     bottomSort.position = CGPointMake(CGRectGetMidX(self.frame), 15);
     [self addChild:bottomSort];
+    
+    highscore = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
+    highscore.text = @"Current Highscore: ";
+    highscore.fontSize = 30;
+    highscore.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 120);
+    [self addChild:highscore];
+    [highscore setHidden: TRUE];
+    highscoreDouble = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
+    highscoreDouble.text = @"";
+    highscoreDouble.fontSize = 40;
+    highscoreDouble.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 60);
+    [self addChild:highscoreDouble];
+    [highscore setHidden: TRUE];
 }
 
 -(void) addSwipeGestures{
@@ -201,7 +219,6 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
             }else{
                 //END GAME
                 [self endGame];
-                //[self resetGame];
             }
             if(isShuffleMode){
                 gameMode = (gameMode+1)%3;
@@ -225,7 +242,37 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     [self handleSwipe:sender direction: 1];
 }
 
+-(void) shuffleAnimation{
+    for(int i = 0; i < 5; i++){
+        int randomXStartLocation = (arc4random() % (int)self.frame.size.width);
+        NSLog(@"Random Location: %d", randomXStartLocation);
+        PlayingCard *newPlayingCard;
+        newPlayingCard = [[PlayingCard  alloc] initWithName: card.name];
+        if(randomXStartLocation % 2 == 1){
+            newPlayingCard.position = CGPointMake(randomXStartLocation, -self.frame.size.height);
+        }else{
+            newPlayingCard.position = CGPointMake(randomXStartLocation, self.frame.size.height * 2);
+        }
+        newPlayingCard.xScale = .4;
+        newPlayingCard.yScale = .4;
+        newPlayingCard.zPosition = 0; //Brings the sprite node to the front of all others
+        [self addChild: newPlayingCard];
+        double twistAmount = (int)(arc4random() % 100) / 50 - 1;
+        newPlayingCard.zRotation = twistAmount;
+        SKAction *twistNode = [SKAction rotateToAngle:0 duration:1.5];
+        [newPlayingCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
+        SKAction *moveNodeToCenter = [SKAction moveTo:CGPointMake((self.frame.size.width / 2), (self.frame.size.height / 2)) duration: 1.5];
+        [newPlayingCard runAction: moveNodeToCenter];
+        [newPlayingCard runAction:moveNodeToCenter completion:^{
+            [newPlayingCard removeFromParent];
+        }];
+    }
+}
+
 -(void) endGame{
+    [highscore setHidden: FALSE];
+    [highscoreDouble setHidden: FALSE];
+    
     [card setHidden:true];
     isPlaying = false;
     isEnd = true;
@@ -239,12 +286,20 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         if(currentScore < currentHS){
             //New Highscore
             NSLog(@"Setting the new highscore");
+            self.backgroundColor = [UIColor greenColor]; //This color is absolutely disgusting
+            highscore.text = @"Previous Highscore";
             [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",gameMode]];
         }else{
             NSLog(@"Did not set a new highscore");
+            highscore.text = @"Current Highscore";
         }
+        int minutes = (int)(currentHS / 60.0);
+        double seconds = (double)((int)((currentHS - (minutes * 60)) * 10000)) / 10000;
+        highscoreDouble.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+        
     }else{
         NSLog(@"No current highscore");
+        highscore.text = @"New Highscore";
         [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",gameMode]];
     }
 }
@@ -253,7 +308,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     //ERROR: THIS ENDS FOR THE NEAREST PENALTY TWO IN QUICK SUCCESSION WILL END EARLY
     NSLog(@"RESET");
     //Called half a second after each penalty
-    self.backgroundColor = [UIColor grayColor];
+    self.backgroundColor = [UIColor darkGrayColor];
 }
 
 -(BOOL) checkValidCardSwipe: (NSString*) direction{
@@ -291,8 +346,15 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) resetGame{
+    [self shuffleAnimation];
+    [highscoreDouble setHidden: TRUE];
+    [highscore setHidden: TRUE];
+    [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:1.5];
+}
+
+-(void) moveToNewGame{
     //RESET METHOD DOES NOT WORK
-    
+    self.backgroundColor = [UIColor darkGrayColor];
     deck = [[Deck alloc] init];
     isPlaying = false;
     isEnd = false;
@@ -301,6 +363,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     [card flip];
     [card setHidden: false];
 }
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
