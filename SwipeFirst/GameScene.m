@@ -188,7 +188,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
         SKAction *moveNodeUp = [SKAction moveByX:0.0 y:(self.frame.size.height * ((dir == 0)? 1 : -1)) duration:.3];
         [overlayCard runAction: moveNodeUp];
-        [self playSoundWithFileName:@"CardMove.mp3"];
+        [self playSoundWithFileName:@"cardFlip.mp3"];
         if(gameMode == 3){
             isShuffleMode = true;
         }
@@ -212,7 +212,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
             [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
             SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height * ((dir == 0)? 1 : -1) duration:.3];
             [overlayCard runAction: moveNodeUp];
-            [self playSoundWithFileName:@"CardMove.mp3"];
+            [self playSoundWithFileName:@"cardFlip.mp3"];
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard] name];
                 [card update];
@@ -259,14 +259,16 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         [self addChild: newPlayingCard];
         double twistAmount = (int)(arc4random() % 100) / 50 - 1;
         newPlayingCard.zRotation = twistAmount;
-        SKAction *twistNode = [SKAction rotateToAngle:0 duration:1.5];
+        SKAction *twistNode = [SKAction rotateToAngle:0 duration:.5];
         [newPlayingCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
-        SKAction *moveNodeToCenter = [SKAction moveTo:CGPointMake((self.frame.size.width / 2), (self.frame.size.height / 2)) duration: 1.5];
+        SKAction *moveNodeToCenter = [SKAction moveTo:CGPointMake((self.frame.size.width / 2), (self.frame.size.height / 2)) duration: .5];
+        [self playSoundWithFileName:@"shuffle.mp3"];
         [newPlayingCard runAction: moveNodeToCenter];
         [newPlayingCard runAction:moveNodeToCenter completion:^{
             [newPlayingCard removeFromParent];
         }];
     }
+
 }
 
 -(void) endGame{
@@ -349,7 +351,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     [self shuffleAnimation];
     [highscoreDouble setHidden: TRUE];
     [highscore setHidden: TRUE];
-    [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:1.5];
+    [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.5];
 }
 
 -(void) moveToNewGame{
