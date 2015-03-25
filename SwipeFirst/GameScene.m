@@ -152,7 +152,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) handleSwipe: (UISwipeGestureRecognizer *) sender direction: (int) dir {
-    NSLog(@"Swipe Up");
+    NSLog(@"%f", [sender locationInView:self.view].x);
     if(isPlaying == false && isEnd == false){
         [card flip];
         isPlaying = true;
@@ -165,7 +165,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         overlayCard.position = location;
         overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
         [self addChild: overlayCard];
-        double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
+        double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + self.view.center.x*2) / 100;
         SKAction *twistNode = [SKAction rotateByAngle:(twistAmount * ((dir == 0)? 1 : -1)) duration:.3];
         [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
         SKAction *moveNodeUp = [SKAction moveByX:0.0 y:(self.frame.size.height * ((dir == 0)? 1 : -1)) duration:.3];
@@ -189,7 +189,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
             [overlayCard flip];
             overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
             [self addChild: overlayCard];
-            double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
+            double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + self.view.center.x*2) / 100;
             SKAction *twistNode = [SKAction rotateByAngle:(twistAmount * ((dir == 0)? 1 : -1)) duration:.3];
             [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
             SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height * ((dir == 0)? 1 : -1) duration:.3];
