@@ -34,13 +34,13 @@ SKLabelNode *topLabel;
 SKLabelNode *bottomLabel;
 SKLabelNode *topSort;
 SKLabelNode *bottomSort;
+SKSpriteNode *shuffleButton;
 NSTimeInterval startTime;
 double penalty = 0;
 int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is rave
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-    
     isPlaying = false;
     [self addLabels];
     deck = [[Deck alloc] init];
@@ -53,6 +53,10 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     [self addSwipeGestures];
     card.name = [[deck getRandomCard] name];
     //[card flip];
+    
+    shuffleButton = [[SKSpriteNode alloc] initWithColor: [UIColor redColor] size:CGSizeMake(100, 50)];
+    [shuffleButton setPosition: location];
+    [self addChild: shuffleButton];
 }
 
 -(void) addLabels{
@@ -162,9 +166,9 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
         [self addChild: overlayCard];
         double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + 310) / 100;
-        SKAction *twistNode = [SKAction rotateByAngle:(twistAmount) duration:.3];
+        SKAction *twistNode = [SKAction rotateByAngle:(twistAmount * ((dir == 0)? 1 : -1)) duration:.3];
         [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
-        SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height duration:.3];
+        SKAction *moveNodeUp = [SKAction moveByX:0.0 y:(self.frame.size.height * ((dir == 0)? 1 : -1)) duration:.3];
         [overlayCard runAction: moveNodeUp];
         [self playSoundWithFileName:@"CardMove.mp3"];
         if(gameMode == 3){
@@ -222,7 +226,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) endGame{
-    [card removeFromParent];
+    [card setHidden:true];
     isPlaying = false;
     isEnd = true;
     isShuffleMode = false;
@@ -288,32 +292,24 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 -(void) resetGame{
     //RESET METHOD DOES NOT WORK
-    /*
+    
     deck = [[Deck alloc] init];
-    [card flip];
-    isEnd = false;
     isPlaying = false;
-    isShuffleMode = gameMode == 4;
+    isEnd = false;
     penalty = 0;
-    CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    card.xScale = 0.4;
-    card.yScale = 0.4;
-    card.position = location;
-    [self addChild: card];
-     */
-    [self didMoveToView:self.view];
+    card.name = [[deck getRandomCard] name];
+    [card flip];
+    [card setHidden: false];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     for (UITouch *touch in touches){
-        /*CGPoint location = [touch locationInNode: self];
-        if([card containsPoint: location]){
-            NSLog(@"CARD TAPPED");
-            if(!card.isFrontFancing)
-                card.name = [[deck getRandomCard] name];
-            [card flip];
-        }*/
+        CGPoint location = [touch locationInNode: self];
+        if([shuffleButton containsPoint: location] && isEnd && !isPlaying){
+            NSLog(@"RESET TAPPED");
+            [self resetGame];
+        }
     }
 }
 
