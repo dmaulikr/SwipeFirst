@@ -14,9 +14,10 @@ TODO LIST:
  - Go to end screen after deck is done
  - GameCenter
  - Card rotation (DONE NEEDS TO BE STANDARDIZED)
- - Save highscores (DONE NEEDS QA TEST)
  - Import Sound Files
  - Set the text of the shuffle button
+ - Error: If you swipe a card while the animation is running everything gets flipped
+ 
 **/
 
 #import "GameScene.h"
@@ -65,14 +66,14 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 -(void) addLabels{
     topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
-    topLabel.text = @"Swipe First!";
+    topLabel.text = @"Game Mode";
     topLabel.fontSize = 40;
-    topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 100);
+    topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 145);
     [self addChild:topLabel];
     bottomLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
-    bottomLabel.text = @"Game Mode";
+    bottomLabel.text = @"";
     bottomLabel.fontSize = 40;
-    bottomLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 145);
+    bottomLabel.position = CGPointMake(CGRectGetMidX(self.frame), 135);
     [self addChild:bottomLabel];
     topSort = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
     topSort.text = @"Red";
@@ -225,7 +226,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
             }
         }else{
             NSLog(@"PENALTY");
-            penalty += 0.5;
+            penalty += 1;
             self.backgroundColor = [UIColor redColor];
             [self playSoundWithFileName:@"wrongCard.mp3"];
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
@@ -351,8 +352,8 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 -(void) resetGame{
     [self shuffleAnimation];
-    topLabel.text = @"Swipe First!";
-    bottomLabel.text = @"Game Mode";
+    topLabel.text = @"Game Mode";
+    bottomLabel.text = @" ";
     [highscoreDouble setHidden: TRUE];
     [highscore setHidden: TRUE];
     [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.5];

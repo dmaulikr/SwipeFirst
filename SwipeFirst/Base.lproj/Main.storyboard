@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -17,39 +17,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCz-OH-v58">
-                                <rect key="frame" x="51" y="554" width="36" height="31"/>
-                                <state key="normal" title="Deck">
+                                <rect key="frame" x="21" y="528" width="60" height="60"/>
+                                <state key="normal" title="HS" backgroundImage="cardfront">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="bKF-Mg-wKL"/>
+                                    <segue destination="AVF-ui-lT1" kind="presentation" animates="NO" id="VYx-cH-Lf1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-Wb-qj6">
-                                <rect key="frame" x="191" y="554" width="66" height="30"/>
-                                <state key="normal" title="Time Trial">
+                                <rect key="frame" x="157" y="528" width="60" height="60"/>
+                                <state key="normal" title="IN" backgroundImage="cardfront">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MMq-BK-W9s"/>
+                                    <segue destination="zzy-Ut-IHo" kind="presentation" animates="NO" id="3TF-gn-waw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
-                                <rect key="frame" x="282" y="554" width="41" height="30"/>
-                                <state key="normal" title="Sprint">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ft-z8-FFZ">
+                                <rect key="frame" x="225" y="528" width="60" height="60"/>
+                                <state key="normal" title="UN" backgroundImage="cardfront">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="djK-m4-BZ0"/>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="stA-VT-oFD"/>
+                                    <segue destination="yxY-oZ-1QC" kind="presentation" animates="NO" id="04T-hq-6a6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
-                                <rect key="frame" x="106" y="554" width="66" height="30"/>
-                                <state key="normal" title="Marathon">
+                                <rect key="frame" x="89" y="528" width="60" height="60"/>
+                                <state key="normal" title="GC" backgroundImage="cardfront">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
+                                    <segue destination="zmh-zK-a26" kind="presentation" animates="NO" id="iD7-NF-0GD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
+                                <rect key="frame" x="293" y="528" width="60" height="60"/>
+                                <state key="normal" title="ST" backgroundImage="cardfront">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="djK-m4-BZ0"/>
+                                    <segue destination="atx-Li-6ee" kind="presentation" animates="NO" id="pag-gr-cMc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -61,5 +75,191 @@
             </objects>
             <point key="canvasLocation" x="67.5" y="6.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Rp9-2C-S5g">
+            <objects>
+                <viewController id="AVF-ui-lT1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="USs-2H-Tg3"/>
+                        <viewControllerLayoutGuide type="bottom" id="WFe-r4-qww"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JiJ-Wh-EMH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cko-E4-yHW">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="gqg-nO-vp8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscores" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meY-He-VEg">
+                                <rect key="frame" x="68" y="21" width="100" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWs-Zd-scq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568.5" y="-1513.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="j7c-Z2-g4a">
+            <objects>
+                <viewController id="zmh-zK-a26" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E77-jz-V87"/>
+                        <viewControllerLayoutGuide type="bottom" id="wgY-hJ-D4h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Dn-UD-ZPl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUi-kU-oqK">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="a7j-Wy-eWg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GameCenter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4P8-X0-AJo">
+                                <rect key="frame" x="62" y="21" width="113" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mx8-GV-t6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661.5" y="-780.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="os1-Qn-esk">
+            <objects>
+                <viewController id="atx-Li-6ee" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mCX-WS-jDK"/>
+                        <viewControllerLayoutGuide type="bottom" id="FtJ-WH-Kce"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7nu-QA-KY6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHX-dH-c80">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="a6o-BE-cFe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8e0-sq-g1U">
+                                <rect key="frame" x="55" y="21" width="73" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogP-yb-tUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="488.5" y="1626.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="e8t-s8-9zR">
+            <objects>
+                <viewController id="yxY-oZ-1QC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jex-C1-nOr"/>
+                        <viewControllerLayoutGuide type="bottom" id="z1y-nR-6kW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h49-BW-ifV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9q-hw-a5s">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="mW9-9W-rg0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Undecided" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ii4-aj-nxE">
+                                <rect key="frame" x="68" y="21" width="97" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RPZ-Ow-79j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="675.5" y="822.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Olx-qe-89r">
+            <objects>
+                <viewController id="zzy-Ut-IHo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3GC-As-1VL"/>
+                        <viewControllerLayoutGuide type="bottom" id="bjd-ee-3LE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="myn-MU-vCE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw0-zP-rUj">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="p2s-34-acm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCN-D2-CZ0">
+                                <rect key="frame" x="59" y="21" width="100" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNI-aw-Xjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661.5" y="6.5"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="cardfront" width="372" height="558"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gqg-nO-vp8"/>
+    </inferredMetricsTieBreakers>
 </document>
