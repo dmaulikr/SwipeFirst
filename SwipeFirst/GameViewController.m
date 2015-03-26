@@ -54,6 +54,14 @@
     return YES;
 }
 
+- (IBAction)changeGameMode:(id)sender {
+    GameScene *scene = [GameScene unarchiveFromFile: @"GameScene"];
+    UIButton *b = (UIButton *)sender;
+    NSString *title = b.currentTitle;
+    NSLog(@"$W@g");
+    [scene setGameMode: title];
+}
+
 - (NSUInteger)supportedInterfaceOrientations
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {

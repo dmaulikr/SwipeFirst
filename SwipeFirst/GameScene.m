@@ -67,12 +67,12 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
     topLabel.text = @"Swipe First!";
     topLabel.fontSize = 40;
-    topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 145);
+    topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 100);
     [self addChild:topLabel];
     bottomLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
-    bottomLabel.text = @"Swipe First!";
+    bottomLabel.text = @"Game Mode";
     bottomLabel.fontSize = 40;
-    bottomLabel.position = CGPointMake(CGRectGetMidX(self.frame), 125);
+    bottomLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 145);
     [self addChild:bottomLabel];
     topSort = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
     topSort.text = @"Red";
@@ -259,9 +259,9 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         [self addChild: newPlayingCard];
         double twistAmount = (int)(arc4random() % 100) / 50 - 1;
         newPlayingCard.zRotation = twistAmount;
-        SKAction *twistNode = [SKAction rotateToAngle:0 duration:.5];
+        SKAction *twistNode = [SKAction rotateToAngle:0 duration:.7];
         [newPlayingCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
-        SKAction *moveNodeToCenter = [SKAction moveTo:CGPointMake((self.frame.size.width / 2), (self.frame.size.height / 2)) duration: .5];
+        SKAction *moveNodeToCenter = [SKAction moveTo:CGPointMake((self.frame.size.width / 2), (self.frame.size.height / 2)) duration: .7];
         [self playSoundWithFileName:@"shuffle.mp3"];
         [newPlayingCard runAction: moveNodeToCenter];
         [newPlayingCard runAction:moveNodeToCenter completion:^{
@@ -348,15 +348,20 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     return false;
 }
 
+-(void) setGameMode: (NSString*) mode{
+    bottomLabel.text = mode;
+}
+
 -(void) resetGame{
     [self shuffleAnimation];
+    topLabel.text = @"Swipe First!";
+    bottomLabel.text = @"Game Mode";
     [highscoreDouble setHidden: TRUE];
     [highscore setHidden: TRUE];
     [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.5];
 }
 
 -(void) moveToNewGame{
-    //RESET METHOD DOES NOT WORK
     self.backgroundColor = [UIColor darkGrayColor];
     deck = [[Deck alloc] init];
     isPlaying = false;
@@ -374,6 +379,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         CGPoint location = [touch locationInNode: self];
         if([shuffleButton containsPoint: location] && isEnd && !isPlaying){
             NSLog(@"RESET TAPPED");
+            isEnd = false;
             [self resetGame];
         }
     }
