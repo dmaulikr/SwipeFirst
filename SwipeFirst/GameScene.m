@@ -16,7 +16,6 @@ TODO LIST:
  - Card rotation (DONE NEEDS TO BE STANDARDIZED)
  - Save highscores (DONE NEEDS QA TEST)
  - Import Sound Files
- - Initial Card always slides up
  - Set the text of the shuffle button
 **/
 
