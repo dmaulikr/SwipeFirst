@@ -16,13 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
-                                <rect key="frame" x="106" y="554" width="66" height="30"/>
-                                <state key="normal" title="Marathon">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCz-OH-v58">
+                                <rect key="frame" x="51" y="554" width="36" height="31"/>
+                                <state key="normal" title="Deck">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeGameMode:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Mch-5r-EaE"/>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="bKF-Mg-wKL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-Wb-qj6">
@@ -31,7 +31,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeGameMode:" destination="BV1-FR-VrT" eventType="touchUpInside" id="229-DT-o7a"/>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MMq-BK-W9s"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
@@ -40,16 +40,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeGameMode:" destination="BV1-FR-VrT" eventType="touchUpInside" id="T0Q-VW-3Ld"/>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="djK-m4-BZ0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCz-OH-v58">
-                                <rect key="frame" x="51" y="554" width="36" height="31"/>
-                                <state key="normal" title="Deck">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
+                                <rect key="frame" x="106" y="554" width="66" height="30"/>
+                                <state key="normal" title="Marathon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeGameMode:" destination="BV1-FR-VrT" eventType="touchUpInside" id="nR9-xp-2Qy"/>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
                                 </connections>
                             </button>
                         </subviews>

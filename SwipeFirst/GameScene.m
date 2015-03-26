@@ -348,9 +348,6 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     return false;
 }
 
--(void) setGameMode: (NSString*) mode{
-    bottomLabel.text = mode;
-}
 
 -(void) resetGame{
     [self shuffleAnimation];

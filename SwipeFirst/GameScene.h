@@ -12,7 +12,6 @@
 @interface GameScene : SKScene
 
 -(void) resetGame;
--(void) setGameMode: (NSString*) Mode;
 
 @end
 

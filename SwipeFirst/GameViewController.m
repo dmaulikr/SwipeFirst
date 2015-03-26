@@ -54,13 +54,15 @@
     return YES;
 }
 
-- (IBAction)changeGameMode:(id)sender {
-    GameScene *scene = [GameScene unarchiveFromFile: @"GameScene"];
-    UIButton *b = (UIButton *)sender;
-    NSString *title = b.currentTitle;
-    NSLog(@"$W@g");
-    [scene setGameMode: title];
+- (IBAction)sendCommandToScene:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    NSString *buttonTitle = button.currentTitle;
+    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    //CALL SOME METHOD HERE PASSING ALONG THE NAME OF THE COMMAND TO THE SCENE
+    //[scene sendCommand: buttonTitle]; or something equivalent
+    
 }
+
 
 - (NSUInteger)supportedInterfaceOrientations
 {
