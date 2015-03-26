@@ -17,48 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-Wb-qj6">
-                                <rect key="frame" x="157" y="528" width="60" height="60"/>
-                                <state key="normal" title="IN" backgroundImage="cardfront">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MMq-BK-W9s"/>
-                                    <segue destination="zzy-Ut-IHo" kind="presentation" animates="NO" id="3TF-gn-waw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ft-z8-FFZ">
-                                <rect key="frame" x="225" y="528" width="60" height="60"/>
-                                <state key="normal" title="UN" backgroundImage="cardfront">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="stA-VT-oFD"/>
-                                    <segue destination="yxY-oZ-1QC" kind="presentation" animates="NO" id="04T-hq-6a6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
-                                <rect key="frame" x="89" y="528" width="60" height="60"/>
-                                <state key="normal" title="GC" backgroundImage="cardfront">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
-                                    <segue destination="zmh-zK-a26" kind="presentation" animates="NO" id="iD7-NF-0GD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
-                                <rect key="frame" x="293" y="528" width="60" height="60"/>
-                                <state key="normal" title="ST" backgroundImage="cardfront">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="djK-m4-BZ0"/>
-                                    <segue destination="atx-Li-6ee" kind="presentation" animates="NO" id="pag-gr-cMc"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCz-OH-v58">
-                                <rect key="frame" x="21" y="528" width="60" height="60"/>
+                                <rect key="frame" x="21" y="540" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="ixP-Rz-MLa"/>
                                     <constraint firstAttribute="height" constant="60" id="trb-zE-wMd"/>
@@ -69,6 +29,46 @@
                                 <connections>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="bKF-Mg-wKL"/>
                                     <segue destination="AVF-ui-lT1" kind="presentation" animates="NO" id="VYx-cH-Lf1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-Wb-qj6">
+                                <rect key="frame" x="157" y="540" width="60" height="60"/>
+                                <state key="normal" title="IN" backgroundImage="cardfront">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MMq-BK-W9s"/>
+                                    <segue destination="zzy-Ut-IHo" kind="presentation" animates="NO" id="3TF-gn-waw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ft-z8-FFZ">
+                                <rect key="frame" x="225" y="540" width="60" height="60"/>
+                                <state key="normal" title="UN" backgroundImage="cardfront">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="stA-VT-oFD"/>
+                                    <segue destination="yxY-oZ-1QC" kind="presentation" animates="NO" id="04T-hq-6a6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
+                                <rect key="frame" x="89" y="540" width="60" height="60"/>
+                                <state key="normal" title="GC" backgroundImage="cardfront">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
+                                    <segue destination="zmh-zK-a26" kind="presentation" animates="NO" id="iD7-NF-0GD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
+                                <rect key="frame" x="293" y="540" width="60" height="60"/>
+                                <state key="normal" title="ST" backgroundImage="cardfront">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="djK-m4-BZ0"/>
+                                    <segue destination="atx-Li-6ee" kind="presentation" animates="NO" id="pag-gr-cMc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -88,11 +88,9 @@
                             <constraint firstItem="aZz-Xa-pEU" firstAttribute="width" secondItem="wCz-OH-v58" secondAttribute="width" id="JnE-DA-zcW"/>
                             <constraint firstItem="2Nk-Wb-qj6" firstAttribute="leading" secondItem="aZz-Xa-pEU" secondAttribute="trailing" constant="8" id="MgE-eu-oZd"/>
                             <constraint firstItem="2va-7s-lxK" firstAttribute="width" secondItem="6ft-z8-FFZ" secondAttribute="width" id="O4t-UO-CmO"/>
-                            <constraint firstItem="khH-OB-KpY" firstAttribute="top" secondItem="wCz-OH-v58" secondAttribute="bottom" constant="79" id="SH7-Hp-iiO"/>
                             <constraint firstItem="wCz-OH-v58" firstAttribute="top" secondItem="aZz-Xa-pEU" secondAttribute="top" id="Wzj-w9-45d"/>
-                            <constraint firstItem="khH-OB-KpY" firstAttribute="top" secondItem="2va-7s-lxK" secondAttribute="bottom" constant="79" id="cEh-xe-MiU"/>
                             <constraint firstItem="2Nk-Wb-qj6" firstAttribute="width" secondItem="aZz-Xa-pEU" secondAttribute="width" id="fXk-YB-ISr"/>
-                            <constraint firstItem="khH-OB-KpY" firstAttribute="top" secondItem="wCz-OH-v58" secondAttribute="bottom" constant="79" id="haw-mo-bpA"/>
+                            <constraint firstItem="khH-OB-KpY" firstAttribute="top" secondItem="wCz-OH-v58" secondAttribute="bottom" constant="67" id="fwV-St-Xv4"/>
                             <constraint firstItem="6ft-z8-FFZ" firstAttribute="leading" secondItem="2Nk-Wb-qj6" secondAttribute="trailing" constant="8" id="jTf-hV-cD3"/>
                             <constraint firstItem="2Nk-Wb-qj6" firstAttribute="height" secondItem="aZz-Xa-pEU" secondAttribute="height" id="kV3-QE-aeY"/>
                             <constraint firstItem="2va-7s-lxK" firstAttribute="height" secondItem="6ft-z8-FFZ" secondAttribute="height" id="nac-km-pid"/>
