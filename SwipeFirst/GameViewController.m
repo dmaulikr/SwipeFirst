@@ -47,6 +47,7 @@
     
     // Present the scene.
     [skView presentScene:scene];
+    [scene initializeViewController:self];
 }
 
 - (BOOL)shouldAutorotate
@@ -57,12 +58,30 @@
 - (IBAction)sendCommandToScene:(id)sender {
     UIButton *button = (UIButton *)sender;
     NSString *buttonTitle = button.currentTitle;
-    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    SKView *skView = (SKView *)self.view;
+    SKScene *scene = skView.scene;
     //CALL SOME METHOD HERE PASSING ALONG THE NAME OF THE COMMAND TO THE SCENE
     //[scene sendCommand: buttonTitle]; or something equivalent
     
 }
 
+-(void)hideButtons{
+    NSLog(@"HIDE");
+    self.button1.hidden = true;
+    self.button2.hidden = true;
+    self.button3.hidden = true;
+    self.button4.hidden = true;
+    self.button5.hidden = true;
+}
+
+-(void)showButtons{
+    NSLog(@"SHOW");
+    self.button1.hidden = false;
+    self.button2.hidden = false;
+    self.button3.hidden = false;
+    self.button4.hidden = false;
+    self.button5.hidden = false;
+}
 
 - (NSUInteger)supportedInterfaceOrientations
 {

@@ -64,6 +64,10 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     [self addChild: shuffleButton];
 }
 
+-(void) initializeViewController: (GameViewController*) passedController{
+    controller = passedController;
+}
+
 -(void) addLabels{
     topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
     topLabel.text = @"Game Mode";
@@ -173,6 +177,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     NSLog(@"%f", [sender locationInView:self.view].x);
     if(isPlaying == false && isEnd == false){
         [card flip];
+        [(GameViewController *) controller hideButtons];
         isPlaying = true;
         startTime = [NSDate timeIntervalSinceReferenceDate];
         PlayingCard *overlayCard;
@@ -360,6 +365,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) moveToNewGame{
+    [(GameViewController*) controller showButtons];
     self.backgroundColor = [UIColor darkGrayColor];
     deck = [[Deck alloc] init];
     isPlaying = false;
