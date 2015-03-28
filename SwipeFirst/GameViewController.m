@@ -48,6 +48,25 @@
     // Present the scene.
     [skView presentScene:scene];
     [scene initializeViewController:self];
+    
+    //Added following code trying to set up game center
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showAuthenticationViewController)
+     name:PresentAuthenticationViewController
+     object:nil];
+    
+    [[GameKitHelper sharedGameKitHelper]
+     authenticateLocalPlayer];
+}
+
+- (void)showAuthenticationViewController
+{
+    GameKitHelper *gameKitHelper =
+    [GameKitHelper sharedGameKitHelper];
+    
+    [self presentViewController:
+     gameKitHelper.authenticationViewController
+                                         animated:YES
+                                       completion:nil];
 }
 
 - (BOOL)shouldAutorotate
