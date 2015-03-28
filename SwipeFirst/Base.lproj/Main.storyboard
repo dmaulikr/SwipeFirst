@@ -58,7 +58,7 @@
                                 </state>
                                 <connections>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
-                                    <segue destination="zmh-zK-a26" kind="presentation" animates="NO" id="iD7-NF-0GD"/>
+                                    <segue destination="zmh-zK-a26" kind="presentation" id="uVj-qX-lM7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="568.5" y="-1513.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Center View Controller-->
         <scene sceneID="j7c-Z2-g4a">
             <objects>
-                <viewController id="zmh-zK-a26" sceneMemberID="viewController">
+                <viewController id="zmh-zK-a26" customClass="GameCenterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E77-jz-V87"/>
                         <viewControllerLayoutGuide type="bottom" id="wgY-hJ-D4h"/>
@@ -222,12 +222,6 @@
                                     <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="a7j-Wy-eWg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GameCenter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4P8-X0-AJo">
-                                <rect key="frame" x="62" y="21" width="113" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -349,6 +343,6 @@
         <image name="cardfront" width="372" height="558"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gqg-nO-vp8"/>
+        <segue reference="a7j-Wy-eWg"/>
     </inferredMetricsTieBreakers>
 </document>

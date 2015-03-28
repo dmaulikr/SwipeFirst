@@ -19,6 +19,7 @@
 		3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */; };
 		3FD06AF41AB1C9E40002FFBB /* SwipeFirstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */; };
 		7F3A3FF51AC71DEA00F55D9F /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A3FF41AC71DEA00F55D9F /* GameKitHelper.m */; };
+		7F3A40011AC7356B00F55D9F /* GameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */; };
 		7F4D0AEB1AC708A20041768B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4D0AEA1AC708A20041768B /* GameKit.framework */; };
 		7FAC0E781AC1C8D200126858 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAC0E771AC1C8D200126858 /* AVFoundation.framework */; };
 		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
@@ -61,6 +62,8 @@
 		3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeFirstTests.m; sourceTree = "<group>"; };
 		7F3A3FF31AC71DEA00F55D9F /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		7F3A3FF41AC71DEA00F55D9F /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
+		7F3A3FFF1AC7356A00F55D9F /* GameCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterViewController.h; sourceTree = "<group>"; };
+		7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterViewController.m; sourceTree = "<group>"; };
 		7F4D0AEA1AC708A20041768B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		7FAC0E771AC1C8D200126858 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardMove.mp3; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				3FD06ADF1AB1C9E40002FFBB /* GameViewController.m */,
 				7FD4AC2D1AC6FED70042F5EF /* HighscoreViewController.h */,
 				7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */,
+				7F3A3FFF1AC7356A00F55D9F /* GameCenterViewController.h */,
+				7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */,
 				3FD06AE11AB1C9E40002FFBB /* Main.storyboard */,
 				3FD06AE41AB1C9E40002FFBB /* Images.xcassets */,
 				3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */,
@@ -291,6 +296,7 @@
 				3FD06AD81AB1C9E40002FFBB /* AppDelegate.m in Sources */,
 				3FD06ADB1AB1C9E40002FFBB /* GameScene.m in Sources */,
 				7F3A3FF51AC71DEA00F55D9F /* GameKitHelper.m in Sources */,
+				7F3A40011AC7356B00F55D9F /* GameCenterViewController.m in Sources */,
 				3F5EC0A11AB1CDEE00EEE703 /* Deck.m in Sources */,
 				7FD4AC2F1AC6FED80042F5EF /* HighscoreViewController.m in Sources */,
 				3FD06AD51AB1C9E40002FFBB /* main.m in Sources */,
