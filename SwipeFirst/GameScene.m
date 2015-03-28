@@ -9,14 +9,13 @@
 /**
 TODO LIST:
  - "Swipe to begin"
- - Fix the reset method
  - Home screen and interface
  - Go to end screen after deck is done
  - GameCenter
- - Card rotation (DONE NEEDS TO BE STANDARDIZED)
  - Import Sound Files
  - Set the text of the shuffle button
  - Error: If you swipe a card while the animation is running everything gets flipped
+ - Fix highscore for shuffle mode
  
 **/
 
@@ -59,7 +58,6 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     //[card flip];
     
     shuffleButton = [[SKSpriteNode alloc] initWithColor: [UIColor whiteColor] size:CGSizeMake(card.size.width - 10, card.size.height / 10)];
-    // shuffleButton.text = @"Shuffle to Play Again";
     [shuffleButton setPosition: location];
     [self addChild: shuffleButton];
 }
@@ -250,7 +248,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 -(void) shuffleAnimation{
     for(int i = 0; i < 5; i++){
-        int randomXStartLocation = (arc4random() % (int)self.frame.size.width);
+        int randomXStartLocation = ((arc4random() % (int)self.frame.size.width) / 2) + (((int)self.frame.size.width) / 4);
         NSLog(@"Random Location: %d", randomXStartLocation);
         PlayingCard *newPlayingCard;
         newPlayingCard = [[PlayingCard  alloc] initWithName: card.name];
@@ -361,7 +359,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     bottomLabel.text = @" ";
     [highscoreDouble setHidden: TRUE];
     [highscore setHidden: TRUE];
-    [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.5];
+    [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.7];
 }
 
 -(void) moveToNewGame{
