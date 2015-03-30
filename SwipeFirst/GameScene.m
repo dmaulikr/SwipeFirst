@@ -9,13 +9,11 @@
 /**
 TODO LIST:
  - "Swipe to begin"
- - Home screen and interface
- - Go to end screen after deck is done
- - GameCenter
- - Import Sound Files
+ - Tie GameCenter to local data
+ - Finish all Sounds
  - Set the text of the shuffle button
  - Error: If you swipe a card while the animation is running everything gets flipped
- - Fix highscore for shuffle mode
+ - Fix transition to new game on shuffle mode (it resets to whatever the last category was)
  
 **/
 
@@ -37,6 +35,8 @@ SKLabelNode *bottomSort;
 SKSpriteNode *shuffleButton;
 SKLabelNode *highscore;
 SKLabelNode *highscoreDouble;
+SKLabelNode *score;
+SKLabelNode *scoreDouble;
 NSTimeInterval startTime;
 double penalty = 0;
 int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is rave
@@ -58,7 +58,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     //[card flip];
     
     shuffleButton = [[SKSpriteNode alloc] initWithColor: [UIColor whiteColor] size:CGSizeMake(card.size.width - 10, card.size.height / 10)];
-    [shuffleButton setPosition: location];
+    [shuffleButton setPosition: CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 120)];
     [self addChild: shuffleButton];
 }
 
@@ -88,16 +88,28 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     bottomSort.position = CGPointMake(CGRectGetMidX(self.frame), 15);
     [self addChild:bottomSort];
     
+    score = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
+    score.text = @"Score: ";
+    score.fontSize = 30;
+    score.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 120);
+    [self addChild:score];
+    [score setHidden: TRUE];
+    scoreDouble = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
+    scoreDouble.text = @"";
+    scoreDouble.fontSize = 40;
+    scoreDouble.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 60);
+    [self addChild:scoreDouble];
+    [scoreDouble setHidden: TRUE];
     highscore = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
     highscore.text = @"Current Highscore: ";
     highscore.fontSize = 30;
-    highscore.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 120);
+    highscore.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     [self addChild:highscore];
     [highscore setHidden: TRUE];
     highscoreDouble = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
     highscoreDouble.text = @"";
     highscoreDouble.fontSize = 40;
-    highscoreDouble.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 60);
+    highscoreDouble.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 60);
     [self addChild:highscoreDouble];
     [highscore setHidden: TRUE];
 }
@@ -259,7 +271,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         }
         newPlayingCard.xScale = .4;
         newPlayingCard.yScale = .4;
-        newPlayingCard.zPosition = 0; //Brings the sprite node to the front of all others
+        newPlayingCard.zPosition = 1; //Brings the sprite node to the front of all others
         [self addChild: newPlayingCard];
         double twistAmount = (int)(arc4random() % 100) / 50 - 1;
         newPlayingCard.zRotation = twistAmount;
@@ -278,10 +290,17 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 -(void) endGame{
     [highscore setHidden: FALSE];
     [highscoreDouble setHidden: FALSE];
+    [score setHidden: FALSE];
+    [scoreDouble setHidden: FALSE];
+    scoreDouble.text = topLabel.text;
+    topLabel.text = @"Card Sort";
     
     [card setHidden:true];
     isPlaying = false;
     isEnd = true;
+    if(isShuffleMode == true){
+        gameMode = 3;
+    }
     isShuffleMode = false;
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSTimeInterval currentScore = ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty;
@@ -355,10 +374,6 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 -(void) resetGame{
     [self shuffleAnimation];
-    topLabel.text = @"Game Mode";
-    bottomLabel.text = @" ";
-    [highscoreDouble setHidden: TRUE];
-    [highscore setHidden: TRUE];
     [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.7];
 }
 
@@ -366,10 +381,16 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     [(GameViewController*) controller showButtons];
     self.backgroundColor = [UIColor darkGrayColor];
     deck = [[Deck alloc] init];
+    topLabel.text = @"Game Mode";
+    bottomLabel.text = @" ";
     isPlaying = false;
     isEnd = false;
     penalty = 0;
     card.name = [[deck getRandomCard] name];
+    [highscoreDouble setHidden: TRUE];
+    [highscore setHidden: TRUE];
+    [scoreDouble setHidden: TRUE];
+    [score setHidden: TRUE];
     [card flip];
     [card setHidden: false];
 }

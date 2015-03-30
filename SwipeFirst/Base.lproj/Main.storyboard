@@ -58,7 +58,7 @@
                                 </state>
                                 <connections>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
-                                    <segue destination="zmh-zK-a26" kind="presentation" id="uVj-qX-lM7"/>
+                                    <segue destination="zmh-zK-a26" kind="presentation" animates="NO" id="uVj-qX-lM7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
@@ -343,6 +343,6 @@
         <image name="cardfront" width="372" height="558"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="a7j-Wy-eWg"/>
+        <segue reference="a6o-BE-cFe"/>
     </inferredMetricsTieBreakers>
 </document>

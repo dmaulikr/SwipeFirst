@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self showLeaderboardAndAchievements:YES];
+    
+    GKScore *score;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",0]] != 0){
+        score.value = [prefs doubleForKey: [NSString stringWithFormat:@"HS%d",0]];
+    }
     // Do any additional setup after loading the view.
     //[self showLeaderboardAndAchievements:YES];
 }
