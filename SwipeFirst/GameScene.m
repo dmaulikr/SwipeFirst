@@ -10,6 +10,7 @@
 TODO LIST:
  - "Swipe to begin"
  - Tie GameCenter to local data
+ - GameCenter Achievements
  - Finish all Sounds
  - Set the text of the shuffle button
  - Error: If you swipe a card while the animation is running everything gets flipped
@@ -43,6 +44,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
+    
     self.backgroundColor = [UIColor darkGrayColor];
     isPlaying = false;
     [self addLabels];
@@ -302,6 +304,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         gameMode = 3;
     }
     isShuffleMode = false;
+    [self setAchievement: @"startthegame" toDoubleValue:100];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSTimeInterval currentScore = ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty;
     NSLog(@"Current Score at the end of the game is: %f", currentScore);
@@ -321,7 +324,6 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         int minutes = (int)(currentHS / 60.0);
         double seconds = (double)((int)((currentHS - (minutes * 60)) * 10000)) / 10000;
         highscoreDouble.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
-        
     }else{
         NSLog(@"No current highscore");
         highscore.text = @"New Highscore";
@@ -417,6 +419,17 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     //    NSLog(@"%@",[error description]);
     //else
     [audioPlayer play];
+}
+
+-(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
+    GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
+    [achieve setShowsCompletionBanner:true];
+    [achieve setPercentComplete:val];
+    [GKAchievement reportAchievements:@[achieve] withCompletionHandler:^(NSError *error) {
+        if(error != nil){
+            NSLog(@"%@", [error localizedDescription]);
+        }
+    }];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
