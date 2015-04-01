@@ -11,5 +11,6 @@
 @interface GameCenterViewController : UIViewController <GKGameCenterControllerDelegate>
 
 -(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard;
+-(void)setLeaderboard: (NSString*) identifier withScore: (double) val;
 
 @end

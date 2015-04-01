@@ -11,7 +11,7 @@
 #import "GameKitHelper.h"
 #import "GameCenterViewController.h"
 
-@interface GameViewController : UIViewController
+@interface GameViewController : GameCenterViewController
 
 -(void) hideButtons;
 -(void) showButtons;

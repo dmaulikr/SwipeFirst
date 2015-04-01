@@ -83,6 +83,27 @@
     //[scene sendCommand: buttonTitle]; or something equivalent
     
 }
+- (IBAction)gamecenterButton:(id)sender {
+    [self showLeaderboardAndAchievements:YES];
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",0]] != 0){
+        NSLog(@"setting even odd leaderboard");
+        [self setLeaderboard: @"evenoddleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",0]] * 100)];
+    }
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",1]] != 0){
+        NSLog(@"setting red black leaderboard");
+        [self setLeaderboard: @"redblackleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",1]] * 100)];
+    }
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",2]] != 0){
+        NSLog(@"setting face number leaderboard");
+        [self setLeaderboard: @"facenumberleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",2]] * 100)];
+    }
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",3]] != 0 ){
+        NSLog(@"setting setting shuffle leaderboard");
+        [self setLeaderboard: @"shuffleleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",3]] * 100)];
+    }
+}
 
 -(void)hideButtons{
     NSLog(@"HIDE");

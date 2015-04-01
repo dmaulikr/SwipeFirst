@@ -51,16 +51,6 @@
                                     <segue destination="yxY-oZ-1QC" kind="presentation" animates="NO" id="04T-hq-6a6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
-                                <rect key="frame" x="89" y="540" width="60" height="60"/>
-                                <state key="normal" title="GC" backgroundImage="cardfront">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
-                                    <segue destination="zmh-zK-a26" kind="presentation" animates="NO" id="uVj-qX-lM7"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
                                 <rect key="frame" x="293" y="540" width="60" height="60"/>
                                 <state key="normal" title="ST" backgroundImage="cardfront">
@@ -69,6 +59,16 @@
                                 <connections>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="djK-m4-BZ0"/>
                                     <segue destination="atx-Li-6ee" kind="presentation" animates="NO" id="pag-gr-cMc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
+                                <rect key="frame" x="89" y="540" width="60" height="60"/>
+                                <state key="normal" title="GC" backgroundImage="cardfront">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gamecenterButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="gvR-Pe-EtX"/>
+                                    <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -199,36 +199,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWs-Zd-scq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="568.5" y="-1513.5"/>
-        </scene>
-        <!--Game Center View Controller-->
-        <scene sceneID="j7c-Z2-g4a">
-            <objects>
-                <viewController id="zmh-zK-a26" customClass="GameCenterViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="E77-jz-V87"/>
-                        <viewControllerLayoutGuide type="bottom" id="wgY-hJ-D4h"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4Dn-UD-ZPl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUi-kU-oqK">
-                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="&lt;">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="a7j-Wy-eWg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mx8-GV-t6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="675.5" y="-782.5"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="os1-Qn-esk">
