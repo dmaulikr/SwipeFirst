@@ -380,6 +380,14 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) moveToNewGame{
+    //This is just for testing purposes
+    [GKAchievement resetAchievementsWithCompletionHandler:^(NSError *error)
+    {
+        if (error != nil)
+            NSLog(@"Could not reset achievements due to %@", error);
+    }];
+    //DELETE EVERYTHING ABOVE
+    
     [(GameViewController*) controller showButtons];
     self.backgroundColor = [UIColor darkGrayColor];
     deck = [[Deck alloc] init];
@@ -422,8 +430,10 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
+    NSLog(@"Setting Achievement");
     GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
     [achieve setShowsCompletionBanner:true];
+    achieve.percentComplete = val;
     [achieve setPercentComplete:val];
     [GKAchievement reportAchievements:@[achieve] withCompletionHandler:^(NSError *error) {
         if(error != nil){

@@ -35,8 +35,8 @@
         [self setLeaderboard: @"facenumberleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",2]] * 100)];
     }
     if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",3]] != 0 ){
-        NSLog(@"setting setting rave leaderboard");
-        [self setLeaderboard: @"raveleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",3]] * 100)];
+        NSLog(@"setting setting shuffle leaderboard");
+        [self setLeaderboard: @"shuffleleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",3]] * 100)];
     }
     // Do any additional setup after loading the view.
     [self showLeaderboardAndAchievements:YES];
