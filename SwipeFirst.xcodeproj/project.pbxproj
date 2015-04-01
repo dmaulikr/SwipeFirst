@@ -21,8 +21,10 @@
 		7F3A3FF51AC71DEA00F55D9F /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A3FF41AC71DEA00F55D9F /* GameKitHelper.m */; };
 		7F3A40011AC7356B00F55D9F /* GameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */; };
 		7F4D0AEB1AC708A20041768B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4D0AEA1AC708A20041768B /* GameKit.framework */; };
+		7FA988321ACC58A5006C4C5F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA988311ACC58A5006C4C5F /* SettingViewController.m */; };
 		7FAC0E781AC1C8D200126858 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAC0E771AC1C8D200126858 /* AVFoundation.framework */; };
 		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
+		7FB23E6D1ACC6D11009C3AF6 /* UnlockablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB23E6C1ACC6D11009C3AF6 /* UnlockablesViewController.m */; };
 		7FD4AC2F1AC6FED80042F5EF /* HighscoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */; };
 		EF07723D1AC334A900A683D6 /* cardFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723B1AC334A900A683D6 /* cardFlip.mp3 */; };
 		EF07723E1AC334A900A683D6 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723C1AC334A900A683D6 /* shuffle.mp3 */; };
@@ -65,8 +67,12 @@
 		7F3A3FFF1AC7356A00F55D9F /* GameCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterViewController.h; sourceTree = "<group>"; };
 		7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterViewController.m; sourceTree = "<group>"; };
 		7F4D0AEA1AC708A20041768B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		7FA988301ACC58A4006C4C5F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		7FA988311ACC58A5006C4C5F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7FAC0E771AC1C8D200126858 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardMove.mp3; sourceTree = "<group>"; };
+		7FB23E6B1ACC6D11009C3AF6 /* UnlockablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnlockablesViewController.h; sourceTree = "<group>"; };
+		7FB23E6C1ACC6D11009C3AF6 /* UnlockablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnlockablesViewController.m; sourceTree = "<group>"; };
 		7FD4AC2D1AC6FED70042F5EF /* HighscoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreViewController.h; sourceTree = "<group>"; };
 		7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreViewController.m; sourceTree = "<group>"; };
 		EF07723B1AC334A900A683D6 /* cardFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFlip.mp3; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 		3FD06AD11AB1C9E40002FFBB /* SwipeFirst */ = {
 			isa = PBXGroup;
 			children = (
+				7FA988331ACC58C0006C4C5F /* ViewControllers */,
 				7F3A3FF21AC71CF600F55D9F /* Game Kit */,
 				3F5EC0A21AB1CDFD00EEE703 /* Deck.h */,
 				3F5EC0A01AB1CDEE00EEE703 /* Deck.m */,
@@ -129,10 +136,6 @@
 				3FD06ADC1AB1C9E40002FFBB /* GameScene.sks */,
 				3FD06ADE1AB1C9E40002FFBB /* GameViewController.h */,
 				3FD06ADF1AB1C9E40002FFBB /* GameViewController.m */,
-				7FD4AC2D1AC6FED70042F5EF /* HighscoreViewController.h */,
-				7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */,
-				7F3A3FFF1AC7356A00F55D9F /* GameCenterViewController.h */,
-				7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */,
 				3FD06AE11AB1C9E40002FFBB /* Main.storyboard */,
 				3FD06AE41AB1C9E40002FFBB /* Images.xcassets */,
 				3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */,
@@ -178,6 +181,21 @@
 				7F3A3FF41AC71DEA00F55D9F /* GameKitHelper.m */,
 			);
 			name = "Game Kit";
+			sourceTree = "<group>";
+		};
+		7FA988331ACC58C0006C4C5F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7FA988301ACC58A4006C4C5F /* SettingViewController.h */,
+				7FA988311ACC58A5006C4C5F /* SettingViewController.m */,
+				7FD4AC2D1AC6FED70042F5EF /* HighscoreViewController.h */,
+				7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */,
+				7F3A3FFF1AC7356A00F55D9F /* GameCenterViewController.h */,
+				7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */,
+				7FB23E6B1ACC6D11009C3AF6 /* UnlockablesViewController.h */,
+				7FB23E6C1ACC6D11009C3AF6 /* UnlockablesViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,8 +316,10 @@
 				7F3A3FF51AC71DEA00F55D9F /* GameKitHelper.m in Sources */,
 				7F3A40011AC7356B00F55D9F /* GameCenterViewController.m in Sources */,
 				3F5EC0A11AB1CDEE00EEE703 /* Deck.m in Sources */,
+				7FB23E6D1ACC6D11009C3AF6 /* UnlockablesViewController.m in Sources */,
 				7FD4AC2F1AC6FED80042F5EF /* HighscoreViewController.m in Sources */,
 				3FD06AD51AB1C9E40002FFBB /* main.m in Sources */,
+				7FA988321ACC58A5006C4C5F /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

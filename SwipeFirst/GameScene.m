@@ -15,6 +15,7 @@ TODO LIST:
  - Set the text of the shuffle button
  - Error: If you swipe a card while the animation is running everything gets flipped
  - Fix transition to new game on shuffle mode (it resets to whatever the last category was)
+ - Code Different Decks
  
 **/
 
@@ -302,6 +303,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     isEnd = true;
     if(isShuffleMode == true){
         gameMode = 3;
+        [self updateLabels];
     }
     isShuffleMode = false;
     [self setAchievement: @"startthegame" toDoubleValue:100];
@@ -380,14 +382,6 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) moveToNewGame{
-    //This is just for testing purposes
-    [GKAchievement resetAchievementsWithCompletionHandler:^(NSError *error)
-    {
-        if (error != nil)
-            NSLog(@"Could not reset achievements due to %@", error);
-    }];
-    //DELETE EVERYTHING ABOVE
-    
     [(GameViewController*) controller showButtons];
     self.backgroundColor = [UIColor darkGrayColor];
     deck = [[Deck alloc] init];
@@ -430,7 +424,6 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
-    NSLog(@"Setting Achievement");
     GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
     [achieve setShowsCompletionBanner:true];
     achieve.percentComplete = val;
