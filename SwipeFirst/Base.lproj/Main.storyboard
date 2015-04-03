@@ -431,7 +431,7 @@
     <resources>
         <image name="1CK" width="500" height="726"/>
         <image name="1CardBack" width="729" height="1024"/>
-        <image name="2CardBack" width="3000" height="4200"/>
+        <image name="2CardBack" width="500" height="700"/>
         <image name="cardfront" width="372" height="558"/>
     </resources>
     <inferredMetricsTieBreakers>

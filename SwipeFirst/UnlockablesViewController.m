@@ -24,32 +24,45 @@ int selectedDeck;
         [self updateImages];
     }
     
-    //This can be simplified into one method if I wasn't so lazy
-    GKAchievement *unlocked2 = [[GKAchievement alloc] initWithIdentifier: @"deck2unlocked"];
-    //if([unlocked2 isCompleted] == true){
-    //    [self.deck2 setEnabled:true];
-    //}else{
-    //    [self.deck2 setEnabled:false];
-    //}
-    GKAchievement *unlocked3 = [[GKAchievement alloc] initWithIdentifier: @"deck3unlocked"];
-    if([unlocked3 isCompleted] == true){
-        [self.deck3 setEnabled:true];
-    }else{
-        [self.deck3 setEnabled:false];
-
-    }
-    GKAchievement *unlocked4 = [[GKAchievement alloc] initWithIdentifier: @"deck4unlocked"];
-    if([unlocked4 isCompleted] == true){
-        [self.deck4 setEnabled:true];
-    }else{
-        [self.deck4 setEnabled:false];
-    }
-    GKAchievement *unlocked5 = [[GKAchievement alloc] initWithIdentifier: @"deck5unlocked"];
-    if([unlocked5 isCompleted] == true){
-        [self.deck5 setEnabled:true];
-    }else{
-        [self.deck5 setEnabled:false];
-    }
+    [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error)
+    {
+        if(error != NULL) { /* error handling */ }
+        for (GKAchievement* achievement in scores) {
+            if([achievement.identifier  isEqual: @"deck2unlocked"]){
+                NSLog(@"%d", [achievement isCompleted]);
+                if([achievement isCompleted] == true){
+                    [self.deck2 setEnabled:true];
+                }else{
+                    [self.deck2 setEnabled:false];
+                }
+            }
+            if([achievement.identifier  isEqual: @"deck3unlocked"]){
+                NSLog(@"%d", [achievement isCompleted]);
+                if([achievement isCompleted] == true){
+                    [self.deck3 setEnabled:true];
+                }else{
+                    [self.deck3 setEnabled:false];
+                }
+            }
+            if([achievement.identifier  isEqual: @"deck4unlocked"]){
+                NSLog(@"%d", [achievement isCompleted]);
+                if([achievement isCompleted] == true){
+                    [self.deck4 setEnabled:true];
+                }else{
+                    [self.deck4 setEnabled:false];
+                }
+            }
+            if([achievement.identifier  isEqual: @"deck5unlocked"]){
+                NSLog(@"%d", [achievement isCompleted]);
+                if([achievement isCompleted] == true){
+                    [self.deck5 setEnabled:true];
+                }else{
+                    [self.deck5 setEnabled:false];
+                }
+            }
+        }
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

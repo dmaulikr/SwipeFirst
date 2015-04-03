@@ -11,6 +11,9 @@
 
 @implementation PlayingCard
 
+int CARD_WIDTH = 1000 * 3/4;
+int CARD_HEIGHT = 1400 * 3/4;
+
 -(id) initWithName: (NSString*) me{
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -22,6 +25,9 @@
     
     self = [super initWithImageNamed: [NSString stringWithFormat:@"%dCardBack", self.selectedDeck]];
     //self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
+    
+    CGSize size = CGSizeMake(CARD_WIDTH, CARD_HEIGHT);
+    self.size = size;
     self.name = [NSString stringWithFormat:@"%d%@", self.selectedDeck, me];
     [self setFrontFacing: false];
     self.isMatched = false;

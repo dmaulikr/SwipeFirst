@@ -137,6 +137,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
+    [self setAchievement: @"deck2unlocked" toDoubleValue:100];
     //NSLog(@"Swipe Left");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
