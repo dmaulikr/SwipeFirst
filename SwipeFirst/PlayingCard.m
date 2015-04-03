@@ -12,9 +12,17 @@
 @implementation PlayingCard
 
 -(id) initWithName: (NSString*) me{
-    self = [super initWithImageNamed: @"CardBack"];
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if([prefs integerForKey: @"selectedDeck"] != 0){
+        self.selectedDeck = (int)[prefs integerForKey: @"selectedDeck"];
+    }else{
+        self.selectedDeck = 1;
+    }
+    
+    self = [super initWithImageNamed: [NSString stringWithFormat:@"%dCardBack", self.selectedDeck]];
     //self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
-    self.name = me;
+    self.name = [NSString stringWithFormat:@"%d%@", self.selectedDeck, me];
     [self setFrontFacing: false];
     self.isMatched = false;
     return self;
@@ -24,13 +32,13 @@
     if(self.isFrontFancing){
         self.texture = [SKTexture textureWithImageNamed:self.name];
     } else {
-        self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
+        self.texture = [SKTexture textureWithImageNamed: [NSString stringWithFormat:@"%dCardBack", self.selectedDeck]];
     }
 }
 
 -(void) flip{
     if (self.isFrontFancing == YES) {
-        self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
+        self.texture = [SKTexture textureWithImageNamed: [NSString stringWithFormat:@"%dCardBack", self.selectedDeck]];
         [self setFrontFacing:NO];
     } else {
         NSLog(@"name: %@", self.name);
@@ -40,10 +48,11 @@
 }
 
 -(BOOL) isEven{ //This doesn't work for face cards
-    int number = [[self.name substringFromIndex:1] intValue];
+    NSString *name = [self.name substringFromIndex:1];
+    int number = [[name substringFromIndex:1] intValue];
     if(number % 2 == 1)
         return false;
-    NSString *cardName = [self.name substringFromIndex:1];
+    NSString *cardName = [name substringFromIndex:1];
     if(self.isFace){
         if([cardName isEqual: @"Q"]){
             return true;
@@ -54,14 +63,16 @@
 }
 
 -(BOOL) isRed{
-    NSString *suit = [self.name substringToIndex:1];
+    NSString *name = [self.name substringFromIndex:1];
+    NSString *suit = [name substringToIndex:1];
     if([suit isEqualToString:@"H"] || [suit isEqualToString:@"D"])
         return true;
     return false;
 }
 
 -(BOOL) isFace{
-    int number = [[self.name substringFromIndex:1] intValue];
+    NSString *name = [self.name substringFromIndex:1];
+    int number = [[name substringFromIndex:1] intValue];
     if(number >= 2 && number <= 10)
             return false;
     return true;

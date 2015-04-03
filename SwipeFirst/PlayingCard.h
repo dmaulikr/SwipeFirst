@@ -21,6 +21,7 @@
 @property NSString* name;
 @property (setter=setFrontFacing:) bool isFrontFancing;
 @property bool isMatched;
+@property int selectedDeck;
 
 
 @end

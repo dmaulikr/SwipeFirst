@@ -16,6 +16,7 @@ TODO LIST:
  - Error: If you swipe a card while the animation is running everything gets flipped
  - Fix transition to new game on shuffle mode (it resets to whatever the last category was)
  - Code Different Decks
+ - Error: change the category move to a new view controller then come back. Labels update to the same categories.
  
 **/
 
@@ -195,7 +196,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         startTime = [NSDate timeIntervalSinceReferenceDate];
         PlayingCard *overlayCard;
         CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        overlayCard = [[PlayingCard  alloc] initWithName: card.name];
+        overlayCard = [[PlayingCard  alloc] initWithName: [card.name substringFromIndex:1]];
         overlayCard.xScale = 0.38;
         overlayCard.yScale = 0.38;
         overlayCard.position = location;
@@ -218,7 +219,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         if([self checkValidCardSwipe: (dir == 0)? @"up" : @"down"]){
             PlayingCard *overlayCard;
             CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-            overlayCard = [[PlayingCard  alloc] initWithName: card.name];
+            overlayCard = [[PlayingCard  alloc] initWithName: [card.name substringFromIndex:1]];
             overlayCard.xScale = 0.38;
             overlayCard.yScale = 0.38;
             overlayCard.position = location;

@@ -26,11 +26,11 @@ int selectedDeck;
     
     //This can be simplified into one method if I wasn't so lazy
     GKAchievement *unlocked2 = [[GKAchievement alloc] initWithIdentifier: @"deck2unlocked"];
-    if([unlocked2 isCompleted] == true){
-        [self.deck2 setEnabled:true];
-    }else{
-        [self.deck2 setEnabled:false];
-    }
+    //if([unlocked2 isCompleted] == true){
+    //    [self.deck2 setEnabled:true];
+    //}else{
+    //    [self.deck2 setEnabled:false];
+    //}
     GKAchievement *unlocked3 = [[GKAchievement alloc] initWithIdentifier: @"deck3unlocked"];
     if([unlocked3 isCompleted] == true){
         [self.deck3 setEnabled:true];
@@ -87,26 +87,26 @@ int selectedDeck;
 }
 
 -(void) updateImages{
-    [self.deck1 setBackgroundImage:[UIImage imageNamed: @"CardBack.png"] forState: UIControlStateNormal];
-    [self.deck2 setBackgroundImage:[UIImage imageNamed: @"CardBack.png"] forState: UIControlStateNormal];
-    [self.deck3 setBackgroundImage:[UIImage imageNamed: @"CardBack.png"] forState: UIControlStateNormal];
-    [self.deck4 setBackgroundImage:[UIImage imageNamed: @"CardBack.png"] forState: UIControlStateNormal];
-    [self.deck5 setBackgroundImage:[UIImage imageNamed: @"CardBack.png"] forState: UIControlStateNormal];
+    [self.deck1 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
+    [self.deck2 setBackgroundImage:[UIImage imageNamed: @"2CardBack.png"] forState: UIControlStateNormal];
+    [self.deck3 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
+    [self.deck4 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
+    [self.deck5 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
     switch (selectedDeck) {
         case 1:
-            [self.deck1 setBackgroundImage:[UIImage imageNamed: @"CK.png"] forState: UIControlStateNormal];
+            [self.deck1 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
             break;
         case 2:
-            [self.deck2 setBackgroundImage:[UIImage imageNamed: @"CK.png"] forState: UIControlStateNormal];
+            [self.deck2 setBackgroundImage:[UIImage imageNamed: @"2CK.png"] forState: UIControlStateNormal];
             break;
         case 3:
-            [self.deck3 setBackgroundImage:[UIImage imageNamed: @"CK.png"] forState: UIControlStateNormal];
+            [self.deck3 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
             break;
         case 4:
-            [self.deck4 setBackgroundImage:[UIImage imageNamed: @"CK.png"] forState: UIControlStateNormal];
+            [self.deck4 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
             break;
         case 5:
-            [self.deck5 setBackgroundImage:[UIImage imageNamed: @"CK.png"] forState: UIControlStateNormal];
+            [self.deck5 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
             break;
         default:
             break;
