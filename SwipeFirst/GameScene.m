@@ -42,7 +42,8 @@ SKLabelNode *score;
 SKLabelNode *scoreDouble;
 NSTimeInterval startTime;
 double penalty = 0;
-int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is rave
+int sortMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is shuffle
+int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
@@ -141,8 +142,12 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     //NSLog(@"Swipe Left");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
-        if(gameMode != 0){
-            gameMode--;
+        CGPoint loc = [sender locationOfTouch:0 inView: self.view];
+        CGPoint corner = topLabel.position;
+        NSLog(@"%f, %f", loc.x, loc.y);
+        NSLog(@"%f, %f", corner.x, corner.y);
+        if(sortMode != 0){
+            sortMode--;
         }
         [self updateLabels];
     }else{
@@ -154,8 +159,8 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     //NSLog(@"Swipe Right");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
-        if(gameMode != 3){
-            gameMode++;
+        if(sortMode != 3){
+            sortMode++;
         }
         [self updateLabels];
     }else{
@@ -165,8 +170,8 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 
 -(void) updateLabels{
     //THIS IS CALLED EVERYTIME THE GAME SWITCHES
-    NSLog(@"%d", gameMode);
-    switch (gameMode) {
+    NSLog(@"%d", sortMode);
+    switch (sortMode) {
         case 0:
             topSort.text = @"Even";
             bottomSort.text = @"Odd";
@@ -209,11 +214,11 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         SKAction *moveNodeUp = [SKAction moveByX:0.0 y:(self.frame.size.height * ((dir == 0)? 1 : -1)) duration:.3];
         [overlayCard runAction: moveNodeUp];
         [self playSoundWithFileName:@"cardFlip.mp3"];
-        if(gameMode == 3){
+        if(sortMode == 3){
             isShuffleMode = true;
         }
         if(isShuffleMode){
-            gameMode = 0;
+            sortMode = 0;
             [self updateLabels];
         }
     }else if(isPlaying == true && isEnd == false){
@@ -241,7 +246,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
                 [self endGame];
             }
             if(isShuffleMode){
-                gameMode = (gameMode+1)%3;
+                sortMode = (sortMode+1)%3;
                 [self updateLabels];
             }
         }else{
@@ -304,7 +309,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     isPlaying = false;
     isEnd = true;
     if(isShuffleMode == true){
-        gameMode = 3;
+        sortMode = 3;
         [self updateLabels];
     }
     isShuffleMode = false;
@@ -312,15 +317,15 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSTimeInterval currentScore = ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty;
     NSLog(@"Current Score at the end of the game is: %f", currentScore);
-    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",gameMode]] != 0){
-        double currentHS = [prefs doubleForKey: [NSString stringWithFormat:@"HS%d",gameMode]];
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",sortMode]] != 0){
+        double currentHS = [prefs doubleForKey: [NSString stringWithFormat:@"HS%d",sortMode]];
         NSLog(@"Current HS at the end of the game is: %f", currentHS);
         if(currentScore < currentHS){
             //New Highscore
             NSLog(@"Setting the new highscore");
             self.backgroundColor = [UIColor greenColor]; //This color is absolutely disgusting
             highscore.text = @"Previous Highscore";
-            [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",gameMode]];
+            [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",sortMode]];
         }else{
             NSLog(@"Did not set a new highscore");
             highscore.text = @"Current Highscore";
@@ -332,7 +337,7 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
         NSLog(@"No current highscore");
         highscore.text = @"New Highscore";
         highscoreDouble.text = @"";
-        [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",gameMode]];
+        [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",sortMode]];
     }
 }
 
@@ -344,8 +349,8 @@ int gameMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 }
 
 -(BOOL) checkValidCardSwipe: (NSString*) direction{
-    NSLog(@"%d", gameMode);
-    switch (gameMode) {
+    NSLog(@"%d", sortMode);
+    switch (sortMode) {
         case 0:
             //Even
             if([direction isEqualToString:@"up"]){
