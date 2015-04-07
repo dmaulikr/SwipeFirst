@@ -143,10 +143,12 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
         CGPoint loc = [sender locationOfTouch:0 inView: self.view];
-        CGPoint corner = topLabel.position;
         NSLog(@"%f, %f", loc.x, loc.y);
-        NSLog(@"%f, %f", corner.x, corner.y);
-        if(sortMode != 0){
+        CGRect rect = topLabel.frame;
+        NSLog(@"%f, %f", rect.origin.x, rect.origin.y);
+        if(CGRectContainsPoint(topLabel.frame, loc)){ //This isn't correct, the points aren't lining up right
+            NSLog(@"Swipe left on label");
+        } else if(sortMode != 0){
             sortMode--;
         }
         [self updateLabels];
@@ -159,7 +161,10 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
     //NSLog(@"Swipe Right");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
-        if(sortMode != 3){
+        CGPoint loc = [sender locationOfTouch:0 inView: self.view];
+        if (CGRectContainsPoint(topLabel.frame, loc)) {
+            NSLog(@"Swipe right on label");
+        } else if(sortMode != 3){
             sortMode++;
         }
         [self updateLabels];
