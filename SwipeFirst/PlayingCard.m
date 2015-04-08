@@ -31,6 +31,10 @@ int CARD_HEIGHT = 1400 * 3/4;
     self.name = [NSString stringWithFormat:@"%d%@", self.selectedDeck, me];
     [self setFrontFacing: false];
     self.isMatched = false;
+    
+    //This should zoom the card images without the blur
+    //[self.texture setAliasTexParameters];
+    
     return self;
 }
 
