@@ -33,7 +33,7 @@ int CARD_HEIGHT = 1400 * 3/4;
     self.isMatched = false;
     
     //This should zoom the card images without the blur
-    //[self.texture setAliasTexParameters];
+    self.texture.filteringMode = SKTextureFilteringNearest;
     
     return self;
 }
@@ -52,6 +52,7 @@ int CARD_HEIGHT = 1400 * 3/4;
         [self setFrontFacing:NO];
     } else {
         NSLog(@"name: %@", self.name);
+        self.texture.filteringMode = SKTextureFilteringNearest;
         self.texture = [SKTexture textureWithImageNamed: self.name];
         [self setFrontFacing:YES];
     }
