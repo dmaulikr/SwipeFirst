@@ -54,6 +54,7 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
     deck = [[Deck alloc] init];
     CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     card = [[PlayingCard  alloc] initWithName: @"NAME"];
+    [card setPixelTexture];
     card.xScale = 0.4;
     card.yScale = 0.4;
     card.position = location;
@@ -229,6 +230,7 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
     }else if(isPlaying == true && isEnd == false){
         if([self checkValidCardSwipe: (dir == 0)? @"up" : @"down"]){
             PlayingCard *overlayCard;
+            [overlayCard setPixelTexture];
             CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
             overlayCard = [[PlayingCard  alloc] initWithName: [card.name substringFromIndex:1]];
             overlayCard.xScale = 0.38;

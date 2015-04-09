@@ -38,6 +38,10 @@ int CARD_HEIGHT = 1400 * 3/4;
     return self;
 }
 
+-(void) setPixelTexture{
+    self.texture.filteringMode = SKTextureFilteringNearest;
+}
+
 -(void) update{
     if(self.isFrontFancing){
         self.texture = [SKTexture textureWithImageNamed:self.name];

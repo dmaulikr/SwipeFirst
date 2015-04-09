@@ -12,6 +12,7 @@
 @interface PlayingCard : SKSpriteNode
 
 -(id) initWithName: (NSString*) me;
+-(void) setPixelTexture;
 -(void) flip;
 -(void) update;
 -(BOOL) isEven;

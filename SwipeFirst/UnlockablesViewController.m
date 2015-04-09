@@ -103,7 +103,7 @@ int selectedDeck;
     [self.deck1 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
     [self.deck2 setBackgroundImage:[UIImage imageNamed: @"2CardBack.png"] forState: UIControlStateNormal];
     [self.deck3 setBackgroundImage:[UIImage imageNamed: @"3CardBack.png"] forState: UIControlStateNormal];
-    [self.deck4 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
+    [self.deck4 setBackgroundImage:[UIImage imageNamed: @"4CardBack.png"] forState: UIControlStateNormal];
     [self.deck5 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
     switch (selectedDeck) {
         case 1:
@@ -116,7 +116,7 @@ int selectedDeck;
             [self.deck3 setBackgroundImage:[UIImage imageNamed: @"3CK.png"] forState: UIControlStateNormal];
             break;
         case 4:
-            [self.deck4 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
+            [self.deck4 setBackgroundImage:[UIImage imageNamed: @"4CK.png"] forState: UIControlStateNormal];
             break;
         case 5:
             [self.deck5 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
