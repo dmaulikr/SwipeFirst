@@ -9,13 +9,11 @@
 /**
 TODO LIST:
  - "Swipe to begin"
- - Tie GameCenter to local data
- - GameCenter Achievements
+ - Add Images
+ - Different GameModes
  - Finish all Sounds
- - Set the text of the shuffle button
  - Error: If you swipe a card while the animation is running everything gets flipped
- - Fix transition to new game on shuffle mode (it resets to whatever the last category was)
- - Code Different Decks
+ - Add the last Deck
  - Error: change the category move to a new view controller then come back. Labels update to the same categories.
  
 **/

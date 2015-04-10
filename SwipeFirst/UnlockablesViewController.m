@@ -18,46 +18,45 @@ int selectedDeck;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.deck5 setEnabled:false];
+    [self.deck4 setEnabled:false];
+    [self.deck3 setEnabled:false];
+    [self.deck2 setEnabled:false];
+    
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     if([prefs integerForKey: @"selectedDeck"] != 0){
         selectedDeck = (int)[prefs integerForKey:@"selectedDeck"];
         [self updateImages];
     }
     
+    //This process is really really slow. Like noticable delay on screen
+    //Also the deck wont be unlocked if there isn't wifi. We should probably store this data locally
     [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error)
     {
         if(error != NULL) { /* error handling */ }
         for (GKAchievement* achievement in scores) {
             if([achievement.identifier  isEqual: @"deck2unlocked"]){
-                NSLog(@"%d", [achievement isCompleted]);
+                NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck2 setEnabled:true];
-                }else{
-                    [self.deck2 setEnabled:false];
                 }
             }
             if([achievement.identifier  isEqual: @"deck3unlocked"]){
-                NSLog(@"%d", [achievement isCompleted]);
+                NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck3 setEnabled:true];
-                }else{
-                    [self.deck3 setEnabled:false];
                 }
             }
             if([achievement.identifier  isEqual: @"deck4unlocked"]){
-                NSLog(@"%d", [achievement isCompleted]);
+                NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck4 setEnabled:true];
-                }else{
-                    [self.deck4 setEnabled:false];
                 }
             }
             if([achievement.identifier  isEqual: @"deck5unlocked"]){
-                NSLog(@"%d", [achievement isCompleted]);
+                NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck5 setEnabled:true];
-                }else{
-                    [self.deck5 setEnabled:false];
                 }
             }
         }
