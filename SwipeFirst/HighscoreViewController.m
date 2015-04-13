@@ -18,25 +18,70 @@
     [super viewDidLoad];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    double HS1 = [prefs doubleForKey: [NSString stringWithFormat:@"HS0"]];
-    int minutes = (int)(HS1 / 60.0);
-    double seconds = (double)((int)((HS1 - (minutes * 60)) * 10000)) / 10000;
+    double HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS00"]];
+    int minutes = (int)(HS / 60.0);
+    double seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
     self.highscore1.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
         
-    double HS2 = [prefs doubleForKey: [NSString stringWithFormat:@"HS1"]];
-    minutes = (int)(HS2 / 60.0);
-    seconds = (double)((int)((HS2 - (minutes * 60)) * 10000)) / 10000;
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS10"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
     self.highscore2.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
     
-    double HS3 = [prefs doubleForKey: [NSString stringWithFormat:@"HS2"]];
-    minutes = (int)(HS3 / 60.0);
-    seconds = (double)((int)((HS3 - (minutes * 60)) * 10000)) / 10000;
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS20"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
     self.highscore3.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
     
-    double HS4 = [prefs doubleForKey: [NSString stringWithFormat:@"HS3"]];
-    minutes = (int)(HS4 / 60.0);
-    seconds = (double)((int)((HS4 - (minutes * 60)) * 10000)) / 10000;
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS30"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
     self.highscore4.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    
+    
+    
+    
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS01"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
+    self.highscore5.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS11"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
+    self.highscore6.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS21"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
+    self.highscore7.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS31"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
+    self.highscore8.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    
+    
+    
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS02"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
+    self.highscore9.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS12"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
+    self.highscore10.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS22"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
+    self.highscore11.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    
+    HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS32"]];
+    minutes = (int)(HS / 60.0);
+    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
+    self.highscore12.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
 }
 
 - (void)didReceiveMemoryWarning {

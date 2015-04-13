@@ -15,4 +15,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *highscore3;
 @property (weak, nonatomic) IBOutlet UILabel *highscore4;
 
+@property (weak, nonatomic) IBOutlet UILabel *highscore5;
+@property (weak, nonatomic) IBOutlet UILabel *highscore6;
+@property (weak, nonatomic) IBOutlet UILabel *highscore7;
+@property (weak, nonatomic) IBOutlet UILabel *highscore8;
+
+@property (weak, nonatomic) IBOutlet UILabel *highscore9;
+@property (weak, nonatomic) IBOutlet UILabel *highscore10;
+@property (weak, nonatomic) IBOutlet UILabel *highscore11;
+@property (weak, nonatomic) IBOutlet UILabel *highscore12;
+
 @end
