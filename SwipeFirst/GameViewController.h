@@ -22,5 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *button4;
 @property (weak, nonatomic) IBOutlet UIButton *button5;
 
+@property bool *isAudioOn;
+
 
 @end

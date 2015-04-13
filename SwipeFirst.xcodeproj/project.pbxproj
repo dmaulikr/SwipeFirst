@@ -18,8 +18,6 @@
 		3FD06AE51AB1C9E40002FFBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06AE41AB1C9E40002FFBB /* Images.xcassets */; };
 		3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */; };
 		3FD06AF41AB1C9E40002FFBB /* SwipeFirstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */; };
-		7F2C00B81ADB17B40037C8A5 /* Highscore.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C00B61ADB17B40037C8A5 /* Highscore.png */; };
-		7F2C00B91ADB17B40037C8A5 /* Highscore2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2C00B71ADB17B40037C8A5 /* Highscore2.png */; };
 		7F3A3FF51AC71DEA00F55D9F /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A3FF41AC71DEA00F55D9F /* GameKitHelper.m */; };
 		7F3A40011AC7356B00F55D9F /* GameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */; };
 		7F4D0AEB1AC708A20041768B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4D0AEA1AC708A20041768B /* GameKit.framework */; };
@@ -28,6 +26,11 @@
 		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
 		7FB23E6D1ACC6D11009C3AF6 /* UnlockablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB23E6C1ACC6D11009C3AF6 /* UnlockablesViewController.m */; };
 		7FD4AC2F1AC6FED80042F5EF /* HighscoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */; };
+		7FE1A9DC1ADC53E8006975B8 /* Unlockables.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE1A9D71ADC53E8006975B8 /* Unlockables.png */; };
+		7FE1A9DD1ADC53E8006975B8 /* Highscore.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE1A9D81ADC53E8006975B8 /* Highscore.png */; };
+		7FE1A9DE1ADC53E8006975B8 /* AudioOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE1A9D91ADC53E8006975B8 /* AudioOn.png */; };
+		7FE1A9DF1ADC53E8006975B8 /* AudioOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE1A9DA1ADC53E8006975B8 /* AudioOff.png */; };
+		7FE1A9E01ADC53E8006975B8 /* AdditionalInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE1A9DB1ADC53E8006975B8 /* AdditionalInfo.png */; };
 		EF07723D1AC334A900A683D6 /* cardFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723B1AC334A900A683D6 /* cardFlip.mp3 */; };
 		EF07723E1AC334A900A683D6 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723C1AC334A900A683D6 /* shuffle.mp3 */; };
 		EF6165541AC337DE00C5FDC2 /* wrongCard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */; };
@@ -64,8 +67,6 @@
 		3FD06AED1AB1C9E40002FFBB /* SwipeFirstTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeFirstTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD06AF21AB1C9E40002FFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD06AF31AB1C9E40002FFBB /* SwipeFirstTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeFirstTests.m; sourceTree = "<group>"; };
-		7F2C00B61ADB17B40037C8A5 /* Highscore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Highscore.png; sourceTree = "<group>"; };
-		7F2C00B71ADB17B40037C8A5 /* Highscore2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Highscore2.png; sourceTree = "<group>"; };
 		7F3A3FF31AC71DEA00F55D9F /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		7F3A3FF41AC71DEA00F55D9F /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		7F3A3FFF1AC7356A00F55D9F /* GameCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterViewController.h; sourceTree = "<group>"; };
@@ -79,6 +80,11 @@
 		7FB23E6C1ACC6D11009C3AF6 /* UnlockablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnlockablesViewController.m; sourceTree = "<group>"; };
 		7FD4AC2D1AC6FED70042F5EF /* HighscoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreViewController.h; sourceTree = "<group>"; };
 		7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreViewController.m; sourceTree = "<group>"; };
+		7FE1A9D71ADC53E8006975B8 /* Unlockables.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unlockables.png; sourceTree = "<group>"; };
+		7FE1A9D81ADC53E8006975B8 /* Highscore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Highscore.png; sourceTree = "<group>"; };
+		7FE1A9D91ADC53E8006975B8 /* AudioOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AudioOn.png; sourceTree = "<group>"; };
+		7FE1A9DA1ADC53E8006975B8 /* AudioOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AudioOff.png; sourceTree = "<group>"; };
+		7FE1A9DB1ADC53E8006975B8 /* AdditionalInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdditionalInfo.png; sourceTree = "<group>"; };
 		EF07723B1AC334A900A683D6 /* cardFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFlip.mp3; sourceTree = "<group>"; };
 		EF07723C1AC334A900A683D6 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle.mp3; sourceTree = "<group>"; };
 		EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongCard.mp3; sourceTree = "<group>"; };
@@ -142,8 +148,6 @@
 				3FD06ADF1AB1C9E40002FFBB /* GameViewController.m */,
 				3FD06AE11AB1C9E40002FFBB /* Main.storyboard */,
 				3FD06AE41AB1C9E40002FFBB /* Images.xcassets */,
-				7F2C00B61ADB17B40037C8A5 /* Highscore.png */,
-				7F2C00B71ADB17B40037C8A5 /* Highscore2.png */,
 				3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */,
 				3FD06AD21AB1C9E40002FFBB /* Supporting Files */,
 			);
@@ -153,6 +157,11 @@
 		3FD06AD21AB1C9E40002FFBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7FE1A9D71ADC53E8006975B8 /* Unlockables.png */,
+				7FE1A9D81ADC53E8006975B8 /* Highscore.png */,
+				7FE1A9D91ADC53E8006975B8 /* AudioOn.png */,
+				7FE1A9DA1ADC53E8006975B8 /* AudioOff.png */,
+				7FE1A9DB1ADC53E8006975B8 /* AdditionalInfo.png */,
 				EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */,
 				EF07723B1AC334A900A683D6 /* cardFlip.mp3 */,
 				EF07723C1AC334A900A683D6 /* shuffle.mp3 */,
@@ -290,15 +299,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE1A9E01ADC53E8006975B8 /* AdditionalInfo.png in Resources */,
+				7FE1A9DF1ADC53E8006975B8 /* AudioOff.png in Resources */,
 				7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */,
 				3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */,
 				EF6165541AC337DE00C5FDC2 /* wrongCard.mp3 in Resources */,
-				7F2C00B91ADB17B40037C8A5 /* Highscore2.png in Resources */,
+				7FE1A9DC1ADC53E8006975B8 /* Unlockables.png in Resources */,
+				7FE1A9DD1ADC53E8006975B8 /* Highscore.png in Resources */,
 				3FD06AE51AB1C9E40002FFBB /* Images.xcassets in Resources */,
 				EF07723D1AC334A900A683D6 /* cardFlip.mp3 in Resources */,
+				7FE1A9DE1ADC53E8006975B8 /* AudioOn.png in Resources */,
 				EF07723E1AC334A900A683D6 /* shuffle.mp3 in Resources */,
 				3FD06ADD1AB1C9E40002FFBB /* GameScene.sks in Resources */,
-				7F2C00B81ADB17B40037C8A5 /* Highscore.png in Resources */,
 				3FD06AE31AB1C9E40002FFBB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

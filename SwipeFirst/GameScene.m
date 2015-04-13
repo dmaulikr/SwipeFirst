@@ -54,7 +54,7 @@ int totalSwipedCorrectly;
     }if([prefs integerForKey: [NSString stringWithFormat:@"totalSwipedCorrectly"]] != 0){
         totalSwipedCorrectly = [prefs doubleForKey: [NSString stringWithFormat:@"totalSwipedCorrectly"]];
     }
-    self.backgroundColor = [UIColor darkGrayColor];
+    self.backgroundColor = [UIColor lightGrayColor];
     isPlaying = false;
     [self addLabels];
     deck = [[Deck alloc] init];
@@ -367,7 +367,7 @@ int totalSwipedCorrectly;
     //ERROR: THIS ENDS FOR THE NEAREST PENALTY TWO IN QUICK SUCCESSION WILL END EARLY
     NSLog(@"RESET");
     //Called half a second after each penalty
-    self.backgroundColor = [UIColor darkGrayColor];
+    self.backgroundColor = [UIColor lightGrayColor];
 }
 
 -(BOOL) checkValidCardSwipe: (NSString*) direction{
@@ -412,7 +412,7 @@ int totalSwipedCorrectly;
 
 -(void) moveToNewGame{
     [(GameViewController*) controller showButtons];
-    self.backgroundColor = [UIColor darkGrayColor];
+    self.backgroundColor = [UIColor lightGrayColor];
     deck = [[Deck alloc] init];
     topLabel.text = @"Game Mode";
     bottomLabel.text = @" ";

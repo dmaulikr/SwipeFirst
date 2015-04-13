@@ -34,6 +34,7 @@
 {
     [super viewDidLoad];
     
+    self.isAudioOn = true;
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
