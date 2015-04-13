@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="width" constant="60" id="ixP-Rz-MLa"/>
                                     <constraint firstAttribute="height" constant="60" id="trb-zE-wMd"/>
                                 </constraints>
-                                <state key="normal" title="HS" backgroundImage="cardfront">
+                                <state key="normal" backgroundImage="Highscore.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -564,9 +564,10 @@
         <image name="1CK" width="500" height="726"/>
         <image name="1CardBack" width="729" height="1024"/>
         <image name="2CardBack" width="926" height="1306"/>
+        <image name="Highscore.png" width="2400" height="2400"/>
         <image name="cardfront" width="372" height="558"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mW9-9W-rg0"/>
+        <segue reference="p2s-34-acm"/>
     </inferredMetricsTieBreakers>
 </document>

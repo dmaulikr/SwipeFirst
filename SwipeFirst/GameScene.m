@@ -15,7 +15,6 @@ TODO LIST:
  - Error: If you swipe a card while the animation is running everything gets flipped
  - Add the last Deck
  - Error: change the category move to a new view controller then come back. Labels update to the same categories.
- 
 **/
 
 #import "GameScene.h"
@@ -31,8 +30,8 @@ bool isEnd;
 bool isShuffleMode = false;
 SKLabelNode *topLabel;
 SKLabelNode *bottomLabel;
-SKLabelNode *topSort;
-SKLabelNode *bottomSort;
+SKSpriteNode *topSort;
+SKSpriteNode *bottomSort;
 SKSpriteNode *shuffleButton;
 SKLabelNode *highscore;
 SKLabelNode *highscoreDouble;
@@ -81,16 +80,19 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
     bottomLabel.fontSize = 40;
     bottomLabel.position = CGPointMake(CGRectGetMidX(self.frame), 135);
     [self addChild:bottomLabel];
-    topSort = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
-    topSort.text = @"Red";
-    topSort.fontSize = 20;
-    topSort.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 25);
+    
+    
+    topSort = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"red.png"]];
+    topSort.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 30);
+    topSort.xScale = 0.23;//Guess and Check: Needs to be standardized for all screen sizes
+    topSort.yScale = 0.23;
     [self addChild:topSort];
-    bottomSort = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
-    bottomSort.text = @"Black";
-    bottomSort.fontSize = 20;
-    bottomSort.position = CGPointMake(CGRectGetMidX(self.frame), 15);
+    bottomSort = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"black.png"]];
+    bottomSort.position = CGPointMake(CGRectGetMidX(self.frame), 30);
+    bottomSort.xScale = 0.23;//Guess and Check: Needs to be standardized for all screen sizes
+    bottomSort.yScale = 0.23;
     [self addChild:bottomSort];
+    
     
     score = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
     score.text = @"Score: ";
@@ -177,20 +179,20 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
     NSLog(@"%d", sortMode);
     switch (sortMode) {
         case 0:
-            topSort.text = @"Even";
-            bottomSort.text = @"Odd";
+            [topSort setTexture: [SKTexture textureWithImageNamed:@"even.png"]];
+            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"odd.png"]];
             break;
         case 1:
-            topSort.text = @"Red";
-            bottomSort.text = @"Black";
+            [topSort setTexture: [SKTexture textureWithImageNamed:@"red.png"]];
+            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"black.png"]];
             break;
         case 2:
-            topSort.text = @"Face";
-            bottomSort.text = @"Number";
+            [topSort setTexture: [SKTexture textureWithImageNamed:@"face.png"]];
+            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"number.png"]];
             break;
         case 3:
-            topSort.text = @"Even/Red/Face";
-            bottomSort.text = @"Odd/Black/Number";
+            [topSort setTexture: [SKTexture textureWithImageNamed:@"shuffleTop.png"]];
+            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"shuffleBottom.png"]];
             break;
         default:
             break;
