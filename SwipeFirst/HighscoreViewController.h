@@ -25,4 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *highscore11;
 @property (weak, nonatomic) IBOutlet UILabel *highscore12;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *totalSwipedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *accuracyLabel;
+
 @end

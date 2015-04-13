@@ -344,7 +344,7 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
         NSLog(@"No current highscore");
         highscore.text = @"New Highscore";
         highscoreDouble.text = @"";
-        [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",sortMode]];
+        [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]];
     }
 }
 
