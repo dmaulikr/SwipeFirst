@@ -41,10 +41,19 @@ NSTimeInterval startTime;
 double penalty = 0;
 int sortMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is shuffle
 int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
+int totalCardsSwiped;
+int totalSwipedCorrectly;
+
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if([prefs doubleForKey: [NSString stringWithFormat:@"totalCardsSwiped"]] != 0){
+        totalCardsSwiped = [prefs doubleForKey: [NSString stringWithFormat:@"totalCardsSwiped"]];
+    }if([prefs integerForKey: [NSString stringWithFormat:@"totalSwipedCorrectly"]] != 0){
+        totalSwipedCorrectly = [prefs doubleForKey: [NSString stringWithFormat:@"totalSwipedCorrectly"]];
+    }
     self.backgroundColor = [UIColor darkGrayColor];
     isPlaying = false;
     [self addLabels];
@@ -200,6 +209,7 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
 }
 
 -(void) handleSwipe: (UISwipeGestureRecognizer *) sender direction: (int) dir {
+    
     NSLog(@"%f", [sender locationInView:self.view].x);
     if(isPlaying == false && isEnd == false){
         [card flip];
@@ -228,7 +238,9 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
             [self updateLabels];
         }
     }else if(isPlaying == true && isEnd == false){
+        totalCardsSwiped++;
         if([self checkValidCardSwipe: (dir == 0)? @"up" : @"down"]){
+            totalSwipedCorrectly++;
             PlayingCard *overlayCard;
             [overlayCard setPixelTexture];
             CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -324,15 +336,15 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSTimeInterval currentScore = ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty;
     NSLog(@"Current Score at the end of the game is: %f", currentScore);
-    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",sortMode]] != 0){
-        double currentHS = [prefs doubleForKey: [NSString stringWithFormat:@"HS%d",sortMode]];
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]] != 0){
+        double currentHS = [prefs doubleForKey: [NSString stringWithFormat:@"HS%d%d",sortMode,gameMode]];
         NSLog(@"Current HS at the end of the game is: %f", currentHS);
         if(currentScore < currentHS){
             //New Highscore
             NSLog(@"Setting the new highscore");
             self.backgroundColor = [UIColor greenColor]; //This color is absolutely disgusting
             highscore.text = @"Previous Highscore";
-            [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d",sortMode]];
+            [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]];
         }else{
             NSLog(@"Did not set a new highscore");
             highscore.text = @"Current Highscore";
@@ -346,6 +358,9 @@ int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
         highscoreDouble.text = @"";
         [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]];
     }
+    
+    [prefs setInteger: totalCardsSwiped forKey: @"totalCardsSwiped"];
+    [prefs setInteger: totalSwipedCorrectly forKey: @"totalSwipedCorrectly"];
 }
 
 -(void) resetAfterPenalty{
