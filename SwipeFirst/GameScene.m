@@ -43,12 +43,13 @@ int sortMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
 int totalCardsSwiped;
 int totalSwipedCorrectly;
+NSUserDefaults *prefs;
 
 
 -(void)didMoveToView:(SKView *)view {
+    prefs = [NSUserDefaults standardUserDefaults];
     /* Setup your scene here */
     
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     if([prefs doubleForKey: [NSString stringWithFormat:@"totalCardsSwiped"]] != 0){
         totalCardsSwiped = [prefs doubleForKey: [NSString stringWithFormat:@"totalCardsSwiped"]];
     }if([prefs integerForKey: [NSString stringWithFormat:@"totalSwipedCorrectly"]] != 0){
@@ -333,7 +334,6 @@ int totalSwipedCorrectly;
     }
     isShuffleMode = false;
     [self setAchievement: @"startthegame" toDoubleValue:100];
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSTimeInterval currentScore = ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty;
     NSLog(@"Current Score at the end of the game is: %f", currentScore);
     if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]] != 0){
@@ -442,14 +442,16 @@ int totalSwipedCorrectly;
 }
 
 -(void) playSoundWithFileName: (NSString*) audioName{
-    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], audioName]];
-    NSError *error;
-    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    audioPlayer.numberOfLoops = 0;
-    //if (audioPlayer == nil)
-    //    NSLog(@"%@",[error description]);
-    //else
-    [audioPlayer play];
+    if([prefs integerForKey: @"audioOn"] == 2){
+        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], audioName]];
+        NSError *error;
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        audioPlayer.numberOfLoops = 0;
+        //if (audioPlayer == nil)
+        //    NSLog(@"%@",[error description]);
+        //else
+        [audioPlayer play];
+    }
 }
 
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{

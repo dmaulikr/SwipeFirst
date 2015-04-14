@@ -34,7 +34,20 @@
 {
     [super viewDidLoad];
     
-    self.isAudioOn = true;
+    //For the standard default "2 is on | 1 is off | 0 means it hasnt been set
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if([prefs integerForKey:@"audioOn"] != 0){
+        //There is already a set boolean value
+        if([prefs integerForKey:@"audioOn"] == 2){
+            [self.button5 setBackgroundImage:[UIImage imageNamed: @"AudioOn.png"] forState:UIControlStateNormal];
+        }else{
+            [self.button5 setBackgroundImage:[UIImage imageNamed: @"AudioOff.png"] forState:UIControlStateNormal];
+        }
+    }else{
+        [prefs setInteger: 2 forKey: @"audioOn"];
+        [self.button5 setBackgroundImage:[UIImage imageNamed: @"AudioOn.png"] forState:UIControlStateNormal];
+    }
+    
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
@@ -76,10 +89,12 @@
 }
 
 - (IBAction)sendCommandToScene:(id)sender {
+    /*
     UIButton *button = (UIButton *)sender;
     NSString *buttonTitle = button.currentTitle;
     SKView *skView = (SKView *)self.view;
     SKScene *scene = skView.scene;
+     */
     //CALL SOME METHOD HERE PASSING ALONG THE NAME OF THE COMMAND TO THE SCENE
     //[scene sendCommand: buttonTitle]; or something equivalent
     
@@ -104,6 +119,18 @@
         NSLog(@"setting setting shuffle leaderboard");
         [self setLeaderboard: @"shuffleleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",3]] * 100)];
     }
+}
+- (IBAction)audioButtonPressed:(id)sender {
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if([prefs integerForKey:@"audioOn"] == 2){
+        [sender setBackgroundImage:[UIImage imageNamed: @"AudioOff.png"] forState:UIControlStateNormal];
+        [prefs setInteger: 1 forKey:@"audioOn"];
+    }else{
+        [sender setBackgroundImage:[UIImage imageNamed: @"AudioOn.png"] forState:UIControlStateNormal];
+        [prefs setInteger: 2 forKey:@"audioOn"];
+    }
+    
 }
 
 -(void)hideButtons{

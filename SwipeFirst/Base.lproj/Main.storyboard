@@ -31,7 +31,7 @@
                                     <segue destination="AVF-ui-lT1" kind="presentation" animates="NO" id="VYx-cH-Lf1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-Wb-qj6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-Wb-qj6">
                                 <rect key="frame" x="157" y="540" width="60" height="60"/>
                                 <state key="normal" backgroundImage="AdditionalInfo.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,7 +41,7 @@
                                     <segue destination="zzy-Ut-IHo" kind="presentation" animates="NO" id="3TF-gn-waw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ft-z8-FFZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ft-z8-FFZ">
                                 <rect key="frame" x="225" y="540" width="60" height="60"/>
                                 <state key="normal" backgroundImage="Unlockables.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,18 +51,19 @@
                                     <segue destination="yxY-oZ-1QC" kind="presentation" animates="NO" id="04T-hq-6a6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
                                 <rect key="frame" x="293" y="540" width="60" height="60"/>
                                 <state key="normal" backgroundImage="AudioOn.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="audioButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="xlI-gP-v4D"/>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="djK-m4-BZ0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
                                 <rect key="frame" x="89" y="540" width="60" height="60"/>
-                                <state key="normal" title="GC" backgroundImage="cardfront">
+                                <state key="normal" backgroundImage="Game Center2.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -586,9 +587,9 @@
         <image name="4CardBack" width="75" height="99"/>
         <image name="AdditionalInfo.png" width="2400" height="2400"/>
         <image name="AudioOn.png" width="2400" height="2400"/>
+        <image name="Game Center2.png" width="2400" height="2400"/>
         <image name="Highscore.png" width="2400" height="2400"/>
         <image name="Unlockables.png" width="2400" height="2400"/>
-        <image name="cardfront" width="372" height="558"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mW9-9W-rg0"/>
