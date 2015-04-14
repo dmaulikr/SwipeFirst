@@ -172,8 +172,9 @@ NSUserDefaults *prefs;
     //NSLog(@"Swipe Right");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
-        CGPoint loc = [sender locationOfTouch:0 inView: self.view];
-        if (CGRectContainsPoint(topLabel.frame, loc)) {
+        CGPoint loc2 = [sender locationInView: self.view];
+        NSLog(@"%f", loc2.y);
+        if (loc2.y > self.view.frame.size.height * .15 && loc2.y < self.view.frame.size.height*.20) {
             NSLog(@"Swipe right on label");
         } else if(sortMode != 3){
             sortMode++;
