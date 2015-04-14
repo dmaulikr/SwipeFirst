@@ -161,11 +161,12 @@ NSUserDefaults *prefs;
             NSLog(@"Swipe left on label");
             if(gameMode > 0){
                 gameMode--;
+                [self updateLabels];
             }
         } else if(sortMode != 0){
+            [self handleSwipeAnimationWithDirection:-1];
             sortMode--;
         }
-        [self updateLabels];
     }else{
         return;
     }
@@ -181,11 +182,12 @@ NSUserDefaults *prefs;
             NSLog(@"Swipe right on label");
             if(gameMode < 2){
                 gameMode++;
+                [self updateLabels];
             }
         } else if(sortMode != 3){
+            [self handleSwipeAnimationWithDirection:1];
             sortMode++;
         }
-        [self updateLabels];
     }else{
         return;
     }
@@ -194,6 +196,7 @@ NSUserDefaults *prefs;
 -(void) updateLabels{
     //THIS IS CALLED EVERYTIME THE GAME SWITCHES
     NSLog(@"%d", sortMode);
+    /*
     switch (sortMode) {
         case 0:
             [topSort setTexture: [SKTexture textureWithImageNamed:@"even.png"]];
@@ -214,6 +217,7 @@ NSUserDefaults *prefs;
         default:
             break;
     }
+     */
     
     switch (gameMode) {
         case 0:
@@ -335,7 +339,53 @@ NSUserDefaults *prefs;
             [newPlayingCard removeFromParent];
         }];
     }
+}
 
+-(void) handleSwipeAnimationWithDirection: (int) dir{
+    //-1 for left | 1 for right
+    SKAction *moveNodeOffScreen = [SKAction moveToX:self.frame.size.width * ((dir == -1)? 1 : 0) duration:.3];
+    [topSort runAction: moveNodeOffScreen];
+    [bottomSort runAction: moveNodeOffScreen];
+    
+    
+    SKSpriteNode *topSortNew = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"red.png"]];
+    topSortNew.position = CGPointMake(self.frame.size.width * ((dir == -1)? 0 : 1), self.frame.size.height - 30);
+    topSortNew.xScale = 0.23;
+    topSortNew.yScale = 0.23;
+    [self addChild:topSortNew];
+    SKSpriteNode *bottomSortNew = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"black.png"]];
+    bottomSortNew.position = CGPointMake(self.frame.size.width * ((dir == -1)? 0 : 1), 30);
+    bottomSortNew.xScale = 0.23;
+    bottomSortNew.yScale = 0.23;
+    [self addChild:bottomSortNew];
+
+    switch (sortMode) {
+        case 0:
+            [topSortNew setTexture: [SKTexture textureWithImageNamed:@"even.png"]];
+            [bottomSortNew setTexture: [SKTexture textureWithImageNamed:@"odd.png"]];
+            break;
+        case 1:
+            [topSortNew setTexture: [SKTexture textureWithImageNamed:@"red.png"]];
+            [bottomSortNew setTexture: [SKTexture textureWithImageNamed:@"black.png"]];
+            break;
+        case 2:
+            [topSortNew setTexture: [SKTexture textureWithImageNamed:@"face.png"]];
+            [bottomSortNew setTexture: [SKTexture textureWithImageNamed:@"number.png"]];
+            break;
+        case 3:
+            [topSortNew setTexture: [SKTexture textureWithImageNamed:@"shuffleTop.png"]];
+            [bottomSortNew setTexture: [SKTexture textureWithImageNamed:@"shuffleBottom.png"]];
+            break;
+        default:
+            break;
+    }
+    
+    SKAction *moveNodeOnScreen = [SKAction moveToX:(CGRectGetMidX(self.frame)) duration:.3];
+    [topSortNew runAction: moveNodeOnScreen];
+    [bottomSortNew runAction: moveNodeOnScreen];
+    
+    topSort = topSortNew;
+    bottomSort = bottomSortNew;
 }
 
 -(void) endGame{
