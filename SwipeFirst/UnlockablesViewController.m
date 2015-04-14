@@ -33,7 +33,12 @@ int selectedDeck;
     //Also the deck wont be unlocked if there isn't wifi. We should probably store this data locally
     [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error)
     {
-        if(error != NULL) { /* error handling */ }
+        if(error != NULL) {
+            /* error handling GameCenter doesn't load need to load in the defaults */
+            
+        
+        
+        }
         for (GKAchievement* achievement in scores) {
             if([achievement.identifier  isEqual: @"deck2unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);

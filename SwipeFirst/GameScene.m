@@ -81,7 +81,7 @@ NSUserDefaults *prefs;
 
 -(void) addLabels{
     topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
-    topLabel.text = @"Game Mode";
+    topLabel.text = @"< Deck >";
     topLabel.fontSize = 40;
     topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 145);
     [self addChild:topLabel];
@@ -153,12 +153,15 @@ NSUserDefaults *prefs;
     //NSLog(@"Swipe Left");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
-        CGPoint loc = [sender locationOfTouch:0 inView: self.view];
-        NSLog(@"%f, %f", loc.x, loc.y);
+        CGPoint loc2 = [sender locationInView: self.view];
+        NSLog(@"%f, %f", loc2.x, loc2.y);
         CGRect rect = topLabel.frame;
         NSLog(@"%f, %f", rect.origin.x, rect.origin.y);
-        if(CGRectContainsPoint(topLabel.frame, loc)){ //This isn't correct, the points aren't lining up right
+        if(loc2.y > self.view.frame.size.height * .15 && loc2.y < self.view.frame.size.height*.20){
             NSLog(@"Swipe left on label");
+            if(gameMode > 0){
+                gameMode--;
+            }
         } else if(sortMode != 0){
             sortMode--;
         }
@@ -176,6 +179,9 @@ NSUserDefaults *prefs;
         NSLog(@"%f", loc2.y);
         if (loc2.y > self.view.frame.size.height * .15 && loc2.y < self.view.frame.size.height*.20) {
             NSLog(@"Swipe right on label");
+            if(gameMode < 2){
+                gameMode++;
+            }
         } else if(sortMode != 3){
             sortMode++;
         }
@@ -204,6 +210,20 @@ NSUserDefaults *prefs;
         case 3:
             [topSort setTexture: [SKTexture textureWithImageNamed:@"shuffleTop.png"]];
             [bottomSort setTexture: [SKTexture textureWithImageNamed:@"shuffleBottom.png"]];
+            break;
+        default:
+            break;
+    }
+    
+    switch (gameMode) {
+        case 0:
+            topLabel.text = @"< Sprint";
+            break;
+        case 1:
+            topLabel.text = @"< Deck >";
+            break;
+        case 2:
+            topLabel.text = @"Marathon >";
             break;
         default:
             break;
@@ -415,9 +435,24 @@ NSUserDefaults *prefs;
     [(GameViewController*) controller showButtons];
     self.backgroundColor = [UIColor lightGrayColor];
     deck = [[Deck alloc] init];
-    topLabel.text = @"Game Mode";
+    //topLabel.text = @"< Deck >";
     bottomLabel.text = @" ";
     isPlaying = false;
+    
+    switch (gameMode) {
+        case 0:
+            topLabel.text = @"< Sprint";
+            break;
+        case 1:
+            topLabel.text = @"< Deck >";
+            break;
+        case 2:
+            topLabel.text = @"Marathon >";
+            break;
+        default:
+            break;
+    }
+    
     isEnd = false;
     penalty = 0;
     card.name = [[deck getRandomCard] name];
