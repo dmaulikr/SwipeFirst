@@ -416,7 +416,7 @@ NSUserDefaults *prefs;
     if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]] != 0){
         double currentHS = [prefs doubleForKey: [NSString stringWithFormat:@"HS%d%d",sortMode,gameMode]];
         NSLog(@"Current HS at the end of the game is: %f", currentHS);
-        if((gameMode == 1)? currentScore < currentHS : currentHS > currentScore){
+        if((gameMode == 1)? currentScore < currentHS : currentScore > currentHS){
             //New Highscore
             NSLog(@"Setting the new highscore");
             self.backgroundColor = [UIColor greenColor]; //This color is absolutely disgusting
@@ -426,9 +426,13 @@ NSUserDefaults *prefs;
             NSLog(@"Did not set a new highscore");
             highscore.text = @"Current Highscore";
         }
-        int minutes = (int)(currentHS / 60.0);
-        double seconds = (double)((int)((currentHS - (minutes * 60)) * 10000)) / 10000;
-        highscoreDouble.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+        if(gameMode == 1){
+            int minutes = (int)(currentHS / 60.0);
+            double seconds = (double)((int)((currentHS - (minutes * 60)) * 10000)) / 10000;
+            highscoreDouble.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+        }else{
+            highscoreDouble.text = [NSString stringWithFormat:@"%d", (int) currentHS];
+        }
     }else{
         NSLog(@"No current highscore");
         highscore.text = @"New Highscore";

@@ -42,46 +42,30 @@
     
     
     HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS00"]];
-    minutes = (int)(HS / 60.0);
-    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
-    self.highscore5.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    self.highscore5.text = [NSString stringWithFormat:@"%d", (int) HS];
     
     HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS10"]];
-    minutes = (int)(HS / 60.0);
-    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
-    self.highscore6.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    self.highscore6.text = [NSString stringWithFormat:@"%d", (int) HS];
     
     HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS20"]];
-    minutes = (int)(HS / 60.0);
-    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
-    self.highscore7.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    self.highscore7.text = [NSString stringWithFormat:@"%d", (int) HS];
     
     HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS30"]];
-    minutes = (int)(HS / 60.0);
-    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
-    self.highscore8.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    self.highscore8.text = [NSString stringWithFormat:@"%d", (int) HS];
     
     
     
     HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS02"]];
-    minutes = (int)(HS / 60.0);
-    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
-    self.highscore9.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    self.highscore9.text = [NSString stringWithFormat:@"%d", (int) HS];
     
     HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS12"]];
-    minutes = (int)(HS / 60.0);
-    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
-    self.highscore10.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    self.highscore10.text = [NSString stringWithFormat:@"%d", (int) HS];
     
     HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS22"]];
-    minutes = (int)(HS / 60.0);
-    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
-    self.highscore11.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    self.highscore11.text = [NSString stringWithFormat:@"%d", (int) HS];
     
     HS = [prefs doubleForKey: [NSString stringWithFormat:@"HS32"]];
-    minutes = (int)(HS / 60.0);
-    seconds = (double)((int)((HS - (minutes * 60)) * 10000)) / 10000;
-    self.highscore12.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    self.highscore12.text = [NSString stringWithFormat:@"%d", (int) HS];
     
     int totalCardsSwiped = (int)[prefs integerForKey: @"totalCardsSwiped"];
     int totalSwipedCorrectly = (int)[prefs integerForKey: @"totalSwipedCorrectly"];
