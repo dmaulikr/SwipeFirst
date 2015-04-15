@@ -12,8 +12,8 @@
 @interface Deck : NSObject
 
 -(id) init;
--(PlayingCard*) getRandomCard;
-
+-(PlayingCard*) getRandomCard: (bool) remove;
+@property int numTaken;
 @property NSMutableArray* arrayOfCards;
 
 

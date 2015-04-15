@@ -43,12 +43,14 @@ int sortMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 i
 int gameMode = 1; // 0 is sprint | 1 is deck | 2 is marathon
 int totalCardsSwiped;
 int totalSwipedCorrectly;
+int marathonBonusCount;
 NSUserDefaults *prefs;
 
 
 -(void)didMoveToView:(SKView *)view {
     prefs = [NSUserDefaults standardUserDefaults];
     /* Setup your scene here */
+    marathonBonusCount = 0;
     
     if([prefs doubleForKey: [NSString stringWithFormat:@"totalCardsSwiped"]] != 0){
         totalCardsSwiped = [prefs doubleForKey: [NSString stringWithFormat:@"totalCardsSwiped"]];
@@ -67,7 +69,7 @@ NSUserDefaults *prefs;
     card.position = location;
     [self addChild: card];
     [self addSwipeGestures];
-    card.name = [[deck getRandomCard] name];
+    card.name = [[deck getRandomCard: true] name];
     //[card flip];
     
     shuffleButton = [[SKSpriteNode alloc] initWithColor: [UIColor whiteColor] size:CGSizeMake(card.size.width - 10, card.size.height / 10)];
@@ -80,12 +82,12 @@ NSUserDefaults *prefs;
 }
 
 -(void) addLabels{
-    topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
+    topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Courier is monospaced (almost) but looks shitty
     topLabel.text = @"< Deck >";
     topLabel.fontSize = 40;
     topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 145);
     [self addChild:topLabel];
-    bottomLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Curier is monospaced (almost) but looks shitty
+    bottomLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Courier is monospaced (almost) but looks shitty
     bottomLabel.text = @"";
     bottomLabel.fontSize = 40;
     bottomLabel.position = CGPointMake(CGRectGetMidX(self.frame), 135);
@@ -284,9 +286,13 @@ NSUserDefaults *prefs;
             [overlayCard runAction: moveNodeUp];
             [self playSoundWithFileName:@"cardFlip.mp3"];
             if([deck.arrayOfCards count] != 0){
-                card.name = [[deck getRandomCard] name];
+                card.name = [[deck getRandomCard: gameMode == 1] name];
+                if(gameMode == 2 && deck.numTaken%10 == 0){
+                    penalty -=(10 - 0.5 * marathonBonusCount);
+                    marathonBonusCount++;
+                }
                 [card update];
-            }else{
+            }else if(gameMode == 1){
                 //END GAME
                 [self endGame];
             }
@@ -505,7 +511,7 @@ NSUserDefaults *prefs;
     
     isEnd = false;
     penalty = 0;
-    card.name = [[deck getRandomCard] name];
+    card.name = [[deck getRandomCard: true] name];
     [highscoreDouble setHidden: TRUE];
     [highscore setHidden: TRUE];
     [scoreDouble setHidden: TRUE];
@@ -556,14 +562,47 @@ NSUserDefaults *prefs;
     /* Called before each frame is rendered */
     if(isPlaying == false)
         return;
-    NSTimeInterval instantTime = [NSDate timeIntervalSinceReferenceDate];
-    NSTimeInterval elapsedTime = instantTime - startTime;
-    elapsedTime += penalty;
-    // We calculate the minutes.
-    int minutes = (int)(elapsedTime / 60.0);
-    // We calculate the seconds.
-    double seconds = (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
-    topLabel.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    if(gameMode == 0){
+        NSTimeInterval instantTime = [NSDate timeIntervalSinceReferenceDate];
+        NSTimeInterval elapsedTime = instantTime - startTime;
+        elapsedTime += penalty;
+        // We calculate the minutes.
+        int minutes = 0;
+        // We calculate the seconds.
+        double seconds = 30 - (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
+        if(seconds <= 0){
+            [self endGame];
+            topLabel.text = [NSString stringWithFormat: @"%d Cards Swiped!", deck.numTaken];
+        } else {
+            topLabel.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+        }
+        }
+    if(gameMode == 1){
+        NSTimeInterval instantTime = [NSDate timeIntervalSinceReferenceDate];
+        NSTimeInterval elapsedTime = instantTime - startTime;
+        elapsedTime += penalty;
+        // We calculate the minutes.
+        int minutes = (int)(elapsedTime / 60.0);
+        // We calculate the seconds.
+        double seconds = (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
+        topLabel.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+    }
+    if(gameMode == 2){
+        NSTimeInterval instantTime = [NSDate timeIntervalSinceReferenceDate];
+        NSTimeInterval elapsedTime = instantTime - startTime;
+        elapsedTime += penalty;
+        elapsedTime += 20;
+        // We calculate the minutes.
+        int minutes = 0;
+        // We calculate the seconds.
+        double seconds = 30 - (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
+        if(seconds <= 0){
+            [self endGame];
+            topLabel.text = [NSString stringWithFormat: @"%d Cards Swiped!", deck.numTaken];
+        } else {
+            topLabel.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
+        }
+    }
 }
 
 @end

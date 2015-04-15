@@ -12,6 +12,7 @@
 @implementation Deck
 
 -(id) init{
+    _numTaken = 0;
     //NSLog(@"Initializing");
     self.arrayOfCards = [[NSMutableArray alloc] init];
     NSArray* number = [NSArray arrayWithObjects:@"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K", nil];
@@ -33,11 +34,14 @@
     return self;
 }
 
--(PlayingCard*) getRandomCard;{
+-(PlayingCard*) getRandomCard: (bool) remove{
     //NSLog(@"%d", (int)[self.arrayOfCards count]);
     int loc = arc4random() % [self.arrayOfCards count];
     PlayingCard* cardName = ((PlayingCard*)[self.arrayOfCards objectAtIndex: loc]);
-    [self.arrayOfCards removeObjectAtIndex:loc];
+    if(remove){
+        [self.arrayOfCards removeObjectAtIndex:loc];
+    }
+    _numTaken++;
     //NSLog(@"Card name in getRandomCard %@", cardName.name);
     return cardName;
 }
