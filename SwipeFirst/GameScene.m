@@ -308,7 +308,7 @@ NSUserDefaults *prefs;
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
         }
     }
-    bottomLabel.text = [NSString stringWithFormat: @"%lu", (unsigned long)[deck.arrayOfCards count]];
+    bottomLabel.text = [NSString stringWithFormat: @"%lu", (gameMode == 1)? (unsigned long)[deck.arrayOfCards count] : (unsigned long)[deck numTaken]];
 }
 
 - (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
@@ -399,7 +399,7 @@ NSUserDefaults *prefs;
     [highscoreDouble setHidden: FALSE];
     [score setHidden: FALSE];
     [scoreDouble setHidden: FALSE];
-    scoreDouble.text = topLabel.text;
+    scoreDouble.text = (gameMode == 1)? topLabel.text : [NSString stringWithFormat: @"%d", deck.numTaken];
     topLabel.text = @"Card Sort";
     
     [card setHidden:true];
@@ -411,12 +411,12 @@ NSUserDefaults *prefs;
     }
     isShuffleMode = false;
     [self setAchievement: @"startthegame" toDoubleValue:100];
-    NSTimeInterval currentScore = ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty;
+    double currentScore = (gameMode == 1)? ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty : [deck numTaken];
     NSLog(@"Current Score at the end of the game is: %f", currentScore);
     if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]] != 0){
         double currentHS = [prefs doubleForKey: [NSString stringWithFormat:@"HS%d%d",sortMode,gameMode]];
         NSLog(@"Current HS at the end of the game is: %f", currentHS);
-        if(currentScore < currentHS){
+        if((gameMode == 1)? currentScore < currentHS : currentHS > currentScore){
             //New Highscore
             NSLog(@"Setting the new highscore");
             self.backgroundColor = [UIColor greenColor]; //This color is absolutely disgusting
@@ -571,8 +571,8 @@ NSUserDefaults *prefs;
         // We calculate the seconds.
         double seconds = 30 - (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
         if(seconds <= 0){
-            [self endGame];
             topLabel.text = [NSString stringWithFormat: @"%d Cards Swiped!", deck.numTaken];
+            [self endGame];
         } else {
             topLabel.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
         }
@@ -597,8 +597,8 @@ NSUserDefaults *prefs;
         // We calculate the seconds.
         double seconds = 30 - (double)((int)((elapsedTime - (minutes * 60)) * 10000)) / 10000;
         if(seconds <= 0){
-            [self endGame];
             topLabel.text = [NSString stringWithFormat: @"%d Cards Swiped!", deck.numTaken];
+            [self endGame];
         } else {
             topLabel.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
         }
