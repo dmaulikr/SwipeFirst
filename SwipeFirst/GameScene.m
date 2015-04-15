@@ -343,18 +343,18 @@ NSUserDefaults *prefs;
 
 -(void) handleSwipeAnimationWithDirection: (int) dir{
     //-1 for left | 1 for right
-    SKAction *moveNodeOffScreen = [SKAction moveToX:self.frame.size.width * ((dir == -1)? 1 : 0) duration:.3];
+    SKAction *moveNodeOffScreen = [SKAction moveToX:self.frame.size.width * ((dir == -1)? 0 : 1) duration:.3];
     [topSort runAction: moveNodeOffScreen];
     [bottomSort runAction: moveNodeOffScreen];
     
     
     SKSpriteNode *topSortNew = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"red.png"]];
-    topSortNew.position = CGPointMake(self.frame.size.width * ((dir == -1)? 0 : 1), self.frame.size.height - 30);
+    topSortNew.position = CGPointMake(self.frame.size.width * ((dir == -1)? 1 : 0), self.frame.size.height - 30);
     topSortNew.xScale = 0.23;
     topSortNew.yScale = 0.23;
     [self addChild:topSortNew];
     SKSpriteNode *bottomSortNew = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"black.png"]];
-    bottomSortNew.position = CGPointMake(self.frame.size.width * ((dir == -1)? 0 : 1), 30);
+    bottomSortNew.position = CGPointMake(self.frame.size.width * ((dir == -1)? 1 : 0), 30);
     bottomSortNew.xScale = 0.23;
     bottomSortNew.yScale = 0.23;
     [self addChild:bottomSortNew];
