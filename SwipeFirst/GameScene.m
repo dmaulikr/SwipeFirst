@@ -292,6 +292,8 @@ NSUserDefaults *prefs;
                     marathonBonusCount++;
                 }
                 [card update];
+                if([[card name] hasPrefix: @"4"])
+                    [card setPixelTexture];
             }else if(gameMode == 1){
                 //END GAME
                 [self endGame];

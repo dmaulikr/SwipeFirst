@@ -19,9 +19,9 @@ int selectedDeck;
 - (void)viewDidLoad {
     [super viewDidLoad];
     //[self.deck5 setEnabled:false];
-    [self.deck4 setEnabled:false];
-    [self.deck3 setEnabled:false];
-    [self.deck2 setEnabled:false];
+    //[self.deck4 setEnabled:false];
+    //[self.deck3 setEnabled:false];
+    //[self.deck2 setEnabled:false];
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     if([prefs integerForKey: @"selectedDeck"] != 0){
@@ -46,7 +46,6 @@ int selectedDeck;
                     [self.deck2 setEnabled:true];
                 }
             }
-            /* COMMENTED OUT FOR TESTING
             if([achievement.identifier  isEqual: @"deck3unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
@@ -59,7 +58,6 @@ int selectedDeck;
                     [self.deck4 setEnabled:true];
                 }
             }
-             */
              
             /*
             if([achievement.identifier  isEqual: @"deck5unlocked"]){

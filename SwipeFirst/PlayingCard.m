@@ -39,6 +39,7 @@ int CARD_HEIGHT = 1400 * 3/4;
 }
 
 -(void) setPixelTexture{
+    NSLog(@"set pixel texture!");
     self.texture.filteringMode = SKTextureFilteringNearest;
 }
 
