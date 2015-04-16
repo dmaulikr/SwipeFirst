@@ -466,25 +466,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deck 5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qO2-aE-H2D">
-                                <rect key="frame" x="135" y="580" width="54" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thb-hd-WNI">
                                 <rect key="frame" x="135" y="100" width="69" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNW-di-eyR">
-                                <rect key="frame" x="35" y="535" width="78" height="112"/>
-                                <state key="normal" backgroundImage="1CardBack"/>
-                                <connections>
-                                    <action selector="deck5Selected:" destination="yxY-oZ-1QC" eventType="touchUpInside" id="Us6-fL-OHN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -493,7 +480,6 @@
                         <outlet property="deck2" destination="oQ8-uO-UgH" id="lAw-vo-J4z"/>
                         <outlet property="deck3" destination="Gwp-Gs-mbb" id="2Up-Vm-Uhd"/>
                         <outlet property="deck4" destination="1ou-ud-X1w" id="93w-Ql-xTZ"/>
-                        <outlet property="deck5" destination="nNW-di-eyR" id="QIp-El-Kak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPZ-Ow-79j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -623,7 +609,6 @@
     </scenes>
     <resources>
         <image name="1CK" width="500" height="726"/>
-        <image name="1CardBack" width="729" height="1024"/>
         <image name="2CardBack" width="926" height="1306"/>
         <image name="3CardBack" width="500" height="700"/>
         <image name="4CardBack" width="75" height="99"/>
@@ -634,6 +619,6 @@
         <image name="Unlockables.png" width="2400" height="2400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p2s-34-acm"/>
+        <segue reference="mW9-9W-rg0"/>
     </inferredMetricsTieBreakers>
 </document>

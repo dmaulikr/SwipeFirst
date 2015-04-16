@@ -18,7 +18,7 @@ int selectedDeck;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.deck5 setEnabled:false];
+    //[self.deck5 setEnabled:false];
     [self.deck4 setEnabled:false];
     [self.deck3 setEnabled:false];
     [self.deck2 setEnabled:false];
@@ -46,6 +46,7 @@ int selectedDeck;
                     [self.deck2 setEnabled:true];
                 }
             }
+            /* COMMENTED OUT FOR TESTING
             if([achievement.identifier  isEqual: @"deck3unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
@@ -58,12 +59,16 @@ int selectedDeck;
                     [self.deck4 setEnabled:true];
                 }
             }
+             */
+             
+            /*
             if([achievement.identifier  isEqual: @"deck5unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck5 setEnabled:true];
                 }
             }
+             */
         }
         
     }];
@@ -108,7 +113,7 @@ int selectedDeck;
     [self.deck2 setBackgroundImage:[UIImage imageNamed: @"2CardBack.png"] forState: UIControlStateNormal];
     [self.deck3 setBackgroundImage:[UIImage imageNamed: @"3CardBack.png"] forState: UIControlStateNormal];
     [self.deck4 setBackgroundImage:[UIImage imageNamed: @"4CardBack.png"] forState: UIControlStateNormal];
-    [self.deck5 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
+    //[self.deck5 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
     switch (selectedDeck) {
         case 1:
             [self.deck1 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
@@ -122,9 +127,11 @@ int selectedDeck;
         case 4:
             [self.deck4 setBackgroundImage:[UIImage imageNamed: @"4CK.png"] forState: UIControlStateNormal];
             break;
+        /*
         case 5:
             [self.deck5 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
             break;
+        */
         default:
             break;
     }}
