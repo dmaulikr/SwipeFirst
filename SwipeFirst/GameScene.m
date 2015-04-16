@@ -75,6 +75,8 @@ NSUserDefaults *prefs;
     shuffleButton = [[SKSpriteNode alloc] initWithColor: [UIColor whiteColor] size:CGSizeMake(card.size.width - 10, card.size.height / 10)];
     [shuffleButton setPosition: CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 120)];
     [self addChild: shuffleButton];
+    
+    [self updateLabels];
 }
 
 -(void) initializeViewController: (GameViewController*) passedController{
@@ -288,7 +290,7 @@ NSUserDefaults *prefs;
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard: gameMode == 1] name];
                 if(gameMode == 2 && deck.numTaken%10 == 0){
-                    penalty -=(10 - 0.5 * marathonBonusCount);
+                    penalty -=(10 - 0.5 * marathonBonusCount);  
                     marathonBonusCount++;
                 }
                 [card update];
