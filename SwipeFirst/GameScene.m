@@ -306,6 +306,9 @@ NSUserDefaults *prefs;
             self.backgroundColor = [UIColor redColor];
             [self playSoundWithFileName:@"wrongCard.mp3"];
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
+            if(gameMode == 2){
+                [self endGame];
+            }
         }
     }
     bottomLabel.text = [NSString stringWithFormat: @"%lu", (gameMode == 1)? (unsigned long)[deck.arrayOfCards count] : (unsigned long)[deck numTaken]];
