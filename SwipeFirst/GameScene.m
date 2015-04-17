@@ -10,7 +10,6 @@
 TODO LIST:
  - "Swipe to begin"
  - Add Images
- - Different GameModes
  - Finish all Sounds
  - Error: If you swipe a card while the animation is running everything gets flipped
  - Add the last Deck
