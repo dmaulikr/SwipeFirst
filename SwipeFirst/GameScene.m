@@ -263,6 +263,9 @@ NSUserDefaults *prefs;
         if(sortMode == 3){
             isShuffleMode = true;
         }
+        if([[card name] hasPrefix: @"4"]){
+            [card setPixelTexture];
+        }
         if(isShuffleMode){
             sortMode = 0;
             [self updateLabels];
