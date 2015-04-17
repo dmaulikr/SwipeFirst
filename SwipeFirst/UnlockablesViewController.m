@@ -18,6 +18,8 @@ int selectedDeck;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     //[self.deck5 setEnabled:false];
     //[self.deck4 setEnabled:false];
     //[self.deck3 setEnabled:false];
@@ -29,33 +31,52 @@ int selectedDeck;
         [self updateImages];
     }
     
+    if([prefs boolForKey:@"deck2unlocked"] == true){
+        
+    }else{
+        [self.deck2 setEnabled:false];
+    }
+    if([prefs boolForKey:@"deck3unlocked"] == true){
+        
+    }else{
+        [self.deck3 setEnabled:false];
+    }
+    if([prefs boolForKey:@"deck4unlocked"] == true){
+        
+    }else{
+        [self.deck4 setEnabled:false];
+    }
+    
+    
     //This process is really really slow. Like noticable delay on screen
     //Also the deck wont be unlocked if there isn't wifi. We should probably store this data locally
     [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error)
     {
         if(error != NULL) {
             /* error handling GameCenter doesn't load need to load in the defaults */
-            
-        
-        
         }
         for (GKAchievement* achievement in scores) {
             if([achievement.identifier  isEqual: @"deck2unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck2 setEnabled:true];
+                    [prefs setBool:true forKey:@"deck2unlocked"];
                 }
             }
             if([achievement.identifier  isEqual: @"deck3unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck3 setEnabled:true];
+                    [prefs setBool:true forKey:@"deck2unlocked"];
+
                 }
             }
             if([achievement.identifier  isEqual: @"deck4unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck4 setEnabled:true];
+                    [prefs setBool:true forKey:@"deck2unlocked"];
+
                 }
             }
              
