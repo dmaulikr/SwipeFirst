@@ -77,6 +77,13 @@ NSUserDefaults *prefs;
     [self addChild: shuffleButton];
     
     [self updateLabels];
+    SKSpriteNode *background = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"CardTableBackground.jpg"]];
+    background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    background.xScale = .4;//Guess and Check: Needs to be standardized for all screen sizes
+    background.yScale = .4;
+    background.zPosition = -100;
+    [self addChild:background];
+    
 }
 
 -(void) initializeViewController: (GameViewController*) passedController{
