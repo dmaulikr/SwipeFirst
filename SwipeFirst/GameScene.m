@@ -36,6 +36,7 @@ SKLabelNode *highscore;
 SKLabelNode *highscoreDouble;
 SKLabelNode *score;
 SKLabelNode *scoreDouble;
+SKSpriteNode *background;
 NSTimeInterval startTime;
 double penalty = 0;
 int sortMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is shuffle
@@ -76,7 +77,7 @@ NSUserDefaults *prefs;
     [self addChild: shuffleButton];
     
     [self updateLabels];
-    SKSpriteNode *background = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"CardTableBackground.jpg"]];
+    background = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"CardTableBackground.jpg"]];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     background.xScale = .4;//Guess and Check: Needs to be standardized for all screen sizes
     background.yScale = .4;
@@ -93,7 +94,7 @@ NSUserDefaults *prefs;
     topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Courier is monospaced (almost) but looks shitty
     topLabel.text = @"< Deck >";
     topLabel.fontSize = 40;
-    topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 145);
+    topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 130);
     [self addChild:topLabel];
     bottomLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Courier is monospaced (almost) but looks shitty
     bottomLabel.text = @"";
@@ -206,28 +207,6 @@ NSUserDefaults *prefs;
 -(void) updateLabels{
     //THIS IS CALLED EVERYTIME THE GAME SWITCHES
     NSLog(@"%d", sortMode);
-    /*
-    switch (sortMode) {
-        case 0:
-            [topSort setTexture: [SKTexture textureWithImageNamed:@"even.png"]];
-            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"odd.png"]];
-            break;
-        case 1:
-            [topSort setTexture: [SKTexture textureWithImageNamed:@"red.png"]];
-            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"black.png"]];
-            break;
-        case 2:
-            [topSort setTexture: [SKTexture textureWithImageNamed:@"face.png"]];
-            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"number.png"]];
-            break;
-        case 3:
-            [topSort setTexture: [SKTexture textureWithImageNamed:@"shuffleTop.png"]];
-            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"shuffleBottom.png"]];
-            break;
-        default:
-            break;
-    }
-     */
     
     switch (gameMode) {
         case 0:
@@ -317,6 +296,7 @@ NSUserDefaults *prefs;
             NSLog(@"PENALTY");
             penalty += 1;
             self.backgroundColor = [UIColor redColor];
+            background.texture = [SKTexture textureWithImageNamed:@"RedTableBackground.jpg"];
             [self playSoundWithFileName:@"wrongCard.mp3"];
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
             if(gameMode == 2){
@@ -465,6 +445,7 @@ NSUserDefaults *prefs;
     NSLog(@"RESET");
     //Called half a second after each penalty
     self.backgroundColor = [UIColor lightGrayColor];
+    background.texture = [SKTexture textureWithImageNamed:@"CardTableBackground.jpg"];
 }
 
 -(BOOL) checkValidCardSwipe: (NSString*) direction{
