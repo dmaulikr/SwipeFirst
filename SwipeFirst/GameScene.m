@@ -46,6 +46,8 @@ int totalSwipedCorrectly;
 int marathonBonusCount;
 NSUserDefaults *prefs;
 
+static NSString *FONT = @"Exo 2";
+
 
 -(void)didMoveToView:(SKView *)view {
     prefs = [NSUserDefaults standardUserDefaults];
@@ -77,7 +79,7 @@ NSUserDefaults *prefs;
     [self addChild: shuffleButton];
     
     [self updateLabels];
-    background = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"CardTableBackground.jpg"]];
+    background = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"blueBackground.jpg"]];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     background.xScale = .4;//Guess and Check: Needs to be standardized for all screen sizes
     background.yScale = .4;
@@ -91,49 +93,49 @@ NSUserDefaults *prefs;
 }
 
 -(void) addLabels{
-    topLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Courier is monospaced (almost) but looks shitty
+    topLabel = [SKLabelNode labelNodeWithFontNamed:FONT]; //Courier is monospaced (almost) but looks shitty
     topLabel.text = @"< Deck >";
     topLabel.fontSize = 40;
     topLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 130);
     [self addChild:topLabel];
-    bottomLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New"]; //Courier is monospaced (almost) but looks shitty
+    bottomLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier New Bold"]; //Courier is monospaced (almost) but looks shitty
     bottomLabel.text = @"";
     bottomLabel.fontSize = 40;
-    bottomLabel.position = CGPointMake(CGRectGetMidX(self.frame), 135);
+    bottomLabel.position = CGPointMake(CGRectGetMidX(self.frame), 110);
     [self addChild:bottomLabel];
     
     
     topSort = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"red.png"]];
     topSort.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 30);
-    topSort.xScale = 0.23;//Guess and Check: Needs to be standardized for all screen sizes
-    topSort.yScale = 0.23;
+    topSort.xScale = 0.115;//Guess and Check: Needs to be standardized for all screen sizes
+    topSort.yScale = 0.115;
     [self addChild:topSort];
     bottomSort = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"black.png"]];
     bottomSort.position = CGPointMake(CGRectGetMidX(self.frame), 30);
-    bottomSort.xScale = 0.23;//Guess and Check: Needs to be standardized for all screen sizes
-    bottomSort.yScale = 0.23;
+    bottomSort.xScale = 0.115;//Guess and Check: Needs to be standardized for all screen sizes
+    bottomSort.yScale = 0.115;
     [self addChild:bottomSort];
     
     
-    score = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
+    score = [SKLabelNode labelNodeWithFontNamed:FONT];
     score.text = @"Score: ";
     score.fontSize = 30;
     score.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 120);
     [self addChild:score];
     [score setHidden: TRUE];
-    scoreDouble = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
+    scoreDouble = [SKLabelNode labelNodeWithFontNamed:@"Courier New Bold"];
     scoreDouble.text = @"";
     scoreDouble.fontSize = 40;
     scoreDouble.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 60);
     [self addChild:scoreDouble];
     [scoreDouble setHidden: TRUE];
-    highscore = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
+    highscore = [SKLabelNode labelNodeWithFontNamed:FONT];
     highscore.text = @"Current Highscore: ";
     highscore.fontSize = 30;
     highscore.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     [self addChild:highscore];
     [highscore setHidden: TRUE];
-    highscoreDouble = [SKLabelNode labelNodeWithFontNamed:@"Courier New"];
+    highscoreDouble = [SKLabelNode labelNodeWithFontNamed:@"Courier New Bold"];
     highscoreDouble.text = @"";
     highscoreDouble.fontSize = 40;
     highscoreDouble.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 60);
@@ -161,6 +163,8 @@ NSUserDefaults *prefs;
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
     [self setAchievement: @"deck2unlocked" toDoubleValue:100];
+    [self setAchievement: @"deck3unlocked" toDoubleValue:100];
+    [self setAchievement: @"deck4unlocked" toDoubleValue:100];
     //NSLog(@"Swipe Left");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
@@ -168,7 +172,7 @@ NSUserDefaults *prefs;
         NSLog(@"%f, %f", loc2.x, loc2.y);
         CGRect rect = topLabel.frame;
         NSLog(@"%f, %f", rect.origin.x, rect.origin.y);
-        if(loc2.y > self.view.frame.size.height * .15 && loc2.y < self.view.frame.size.height*.20){
+        if(loc2.y > self.view.frame.size.height * .12 && loc2.y < self.view.frame.size.height*.20){
             NSLog(@"Swipe left on label");
             if(gameMode > 0){
                 gameMode--;
@@ -189,7 +193,7 @@ NSUserDefaults *prefs;
         //NEED TO SWIPE THROUGH CATEGORIES
         CGPoint loc2 = [sender locationInView: self.view];
         NSLog(@"%f", loc2.y);
-        if (loc2.y > self.view.frame.size.height * .15 && loc2.y < self.view.frame.size.height*.20) {
+        if (loc2.y > self.view.frame.size.height * .12 && loc2.y < self.view.frame.size.height*.20) {
             NSLog(@"Swipe right on label");
             if(gameMode < 2){
                 gameMode++;
@@ -228,6 +232,7 @@ NSUserDefaults *prefs;
     NSLog(@"%f", [sender locationInView:self.view].x);
     if(isPlaying == false && isEnd == false){
         [card flip];
+        topLabel.fontName = @"Courier New Bold";
         [(GameViewController *) controller hideButtons];
         isPlaying = true;
         startTime = [NSDate timeIntervalSinceReferenceDate];
@@ -296,7 +301,7 @@ NSUserDefaults *prefs;
             NSLog(@"PENALTY");
             penalty += 1;
             self.backgroundColor = [UIColor redColor];
-            background.texture = [SKTexture textureWithImageNamed:@"RedTableBackground.jpg"];
+            background.texture = [SKTexture textureWithImageNamed:@"redBackground.jpg"];
             [self playSoundWithFileName:@"wrongCard.mp3"];
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
             if(gameMode == 2){
@@ -352,13 +357,13 @@ NSUserDefaults *prefs;
     
     SKSpriteNode *topSortNew = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"red.png"]];
     topSortNew.position = CGPointMake(self.frame.size.width * ((dir == -1)? 1 : 0), self.frame.size.height - 30);
-    topSortNew.xScale = 0.23;
-    topSortNew.yScale = 0.23;
+    topSortNew.xScale = 0.115;
+    topSortNew.yScale = 0.115;
     [self addChild:topSortNew];
     SKSpriteNode *bottomSortNew = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"black.png"]];
     bottomSortNew.position = CGPointMake(self.frame.size.width * ((dir == -1)? 1 : 0), 30);
-    bottomSortNew.xScale = 0.23;
-    bottomSortNew.yScale = 0.23;
+    bottomSortNew.xScale = 0.115;
+    bottomSortNew.yScale = 0.115;
     [self addChild:bottomSortNew];
 
     switch (sortMode) {
@@ -395,6 +400,7 @@ NSUserDefaults *prefs;
     [highscoreDouble setHidden: FALSE];
     [score setHidden: FALSE];
     [scoreDouble setHidden: FALSE];
+    topLabel.fontName = FONT;
     scoreDouble.text = (gameMode == 1)? topLabel.text : [NSString stringWithFormat: @"%d", deck.numTaken];
     topLabel.text = @"Card Sort";
     
@@ -445,7 +451,7 @@ NSUserDefaults *prefs;
     NSLog(@"RESET");
     //Called half a second after each penalty
     self.backgroundColor = [UIColor lightGrayColor];
-    background.texture = [SKTexture textureWithImageNamed:@"CardTableBackground.jpg"];
+    background.texture = [SKTexture textureWithImageNamed:@"blueBackground.jpg"];
 }
 
 -(BOOL) checkValidCardSwipe: (NSString*) direction{

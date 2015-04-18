@@ -67,7 +67,7 @@ int selectedDeck;
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck3 setEnabled:true];
-                    [prefs setBool:true forKey:@"deck2unlocked"];
+                    [prefs setBool:true forKey:@"deck3unlocked"];
 
                 }
             }
@@ -75,7 +75,7 @@ int selectedDeck;
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck4 setEnabled:true];
-                    [prefs setBool:true forKey:@"deck2unlocked"];
+                    [prefs setBool:true forKey:@"deck4unlocked"];
 
                 }
             }
