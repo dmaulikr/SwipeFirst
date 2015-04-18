@@ -72,8 +72,10 @@ static NSString *FONT = @"Exo 2";
     card.name = [[deck getRandomCard: true] name];
     //[card flip];
     
-    shuffleButton = [[SKSpriteNode alloc] initWithColor: [UIColor whiteColor] size:CGSizeMake(card.size.width - 10, card.size.height / 10)];
+    shuffleButton = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"play again.png"]];// color:[UIColor whiteColor] size:CGSizeMake(card.size.width - 10, card.size.height / 10)];
+    shuffleButton.size = CGSizeMake(card.size.width, card.size.width / 5.628);
     [shuffleButton setPosition: CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 120)];
+    shuffleButton.zPosition = -90;
     [self addChild: shuffleButton];
     
     [self updateLabels];
@@ -206,10 +208,32 @@ static NSString *FONT = @"Exo 2";
     }
 }
 
+-(void) updateSortMode{
+    switch (sortMode) {
+        case 0:
+            [topSort setTexture: [SKTexture textureWithImageNamed:@"even.png"]];
+            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"odd.png"]];
+            break;
+        case 1:
+            [topSort setTexture: [SKTexture textureWithImageNamed:@"red.png"]];
+            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"black.png"]];
+            break;
+        case 2:
+            [topSort setTexture: [SKTexture textureWithImageNamed:@"face.png"]];
+            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"number.png"]];
+            break;
+        case 3:
+            [topSort setTexture: [SKTexture textureWithImageNamed:@"shuffleTop.png"]];
+            [bottomSort setTexture: [SKTexture textureWithImageNamed:@"shuffleBottom.png"]];
+            break;
+        default:
+            break;
+    }
+}
+
 -(void) updateLabels{
     //THIS IS CALLED EVERYTIME THE GAME SWITCHES
-    NSLog(@"%d", sortMode);
-    
+
     switch (gameMode) {
         case 0:
             topLabel.text = @"< Sprint";
@@ -256,7 +280,7 @@ static NSString *FONT = @"Exo 2";
         }
         if(isShuffleMode){
             sortMode = 0;
-            [self updateLabels];
+            [self updateSortMode];
         }
     }else if(isPlaying == true && isEnd == false){
         totalCardsSwiped++;
@@ -293,7 +317,7 @@ static NSString *FONT = @"Exo 2";
             }
             if(isShuffleMode){
                 sortMode = (sortMode+1)%3;
-                [self updateLabels];
+                [self updateSortMode];
             }
         }else{
             NSLog(@"PENALTY");
@@ -407,7 +431,7 @@ static NSString *FONT = @"Exo 2";
     isEnd = true;
     if(isShuffleMode == true){
         sortMode = 3;
-        [self updateLabels];
+        [self updateSortMode];
     }
     isShuffleMode = false;
     [self setAchievement: @"startthegame" toDoubleValue:100];
