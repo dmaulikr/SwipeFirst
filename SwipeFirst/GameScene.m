@@ -10,10 +10,8 @@
 TODO LIST:
  - "Swipe to begin"
  - Add Images
- - Finish all Sounds
+ - Finish Sounds
  - Error: If you swipe a card while the animation is running everything gets flipped
- - Add the last Deck
- - Error: change the category move to a new view controller then come back. Labels update to the same categories.
 **/
 
 #import "GameScene.h"
@@ -179,8 +177,8 @@ static NSString *FONT = @"Exo 2";
                 [self updateLabels];
             }
         } else if(sortMode != 0){
-            [self handleSwipeAnimationWithDirection:-1];
             sortMode--;
+            [self handleSwipeAnimationWithDirection:-1];
         }
     }else{
         return;
@@ -200,8 +198,8 @@ static NSString *FONT = @"Exo 2";
                 [self updateLabels];
             }
         } else if(sortMode != 3){
-            [self handleSwipeAnimationWithDirection:1];
             sortMode++;
+            [self handleSwipeAnimationWithDirection:1];
         }
     }else{
         return;
