@@ -99,26 +99,66 @@
     //[scene sendCommand: buttonTitle]; or something equivalent
     
 }
+
+-(id) getHighest: (NSString*) first with: (NSString*) second and: (NSString*) third prefs: (NSUserDefaults*) prefs{
+    if([prefs doubleForKey: first] > [prefs doubleForKey: second]){
+        if([prefs doubleForKey: first] > [prefs doubleForKey: third]){
+            return first;
+        }else{
+            return third;
+        }
+    }else{
+        if([prefs doubleForKey: second] > [prefs doubleForKey: third]){
+            return second;
+        }else{
+            return third;
+        }
+    }
+}
+
 - (IBAction)gamecenterButton:(id)sender {
     [self showLeaderboardAndAchievements:YES];
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",0]] != 0){
-        NSLog(@"setting even odd leaderboard");
-        [self setLeaderboard: @"evenoddleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",0]] * 100)];
-    }
-    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",1]] != 0){
+    
+    //Deck Game Mode
+    if([prefs doubleForKey: (NSString*)[self getHighest: @"HS01" with: @"HS11" and: @"HS21" prefs: prefs]] != 0){
         NSLog(@"setting red black leaderboard");
-        [self setLeaderboard: @"redblackleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",1]] * 100)];
+        [self setLeaderboard: @"redblackleaderboard" withScore: ([prefs doubleForKey: [self getHighest: @"HS01" with: @"HS11" and: @"HS21" prefs:prefs]] * 100)];
     }
-    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",2]] != 0){
-        NSLog(@"setting face number leaderboard");
-        [self setLeaderboard: @"facenumberleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",2]] * 100)];
-    }
-    if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",3]] != 0 ){
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS31"]] != 0 ){
         NSLog(@"setting setting shuffle leaderboard");
-        [self setLeaderboard: @"shuffleleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS%d",3]] * 100)];
+        [self setLeaderboard: @"shuffleleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS31"]] * 100)];
     }
+    
+    //Marathon
+    if([prefs doubleForKey: (NSString*)[self getHighest: @"HS02" with: @"HS12" and: @"HS22" prefs: prefs]] != 0){
+        NSLog(@"setting marathon all leaderboard");
+        [self setLeaderboard: @"marathonallleaderboard" withScore: ([prefs doubleForKey: [self getHighest: @"HS02" with: @"HS12" and: @"HS22" prefs:prefs]])];
+    }
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS32"]] != 0 ){
+        NSLog(@"setting setting marathon shuffle leaderboard");
+        [self setLeaderboard: @"marathonshuffleleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS32"]])];
+    }
+    
+    //Sprint
+    if([prefs doubleForKey: (NSString*)[self getHighest: @"HS00" with: @"HS10" and: @"HS20" prefs: prefs]] != 0){
+        NSLog(@"setting sprint all leaderboard");
+        [self setLeaderboard: @"sprintallleaderboard" withScore: ([prefs doubleForKey: [self getHighest: @"HS00" with: @"HS10" and: @"HS20" prefs:prefs]])];
+    }
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS30"]] != 0 ){
+        NSLog(@"setting sprint shuffle leaderboard");
+        [self setLeaderboard: @"sprintshuffleleaderboard" withScore: ([prefs doubleForKey: [NSString stringWithFormat:@"HS30"]])];
+    }
+    
+    //Accuracy
+    int totalCardsSwiped = (int)[prefs integerForKey: @"totalCardsSwiped"];
+    int totalSwipedCorrectly = (int)[prefs integerForKey: @"totalSwipedCorrectly"];
+    if(totalCardsSwiped > 100){
+        double percentage = ((int)(((double) totalSwipedCorrectly / (double) totalCardsSwiped)));
+        [self setLeaderboard: @"accuracyleaderboard" withScore: percentage * 100];
+    }
+
 }
 - (IBAction)audioButtonPressed:(id)sender {
     
