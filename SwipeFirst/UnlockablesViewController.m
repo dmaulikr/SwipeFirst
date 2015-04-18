@@ -33,18 +33,23 @@ int selectedDeck;
     
     if([prefs boolForKey:@"deck2unlocked"] == true){
         
+#warning Fix disable decks displaying the question mark image
+        
     }else{
         [self.deck2 setEnabled:false];
+        [self.deck2 setImage: [UIImage imageNamed: @"QuestionMarkCard"] forState: UIControlStateNormal];
     }
     if([prefs boolForKey:@"deck3unlocked"] == true){
         
     }else{
         [self.deck3 setEnabled:false];
+        [self.deck3 setImage: [UIImage imageNamed: @"QuestionMarkCard"] forState: UIControlStateNormal];
     }
     if([prefs boolForKey:@"deck4unlocked"] == true){
         
     }else{
         [self.deck4 setEnabled:false];
+        [self.deck4 setImage: [UIImage imageNamed: @"QuestionMarkCard"] forState: UIControlStateNormal];
     }
     
     

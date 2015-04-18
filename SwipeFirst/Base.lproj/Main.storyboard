@@ -632,7 +632,7 @@
     </scenes>
     <resources>
         <image name="1CK" width="500" height="726"/>
-        <image name="2CardBack" width="926" height="1306"/>
+        <image name="2CardBack" width="729" height="1024"/>
         <image name="3CardBack" width="500" height="700"/>
         <image name="4CardBack" width="75" height="99"/>
         <image name="AdditionalInfo.png" width="2400" height="2400"/>
