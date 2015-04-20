@@ -10,6 +10,7 @@
 #import "GameScene.h"
 #import "GameKitHelper.h"
 #import "GameCenterViewController.h"
+#import "Sound.h"
 
 @interface GameViewController : GameCenterViewController
 

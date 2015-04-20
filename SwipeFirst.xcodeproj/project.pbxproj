@@ -28,7 +28,7 @@
 		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
 		7FB23E6D1ACC6D11009C3AF6 /* UnlockablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB23E6C1ACC6D11009C3AF6 /* UnlockablesViewController.m */; };
 		7FD4AC2F1AC6FED80042F5EF /* HighscoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */; };
-		7FE1A9E01ADC53E8006975B8 /* AdditionalInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FE1A9DB1ADC53E8006975B8 /* AdditionalInfo.png */; };
+		7FFAF2331AE5858300F03BE4 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAF2321AE5858300F03BE4 /* Sound.m */; };
 		EF07723D1AC334A900A683D6 /* cardFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723B1AC334A900A683D6 /* cardFlip.mp3 */; };
 		EF07723E1AC334A900A683D6 /* shuffle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF07723C1AC334A900A683D6 /* shuffle.mp3 */; };
 		EF0D26161AE2140900D25097 /* redBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF0D26131AE2140900D25097 /* redBackground.jpg */; };
@@ -85,7 +85,8 @@
 		7FB23E6C1ACC6D11009C3AF6 /* UnlockablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnlockablesViewController.m; sourceTree = "<group>"; };
 		7FD4AC2D1AC6FED70042F5EF /* HighscoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreViewController.h; sourceTree = "<group>"; };
 		7FD4AC2E1AC6FED80042F5EF /* HighscoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreViewController.m; sourceTree = "<group>"; };
-		7FE1A9DB1ADC53E8006975B8 /* AdditionalInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdditionalInfo.png; sourceTree = "<group>"; };
+		7FFAF2311AE5858300F03BE4 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		7FFAF2321AE5858300F03BE4 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		EF07723B1AC334A900A683D6 /* cardFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardFlip.mp3; sourceTree = "<group>"; };
 		EF07723C1AC334A900A683D6 /* shuffle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle.mp3; sourceTree = "<group>"; };
 		EF0D26131AE2140900D25097 /* redBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redBackground.jpg; sourceTree = "<group>"; };
@@ -155,6 +156,8 @@
 				3FD06AE11AB1C9E40002FFBB /* Main.storyboard */,
 				3FD06AE41AB1C9E40002FFBB /* Images.xcassets */,
 				3FD06AE61AB1C9E40002FFBB /* LaunchScreen.xib */,
+				7FFAF2311AE5858300F03BE4 /* Sound.h */,
+				7FFAF2321AE5858300F03BE4 /* Sound.m */,
 				3FD06AD21AB1C9E40002FFBB /* Supporting Files */,
 			);
 			path = SwipeFirst;
@@ -170,7 +173,6 @@
 				EF0D26141AE2140900D25097 /* blueBackground.jpg */,
 				EF0D26151AE2140900D25097 /* menuBackground.jpg */,
 				EF1E6C2E1AE20B310009B2F6 /* Exo2-Regular.ttf */,
-				7FE1A9DB1ADC53E8006975B8 /* AdditionalInfo.png */,
 				EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */,
 				EF07723B1AC334A900A683D6 /* cardFlip.mp3 */,
 				EF07723C1AC334A900A683D6 /* shuffle.mp3 */,
@@ -309,7 +311,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2FBDD71AE5383600EAFF1C /* clickSound.mp3 in Resources */,
-				7FE1A9E01ADC53E8006975B8 /* AdditionalInfo.png in Resources */,
 				EF0D26171AE2140900D25097 /* blueBackground.jpg in Resources */,
 				7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */,
 				3FD06AE81AB1C9E40002FFBB /* LaunchScreen.xib in Resources */,
@@ -344,6 +345,7 @@
 				3F5EC0A51AB1CE0900EEE703 /* PlayingCard.m in Sources */,
 				3FD06AE01AB1C9E40002FFBB /* GameViewController.m in Sources */,
 				3FD06AD81AB1C9E40002FFBB /* AppDelegate.m in Sources */,
+				7FFAF2331AE5858300F03BE4 /* Sound.m in Sources */,
 				3FD06ADB1AB1C9E40002FFBB /* GameScene.m in Sources */,
 				7F3A3FF51AC71DEA00F55D9F /* GameKitHelper.m in Sources */,
 				7F3A40011AC7356B00F55D9F /* GameCenterViewController.m in Sources */,

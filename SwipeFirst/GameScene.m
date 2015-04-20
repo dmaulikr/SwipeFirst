@@ -271,7 +271,7 @@ static NSString *FONT = @"Exo 2";
         [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
         SKAction *moveNodeUp = [SKAction moveByX:0.0 y:(self.frame.size.height * ((dir == 0)? 1 : -1)) duration:.3];
         [overlayCard runAction: moveNodeUp];
-        [self playSoundWithFileName:@"cardFlip.mp3"];
+        [Sound playSoundWithFileName:@"cardFlip.mp3"];
         if(sortMode == 3){
             isShuffleMode = true;
         }
@@ -301,7 +301,7 @@ static NSString *FONT = @"Exo 2";
             [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
             SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height * ((dir == 0)? 1 : -1) duration:.3];
             [overlayCard runAction: moveNodeUp];
-            [self playSoundWithFileName:@"cardFlip.mp3"];
+            [Sound playSoundWithFileName:@"cardFlip.mp3"];
             if([deck.arrayOfCards count] != 0){
                 card.name = [[deck getRandomCard: gameMode == 1] name];
                 if(gameMode == 2 && deck.numTaken%10 == 0){
@@ -324,7 +324,7 @@ static NSString *FONT = @"Exo 2";
             penalty += 1;
             self.backgroundColor = [UIColor redColor];
             background.texture = [SKTexture textureWithImageNamed:@"redBackground.jpg"];
-            [self playSoundWithFileName:@"wrongCard.mp3"];
+            [Sound playSoundWithFileName:@"wrongCard.mp3"];
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
             if(gameMode == 2){
                 [self endGame];
@@ -362,7 +362,7 @@ static NSString *FONT = @"Exo 2";
         SKAction *twistNode = [SKAction rotateToAngle:0 duration:.7];
         [newPlayingCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
         SKAction *moveNodeToCenter = [SKAction moveTo:CGPointMake((self.frame.size.width / 2), (self.frame.size.height / 2)) duration: .7];
-        [self playSoundWithFileName:@"shuffle.mp3"];
+        [Sound playSoundWithFileName:@"shuffle.mp3"];
         [newPlayingCard runAction: moveNodeToCenter];
         [newPlayingCard runAction:moveNodeToCenter completion:^{
             [newPlayingCard removeFromParent];
@@ -562,6 +562,7 @@ static NSString *FONT = @"Exo 2";
     }
 }
 
+/*
 -(void) playSoundWithFileName: (NSString*) audioName{
     if([prefs integerForKey: @"audioOn"] == 2){
         NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], audioName]];
@@ -574,6 +575,7 @@ static NSString *FONT = @"Exo 2";
         [audioPlayer play];
     }
 }
+ */
 
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
     GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];

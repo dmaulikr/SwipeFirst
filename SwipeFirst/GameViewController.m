@@ -102,6 +102,7 @@
 }
 
 - (IBAction)sendCommandToScene:(id)sender {
+    [Sound playClick];
     /*
     UIButton *button = (UIButton *)sender;
     NSString *buttonTitle = button.currentTitle;
@@ -171,8 +172,8 @@
         double percentage = ((int)(((double) totalSwipedCorrectly / (double) totalCardsSwiped)));
         [self setLeaderboard: @"accuracyleaderboard" withScore: percentage * 100];
     }
-
 }
+
 - (IBAction)backgroundPressed:(id)sender {
     NSLog(@"BACKGROUND PRESSED");
     [self.transparentView removeFromSuperview];
@@ -188,11 +189,15 @@
     if([prefs integerForKey:@"audioOn"] == 2){
         [sender setBackgroundImage:[UIImage imageNamed: @"AudioOff.png"] forState:UIControlStateNormal];
         [prefs setInteger: 1 forKey:@"audioOn"];
+        [Sound playClick];
     }else{
         [sender setBackgroundImage:[UIImage imageNamed: @"AudioOn.png"] forState:UIControlStateNormal];
         [prefs setInteger: 2 forKey:@"audioOn"];
     }
     
+}
+- (IBAction)buttonPrssed:(id)sender {
+    [Sound playClick];
 }
 
 -(void)hideButtons{

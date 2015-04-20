@@ -9,6 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "GameViewController.h"
+#import "Sound.h"
 
 @interface GameScene : SKScene
 
