@@ -22,5 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *button4;
 @property (weak, nonatomic) IBOutlet UIButton *button5;
 
+@property (weak, nonatomic) IBOutlet UIView *transparentView;
+@property (weak, nonatomic) IBOutlet UIView *instructionsView;
 
 @end

@@ -80,8 +80,37 @@
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Dk3-sJ-lK9"/>
                                 </connections>
                             </button>
+                            <view alpha="0.69999999999999973" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nqy-za-KNJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbR-jD-GTd">
+                                <rect key="frame" x="-2" y="-1" width="377" height="668"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Play" translatesAutoresizingMaskIntoConstraints="NO" id="poS-L7-nyc">
+                                        <rect key="frame" x="172" y="272" width="138" height="73"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChangeGameMode" translatesAutoresizingMaskIntoConstraints="NO" id="PCc-hO-hae">
+                                        <rect key="frame" x="144" y="111" width="152" height="81"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChangeSortMode" translatesAutoresizingMaskIntoConstraints="NO" id="9sw-eg-HrS">
+                                        <rect key="frame" x="158" y="402" width="138" height="73"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcO-Yx-TUp">
+                                        <rect key="frame" x="0.0" y="0.0" width="377" height="668"/>
+                                        <state key="normal" title=" ">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backgroundPressed:" destination="BV1-FR-VrT" eventType="touchDown" id="XSj-7X-t04"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.31746031749999998" green="0.31746031749999998" blue="0.31746031749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aZz-Xa-pEU" firstAttribute="leading" secondItem="wCz-OH-v58" secondAttribute="trailing" constant="8" id="0F3-Om-OWH"/>
                             <constraint firstItem="wCz-OH-v58" firstAttribute="height" secondItem="aZz-Xa-pEU" secondAttribute="height" id="0tN-pJ-wGf"/>
@@ -113,11 +142,13 @@
                         <outlet property="button3" destination="2Nk-Wb-qj6" id="L2g-6D-ykd"/>
                         <outlet property="button4" destination="6ft-z8-FFZ" id="zIf-NY-0vD"/>
                         <outlet property="button5" destination="2va-7s-lxK" id="dsf-Pa-qQc"/>
+                        <outlet property="instructionsView" destination="kbR-jD-GTd" id="OWh-7y-ICI"/>
+                        <outlet property="transparentView" destination="Nqy-za-KNJ" id="Gi6-mq-hPX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67.5" y="6.5"/>
+            <point key="canvasLocation" x="54.5" y="7.5"/>
         </scene>
         <!--Highscore View Controller-->
         <scene sceneID="Rp9-2C-S5g">
@@ -641,8 +672,11 @@
         <image name="4CardBack" width="75" height="99"/>
         <image name="AdditionalInfo.png" width="2400" height="2400"/>
         <image name="AudioOn.png" width="2400" height="2400"/>
+        <image name="ChangeGameMode" width="3854" height="1924"/>
+        <image name="ChangeSortMode" width="3854" height="1924"/>
         <image name="Game Center2.png" width="2400" height="2400"/>
         <image name="Highscore.png" width="2400" height="2400"/>
+        <image name="Play" width="3854" height="1924"/>
         <image name="Unlockables.png" width="2400" height="2400"/>
         <image name="menuBackground.jpg" width="1080" height="1920"/>
     </resources>

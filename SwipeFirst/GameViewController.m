@@ -160,6 +160,16 @@
     }
 
 }
+- (IBAction)backgroundPressed:(id)sender {
+    NSLog(@"BACKGROUND PRESSED");
+    [self.transparentView removeFromSuperview];
+    [self.instructionsView removeFromSuperview];
+    self.instructionsView.hidden = true;
+    self.transparentView.hidden = true;
+
+}
+
+
 - (IBAction)audioButtonPressed:(id)sender {
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
