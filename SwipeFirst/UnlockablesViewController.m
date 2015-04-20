@@ -36,20 +36,23 @@ int selectedDeck;
 #warning Fix disable decks displaying the question mark image
         
     }else{
+        NSLog(@"Set Disabled");
         [self.deck2 setEnabled:false];
-        [self.deck2 setImage: [UIImage imageNamed: @"QuestionMarkCard"] forState: UIControlStateNormal];
+        [self.deck2 setBackgroundImage: [UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
     }
     if([prefs boolForKey:@"deck3unlocked"] == true){
         
     }else{
+        NSLog(@"Set Disabled");
         [self.deck3 setEnabled:false];
-        [self.deck3 setImage: [UIImage imageNamed: @"QuestionMarkCard"] forState: UIControlStateNormal];
+        [self.deck3 setBackgroundImage: [UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
     }
     if([prefs boolForKey:@"deck4unlocked"] == true){
         
     }else{
+        NSLog(@"Set Disabled");
         [self.deck4 setEnabled:false];
-        [self.deck4 setImage: [UIImage imageNamed: @"QuestionMarkCard"] forState: UIControlStateNormal];
+        [self.deck4 setBackgroundImage: [UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
     }
     
     
@@ -133,10 +136,26 @@ int selectedDeck;
 }
 
 -(void) updateImages{
-    [self.deck1 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
-    [self.deck2 setBackgroundImage:[UIImage imageNamed: @"2CardBack.png"] forState: UIControlStateNormal];
-    [self.deck3 setBackgroundImage:[UIImage imageNamed: @"3CardBack.png"] forState: UIControlStateNormal];
-    [self.deck4 setBackgroundImage:[UIImage imageNamed: @"4CardBack.png"] forState: UIControlStateNormal];
+    if(self.deck1.isEnabled){
+        [self.deck1 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
+    }else{
+        [self.deck1 setBackgroundImage:[UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
+    }
+    if(self.deck2.isEnabled){
+        [self.deck2 setBackgroundImage:[UIImage imageNamed: @"2CardBack.png"] forState: UIControlStateNormal];
+    }else{
+        [self.deck2 setBackgroundImage:[UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
+    }
+    if(self.deck3.isEnabled){
+        [self.deck3 setBackgroundImage:[UIImage imageNamed: @"3CardBack.png"] forState: UIControlStateNormal];
+    }else{
+        [self.deck3 setBackgroundImage:[UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
+    }
+    if(self.deck4.isEnabled){
+        [self.deck4 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
+    }else{
+        [self.deck4 setBackgroundImage:[UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
+    }
     //[self.deck5 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
     switch (selectedDeck) {
         case 1:
@@ -158,6 +177,9 @@ int selectedDeck;
         */
         default:
             break;
+            
+        
+            
     }}
 
 /*

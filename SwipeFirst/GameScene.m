@@ -513,7 +513,7 @@ static NSString *FONT = @"Exo 2";
 
 -(void) resetGame{
     [self shuffleAnimation];
-    [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.7];
+    [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.6];
 }
 
 -(void) moveToNewGame{
