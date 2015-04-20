@@ -41,6 +41,7 @@
 		EF0D26171AE2140900D25097 /* blueBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF0D26141AE2140900D25097 /* blueBackground.jpg */; };
 		EF0D26181AE2140900D25097 /* menuBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF0D26151AE2140900D25097 /* menuBackground.jpg */; };
 		EF1E6C2F1AE20B310009B2F6 /* Exo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF1E6C2E1AE20B310009B2F6 /* Exo2-Regular.ttf */; };
+		EF2FBDD71AE5383600EAFF1C /* clickSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF2FBDD61AE5383600EAFF1C /* clickSound.mp3 */; };
 		EF6165541AC337DE00C5FDC2 /* wrongCard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		EF0D26141AE2140900D25097 /* blueBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueBackground.jpg; sourceTree = "<group>"; };
 		EF0D26151AE2140900D25097 /* menuBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuBackground.jpg; sourceTree = "<group>"; };
 		EF1E6C2E1AE20B310009B2F6 /* Exo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo2-Regular.ttf"; sourceTree = "<group>"; };
+		EF2FBDD61AE5383600EAFF1C /* clickSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clickSound.mp3; sourceTree = "<group>"; };
 		EF6165531AC337DE00C5FDC2 /* wrongCard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongCard.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 		3FD06AD21AB1C9E40002FFBB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF2FBDD61AE5383600EAFF1C /* clickSound.mp3 */,
 				7F4853961AE30EF9009CA6BC /* AppIcon.png */,
 				7F285A551AE2C7C200DEA2AE /* play again.png */,
 				EF0D26131AE2140900D25097 /* redBackground.jpg */,
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FE1A9E61ADC9EBC006975B8 /* Game Center2.png in Resources */,
+				EF2FBDD71AE5383600EAFF1C /* clickSound.mp3 in Resources */,
 				7FE1A9E01ADC53E8006975B8 /* AdditionalInfo.png in Resources */,
 				7FE1A9DF1ADC53E8006975B8 /* AudioOff.png in Resources */,
 				EF0D26171AE2140900D25097 /* blueBackground.jpg in Resources */,
