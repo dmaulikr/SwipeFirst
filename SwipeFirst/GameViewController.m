@@ -34,18 +34,31 @@
 {
     [super viewDidLoad];
     
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    {
+        // app already launched
+        [self backgroundPressed: self.button4];
+    }
+    else
+    {
+        //First launch ever
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
     //For the standard default "2 is on | 1 is off | 0 means it hasnt been set
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     if([prefs integerForKey:@"audioOn"] != 0){
         //There is already a set boolean value
         if([prefs integerForKey:@"audioOn"] == 2){
-            [self.button5 setBackgroundImage:[UIImage imageNamed: @"AudioOn.png"] forState:UIControlStateNormal];
+            [self.button5 setBackgroundImage:[UIImage imageNamed: @"audioon"] forState:UIControlStateNormal];
         }else{
-            [self.button5 setBackgroundImage:[UIImage imageNamed: @"AudioOff.png"] forState:UIControlStateNormal];
+            [self.button5 setBackgroundImage:[UIImage imageNamed: @"audiooff"] forState:UIControlStateNormal];
         }
     }else{
         [prefs setInteger: 2 forKey: @"audioOn"];
-        [self.button5 setBackgroundImage:[UIImage imageNamed: @"AudioOn.png"] forState:UIControlStateNormal];
+        [self.button5 setBackgroundImage:[UIImage imageNamed: @"audioon"] forState:UIControlStateNormal];
     }
     
     // Configure the view.
@@ -166,7 +179,6 @@
     [self.instructionsView removeFromSuperview];
     self.instructionsView.hidden = true;
     self.transparentView.hidden = true;
-
 }
 
 

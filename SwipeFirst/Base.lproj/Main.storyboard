@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="width" constant="60" id="ixP-Rz-MLa"/>
                                     <constraint firstAttribute="height" constant="60" id="trb-zE-wMd"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="Highscore.png">
+                                <state key="normal" backgroundImage="highscore">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -42,7 +42,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nk-Wb-qj6">
                                 <rect key="frame" x="157" y="540" width="60" height="60"/>
-                                <state key="normal" backgroundImage="AdditionalInfo.png">
+                                <state key="normal" backgroundImage="info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -52,7 +52,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ft-z8-FFZ">
                                 <rect key="frame" x="225" y="540" width="60" height="60"/>
-                                <state key="normal" backgroundImage="Unlockables.png">
+                                <state key="normal" backgroundImage="unlockables">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -62,7 +62,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
                                 <rect key="frame" x="293" y="540" width="60" height="60"/>
-                                <state key="normal" backgroundImage="AudioOn.png">
+                                <state key="normal" backgroundImage="audioon">
                                     <color key="titleShadowColor" white="0.5" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -72,7 +72,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZz-Xa-pEU">
                                 <rect key="frame" x="89" y="540" width="60" height="60"/>
-                                <state key="normal" backgroundImage="Game Center2.png">
+                                <state key="normal" backgroundImage="gamecenter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -670,15 +670,15 @@
         <image name="2CardBack" width="729" height="1024"/>
         <image name="3CardBack" width="500" height="700"/>
         <image name="4CardBack" width="75" height="99"/>
-        <image name="AdditionalInfo.png" width="2400" height="2400"/>
-        <image name="AudioOn.png" width="2400" height="2400"/>
         <image name="ChangeGameMode" width="3854" height="1924"/>
         <image name="ChangeSortMode" width="3854" height="1924"/>
-        <image name="Game Center2.png" width="2400" height="2400"/>
-        <image name="Highscore.png" width="2400" height="2400"/>
         <image name="Play" width="3854" height="1924"/>
-        <image name="Unlockables.png" width="2400" height="2400"/>
+        <image name="audioon" width="2400" height="2400"/>
+        <image name="gamecenter" width="60" height="60"/>
+        <image name="highscore" width="2400" height="2400"/>
+        <image name="info" width="2400" height="2400"/>
         <image name="menuBackground.jpg" width="1080" height="1920"/>
+        <image name="unlockables" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mW9-9W-rg0"/>
