@@ -175,7 +175,7 @@
 }
 
 - (IBAction)backgroundPressed:(id)sender {
-    NSLog(@"BACKGROUND PRESSED");
+    //NSLog(@"BACKGROUND PRESSED");
     [self.transparentView removeFromSuperview];
     [self.instructionsView removeFromSuperview];
     self.instructionsView.hidden = true;
@@ -187,17 +187,18 @@
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     if([prefs integerForKey:@"audioOn"] == 2){
-        [sender setBackgroundImage:[UIImage imageNamed: @"AudioOff.png"] forState:UIControlStateNormal];
+        [sender setBackgroundImage:[UIImage imageNamed: @"audiooff"] forState:UIControlStateNormal];
         [prefs setInteger: 1 forKey:@"audioOn"];
         [Sound playClick];
     }else{
-        [sender setBackgroundImage:[UIImage imageNamed: @"AudioOn.png"] forState:UIControlStateNormal];
+        [sender setBackgroundImage:[UIImage imageNamed: @"audioon"] forState:UIControlStateNormal];
         [prefs setInteger: 2 forKey:@"audioOn"];
     }
     
 }
 - (IBAction)buttonPrssed:(id)sender {
-    [Sound playClick];
+    //Im currently using the sendCommandToGameScene method to play the sound
+    //[Sound playClick];
 }
 
 -(void)hideButtons{
