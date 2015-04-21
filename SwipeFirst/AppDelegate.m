@@ -30,9 +30,7 @@
             
             // Instantiate the initial view controller object from the storyboard
             initialViewController = [iPhone35Storyboard instantiateInitialViewController];
-        }
-        
-        if (iOSDeviceScreenSize.height == 568)
+        } else if (iOSDeviceScreenSize.height == 568)
         {   // iPhone 5 and iPod Touch 5th generation: 4 inch screen (diagonally measured)
             
             // Instantiate a new storyboard object using the storyboard file named Storyboard_iPhone4
@@ -40,7 +38,13 @@
             
             // Instantiate the initial view controller object from the storyboard
             initialViewController = [iPhone4Storyboard instantiateInitialViewController];
+        } else {
+            UIStoryboard *iPhone6Storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            
+            // Instantiate the initial view controller object from the storyboard
+            initialViewController = [iPhone6Storyboard instantiateInitialViewController];
         }
+        
         
         // Instantiate a UIWindow object and initialize it with the screen size of the iOS device
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
