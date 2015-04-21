@@ -206,6 +206,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backButtonPressed:" destination="AVF-ui-lT1" eventType="touchUpInside" id="NR5-IG-ozg"/>
                                     <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="gqg-nO-vp8"/>
                                 </connections>
                             </button>
@@ -468,6 +469,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backButtonPressed:" destination="yxY-oZ-1QC" eventType="touchUpInside" id="3Mc-b9-OaN"/>
                                     <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="mW9-9W-rg0"/>
                                 </connections>
                             </button>
@@ -509,7 +511,7 @@
                                     <action selector="deck1Selected:" destination="yxY-oZ-1QC" eventType="touchUpInside" id="ROh-ar-ywC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwp-Gs-mbb">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwp-Gs-mbb">
                                 <rect key="frame" x="35" y="330" width="78" height="112"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="3CardBack">
@@ -531,7 +533,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQ8-uO-UgH">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQ8-uO-UgH">
                                 <rect key="frame" x="35" y="210" width="78" height="112"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="2CardBack">
@@ -555,10 +557,10 @@
             </objects>
             <point key="canvasLocation" x="1084.5" y="14.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="Olx-qe-89r">
             <objects>
-                <viewController id="zzy-Ut-IHo" sceneMemberID="viewController">
+                <viewController id="zzy-Ut-IHo" customClass="SettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3GC-As-1VL"/>
                         <viewControllerLayoutGuide type="bottom" id="bjd-ee-3LE"/>
@@ -578,6 +580,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backButtonPressed:" destination="zzy-Ut-IHo" eventType="touchUpInside" id="TZJ-nf-yS3"/>
                                     <segue destination="BV1-FR-VrT" kind="presentation" animates="NO" id="p2s-34-acm"/>
                                 </connections>
                             </button>
@@ -679,6 +682,6 @@
         <image name="unlockables" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mW9-9W-rg0"/>
+        <segue reference="p2s-34-acm"/>
     </inferredMetricsTieBreakers>
 </document>

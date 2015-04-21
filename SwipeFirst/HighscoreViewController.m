@@ -82,6 +82,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)backButtonPressed:(id)sender {
+    [Sound playClick];
+}
 
 /*
 #pragma mark - Navigation

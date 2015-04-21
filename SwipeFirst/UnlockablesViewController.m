@@ -16,6 +16,10 @@
 
 int selectedDeck;
 
+- (IBAction)backButtonPressed:(id)sender {
+    [Sound playClick];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -33,7 +37,6 @@ int selectedDeck;
     
     if([prefs boolForKey:@"deck2unlocked"] == true){
         
-#warning Fix disable decks displaying the question mark image
         
     }else{
         NSLog(@"Set Disabled");
@@ -127,6 +130,7 @@ int selectedDeck;
 }
 
 -(void) selectValue: (int) val{
+    [Sound playClick];
     if(selectedDeck != val){
         selectedDeck = val;
         [self updateImages];

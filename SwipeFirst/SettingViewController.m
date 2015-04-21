@@ -23,6 +23,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)backButtonPressed:(id)sender {
+    [Sound playClick];
+}
 
 - (IBAction)resetAchievements:(id)sender {
     [GKAchievement resetAchievementsWithCompletionHandler:^(NSError *error)

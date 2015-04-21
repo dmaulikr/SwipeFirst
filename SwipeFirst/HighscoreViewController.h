@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Sound.h"
 
 @interface HighscoreViewController : UIViewController
 
