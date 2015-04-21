@@ -63,7 +63,7 @@ int CARD_HEIGHT = 1400 * 3/4;
     }
 }
 
--(BOOL) isEven{ //This doesn't work for face cards
+-(BOOL) isEven{
     NSString *name = [self.name substringFromIndex:1];
     int number = [[name substringFromIndex:1] intValue];
     if(number % 2 == 1)
