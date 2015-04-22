@@ -16,7 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
+  /*  if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone)
     {    // The iOS device = iPhone or iPod Touch
         
         
@@ -63,7 +63,7 @@
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
         
-    }
+    }*/
     return YES;
 }
 

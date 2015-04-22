@@ -83,6 +83,29 @@
     
     [[GameKitHelper sharedGameKitHelper]
      authenticateLocalPlayer];
+    
+    [_button1 removeFromSuperview];
+    _button1.frame = CGRectMake(self.view.frame.size.width/12, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
+    [self.view addSubview: _button1];
+    
+    [_button2 removeFromSuperview];
+    _button2.frame = CGRectMake(self.view.frame.size.width/12 + self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
+    [self.view addSubview: _button2];
+    
+    [_button3 removeFromSuperview];
+    _button3.frame = CGRectMake(self.view.frame.size.width/12 + 2*self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
+    [self.view addSubview: _button3];
+    
+    [_button4 removeFromSuperview];
+    _button4.frame = CGRectMake(self.view.frame.size.width/12 + 3*self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
+    [self.view addSubview: _button4];
+    
+    [_button5 removeFromSuperview];
+    _button5.frame = CGRectMake(self.view.frame.size.width/12 + 4*self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
+    [self.view addSubview: _button5];
+    
+   
+    
 }
 
 - (void)showAuthenticationViewController
