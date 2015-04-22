@@ -8,10 +8,10 @@
 
 /**
 TODO LIST:
- - "Swipe to begin"
- - Add Images
- - Finish Sounds
- - Error: If you swipe a card while the animation is running everything gets flipped
+ - HW Images
+ - Finish Sounds (Wrong card sound and click)
+ - Achievements
+ - Error: what happens when gamecenter unlocked decks doesn't match the NSUserDefaults info
 **/
 
 #import "GameScene.h"

@@ -94,11 +94,11 @@
     
     _button5.frame = CGRectMake(self.view.frame.size.width/12 + 4*self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
     
-    _play.frame = CGRectMake(self.view.frame.size.width/2 - 25, self.view.frame.size.height/2 - 100, 150,75);
+    _play.frame = CGRectMake(self.view.frame.size.width/2.15, self.view.frame.size.height/3, 150,75);
     
-    _gameMode.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/6 - 60, 150,75);
+    _gameMode.frame = CGRectMake(self.view.frame.size.width/2.5, self.view.frame.size.height/6.2, 150,75);
     
-    _sortMode.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2 + self.view.frame.size.height/12, 150,75);
+    _sortMode.frame = CGRectMake(self.view.frame.size.width/2.5, self.view.frame.size.height/2 + self.view.frame.size.height/12, 150,75);
 
     
    
