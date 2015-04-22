@@ -112,37 +112,39 @@
                             <view alpha="0.69999999999999973" contentMode="scaleToFill" id="Nqy-za-KNJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="kbR-jD-GTd">
+                                        <rect key="frame" x="8" y="38" width="377" height="668"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play" id="poS-L7-nyc">
+                                                <rect key="frame" x="172" y="272" width="138" height="73"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChangeGameMode" id="PCc-hO-hae">
+                                                <rect key="frame" x="144" y="111" width="152" height="81"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChangeSortMode" id="9sw-eg-HrS">
+                                                <rect key="frame" x="158" y="402" width="138" height="73"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wcO-Yx-TUp">
+                                                <rect key="frame" x="0.0" y="0.0" width="377" height="668"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title=" ">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="backgroundPressed:" destination="BV1-FR-VrT" eventType="touchDown" id="XSj-7X-t04"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                            </view>
-                            <view contentMode="scaleToFill" id="kbR-jD-GTd">
-                                <rect key="frame" x="-2" y="-1" width="377" height="668"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play" id="poS-L7-nyc">
-                                        <rect key="frame" x="172" y="272" width="138" height="73"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChangeGameMode" id="PCc-hO-hae">
-                                        <rect key="frame" x="144" y="111" width="152" height="81"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChangeSortMode" id="9sw-eg-HrS">
-                                        <rect key="frame" x="158" y="402" width="138" height="73"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wcO-Yx-TUp">
-                                        <rect key="frame" x="0.0" y="0.0" width="377" height="668"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title=" ">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backgroundPressed:" destination="BV1-FR-VrT" eventType="touchDown" id="XSj-7X-t04"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.31746031749999998" green="0.31746031749999998" blue="0.31746031749999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,7 +156,10 @@
                         <outlet property="button3" destination="2Nk-Wb-qj6" id="L2g-6D-ykd"/>
                         <outlet property="button4" destination="6ft-z8-FFZ" id="zIf-NY-0vD"/>
                         <outlet property="button5" destination="2va-7s-lxK" id="dsf-Pa-qQc"/>
+                        <outlet property="gameMode" destination="PCc-hO-hae" id="rEK-fN-PAf"/>
                         <outlet property="instructionsView" destination="kbR-jD-GTd" id="OWh-7y-ICI"/>
+                        <outlet property="play" destination="poS-L7-nyc" id="neI-wO-GNb"/>
+                        <outlet property="sortMode" destination="9sw-eg-HrS" id="pbC-XA-Ea6"/>
                         <outlet property="transparentView" destination="Nqy-za-KNJ" id="Gi6-mq-hPX"/>
                     </connections>
                 </viewController>

@@ -17,6 +17,11 @@
 -(void) hideButtons;
 -(void) showButtons;
 
+@property (weak, nonatomic) IBOutlet UIImageView *play;
+@property (weak, nonatomic) IBOutlet UIImageView *gameMode;
+@property (weak, nonatomic) IBOutlet UIImageView *sortMode;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *button1;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
 @property (weak, nonatomic) IBOutlet UIButton *button3;

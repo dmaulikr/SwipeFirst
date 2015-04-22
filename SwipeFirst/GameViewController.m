@@ -34,7 +34,7 @@
 {
     [super viewDidLoad];
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"] && false)
     {
         // app already launched
         [self backgroundPressed: self.button4];
@@ -84,25 +84,22 @@
     [[GameKitHelper sharedGameKitHelper]
      authenticateLocalPlayer];
     
-    [_button1 removeFromSuperview];
     _button1.frame = CGRectMake(self.view.frame.size.width/12, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
-    [self.view addSubview: _button1];
     
-    [_button2 removeFromSuperview];
     _button2.frame = CGRectMake(self.view.frame.size.width/12 + self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
-    [self.view addSubview: _button2];
     
-    [_button3 removeFromSuperview];
     _button3.frame = CGRectMake(self.view.frame.size.width/12 + 2*self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
-    [self.view addSubview: _button3];
     
-    [_button4 removeFromSuperview];
     _button4.frame = CGRectMake(self.view.frame.size.width/12 + 3*self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
-    [self.view addSubview: _button4];
     
-    [_button5 removeFromSuperview];
     _button5.frame = CGRectMake(self.view.frame.size.width/12 + 4*self.view.frame.size.width/6, 4*self.view.frame.size.height/5, self.view.frame.size.width/6, self.view.frame.size.width/6);
-    [self.view addSubview: _button5];
+    
+    _play.frame = CGRectMake(self.view.frame.size.width/2 - 25, self.view.frame.size.height/2 - 100, 150,75);
+    
+    _gameMode.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/6 - 60, 150,75);
+    
+    _sortMode.frame = CGRectMake(self.view.frame.size.width/2 - 50, self.view.frame.size.height/2 + self.view.frame.size.height/12, 150,75);
+
     
    
     
