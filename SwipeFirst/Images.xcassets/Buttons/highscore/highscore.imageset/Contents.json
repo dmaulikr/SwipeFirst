@@ -8,12 +8,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "highscore@2x.png"
+      "filename" : "highscore-2.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "highscore@3x.png"
+      "filename" : "highscore-1.png"
     }
   ],
   "info" : {
