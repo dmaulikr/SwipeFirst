@@ -35,6 +35,7 @@ SKLabelNode *highscoreDouble;
 SKLabelNode *score;
 SKLabelNode *scoreDouble;
 SKSpriteNode *background;
+SKSpriteNode *reallyBackBackground;
 NSTimeInterval startTime;
 double penalty = 0;
 int sortMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is shuffle
@@ -83,9 +84,14 @@ static NSString *FONT = @"Exo 2";
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     background.xScale = .4;//Guess and Check: Needs to be standardized for all screen sizes
     background.yScale = .4;
-    background.zPosition = -100;
+    background.zPosition = -99;
     [self addChild:background];
-    
+    reallyBackBackground = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"blueBigBackground.jpg"]];
+    reallyBackBackground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    reallyBackBackground.xScale = 1;//Guess and Check: Needs to be standardized for all screen sizes
+    reallyBackBackground.yScale = 1;
+    reallyBackBackground.zPosition = -100;
+    [self addChild:reallyBackBackground];
 }
 
 -(void) initializeViewController: (GameViewController*) passedController{
