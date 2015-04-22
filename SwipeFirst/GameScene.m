@@ -86,7 +86,7 @@ static NSString *FONT = @"Exo 2";
     background.yScale = .4;
     background.zPosition = -99;
     [self addChild:background];
-    reallyBackBackground = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"blueBigBackground.jpg"]];
+    reallyBackBackground = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"bigBlueBackground"]];
     reallyBackBackground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     reallyBackBackground.xScale = 1;//Guess and Check: Needs to be standardized for all screen sizes
     reallyBackBackground.yScale = 1;
@@ -329,6 +329,7 @@ static NSString *FONT = @"Exo 2";
             NSLog(@"PENALTY");
             penalty += 1;
             self.backgroundColor = [UIColor redColor];
+            reallyBackBackground.texture = [SKTexture textureWithImageNamed:@"bigRedBackground"];
             background.texture = [SKTexture textureWithImageNamed:@"redBackground.jpg"];
             [Sound playSoundWithFileName:@"wrongCard.mp3"];
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
@@ -479,6 +480,7 @@ static NSString *FONT = @"Exo 2";
     NSLog(@"RESET");
     //Called half a second after each penalty
     self.backgroundColor = [UIColor lightGrayColor];
+    reallyBackBackground.texture = [SKTexture textureWithImageNamed:@"bigBlueBackground"];
     background.texture = [SKTexture textureWithImageNamed:@"blueBackground.jpg"];
 }
 
