@@ -26,7 +26,7 @@
 +(void) playClick{
     if([[NSUserDefaults standardUserDefaults] integerForKey: @"audioOn"] != 1){
         NSLog(@"Play Click");
-        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/clickSound.mp3", [[NSBundle mainBundle] resourcePath]]];
+        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/click.mp3", [[NSBundle mainBundle] resourcePath]]];
         NSError *error;
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
         audioPlayer.numberOfLoops = 0;

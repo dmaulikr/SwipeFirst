@@ -23,6 +23,7 @@
 		7F3A40011AC7356B00F55D9F /* GameCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */; };
 		7F4853971AE30EF9009CA6BC /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4853961AE30EF9009CA6BC /* AppIcon.png */; };
 		7F4D0AEB1AC708A20041768B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4D0AEA1AC708A20041768B /* GameKit.framework */; };
+		7F6020351AE82C7500483A27 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7F6020341AE82C7500483A27 /* click.mp3 */; };
 		7FA988321ACC58A5006C4C5F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA988311ACC58A5006C4C5F /* SettingViewController.m */; };
 		7FAC0E781AC1C8D200126858 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAC0E771AC1C8D200126858 /* AVFoundation.framework */; };
 		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
@@ -77,6 +78,7 @@
 		7F3A40001AC7356B00F55D9F /* GameCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterViewController.m; sourceTree = "<group>"; };
 		7F4853961AE30EF9009CA6BC /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		7F4D0AEA1AC708A20041768B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		7F6020341AE82C7500483A27 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		7FA988301ACC58A4006C4C5F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		7FA988311ACC58A5006C4C5F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7FAC0E771AC1C8D200126858 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				EF2FBDD61AE5383600EAFF1C /* clickSound.mp3 */,
+				7F6020341AE82C7500483A27 /* click.mp3 */,
 				7F4853961AE30EF9009CA6BC /* AppIcon.png */,
 				7F285A551AE2C7C200DEA2AE /* play again.png */,
 				EF0D26131AE2140900D25097 /* redBackground.jpg */,
@@ -324,6 +327,7 @@
 				EF0D26181AE2140900D25097 /* menuBackground.jpg in Resources */,
 				7F285A561AE2C7C200DEA2AE /* play again.png in Resources */,
 				3FD06AE31AB1C9E40002FFBB /* Main.storyboard in Resources */,
+				7F6020351AE82C7500483A27 /* click.mp3 in Resources */,
 				7F4853971AE30EF9009CA6BC /* AppIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
