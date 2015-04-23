@@ -88,7 +88,7 @@ int selectedDeck;
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
                 if([achievement isCompleted] == true){
                     [self.deck4 setEnabled:true];
-                    [self.deck4 setBackgroundImage: [UIImage imageNamed: @"3CardBack.png"] forState: UIControlStateNormal];
+                    [self.deck4 setBackgroundImage: [UIImage imageNamed: @"4CardBack.png"] forState: UIControlStateNormal];
                     [prefs setBool:true forKey:@"deck4unlocked"];
 
                 }
@@ -103,7 +103,7 @@ int selectedDeck;
             }
              */
         }
-        
+        [self updateImages];
     }];
 }
 
@@ -159,7 +159,7 @@ int selectedDeck;
         [self.deck3 setBackgroundImage:[UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
     }
     if(self.deck4.isEnabled){
-        [self.deck4 setBackgroundImage:[UIImage imageNamed: @"1CardBack.png"] forState: UIControlStateNormal];
+        [self.deck4 setBackgroundImage:[UIImage imageNamed: @"4CardBack.png"] forState: UIControlStateNormal];
     }else{
         [self.deck4 setBackgroundImage:[UIImage imageNamed: @"QuestionMarkCard.png"] forState: UIControlStateNormal];
     }

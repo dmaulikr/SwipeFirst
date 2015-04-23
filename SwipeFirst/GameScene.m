@@ -21,6 +21,7 @@ TODO LIST:
 @implementation GameScene
 
 PlayingCard *card;
+PlayingCard *nextCard;
 Deck *deck;
 bool isPlaying;
 bool isEnd;
@@ -44,6 +45,7 @@ int totalCardsSwiped;
 int totalSwipedCorrectly;
 int marathonBonusCount;
 NSUserDefaults *prefs;
+UIPanGestureRecognizer *recognizer5;
 
 static NSString *FONT = @"Exo 2";
 
@@ -63,6 +65,17 @@ static NSString *FONT = @"Exo 2";
     [self addLabels];
     deck = [[Deck alloc] init];
     CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    
+    nextCard = [[PlayingCard  alloc] initWithName: @"NAME"];
+    [nextCard setPixelTexture];
+    nextCard.xScale = 0.4;
+    nextCard.yScale = 0.4;
+    nextCard.position = location;
+    [self addChild: nextCard];
+    nextCard.name = [[deck getRandomCard: true] name];
+    nextCard.zPosition = -1;
+    
+    
     card = [[PlayingCard  alloc] initWithName: @"NAME"];
     [card setPixelTexture];
     card.xScale = 0.4;
@@ -71,6 +84,8 @@ static NSString *FONT = @"Exo 2";
     [self addChild: card];
     [self addSwipeGestures];
     card.name = [[deck getRandomCard: true] name];
+    [nextCard flip];
+
     //[card flip];
     
     shuffleButton = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"play again.png"]];// color:[UIColor whiteColor] size:CGSizeMake(card.size.width - 10, card.size.height / 10)];
@@ -150,6 +165,8 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) addSwipeGestures{
+    NSLog(@"THIS SHOULD ONLY BE CALLED ONCE GODDAMNIT");
+    
     UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
     recognizer.direction = UISwipeGestureRecognizerDirectionUp;
     [[self view] addGestureRecognizer:recognizer];
@@ -165,6 +182,40 @@ static NSString *FONT = @"Exo 2";
     UISwipeGestureRecognizer *recognizer4 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)];
     recognizer4.direction = UISwipeGestureRecognizerDirectionLeft;
     [[self view] addGestureRecognizer:recognizer4];
+    
+    recognizer5 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    recognizer5.minimumNumberOfTouches = 1;
+    recognizer5.maximumNumberOfTouches = 1;
+    [recognizer5 setEnabled: NO];
+    [[self view] addGestureRecognizer:recognizer5];
+}
+
+-(void) handlePan: (UIPanGestureRecognizer*)sender{
+    if(isPlaying){
+        if(sender.state == UIGestureRecognizerStateEnded){
+            NSLog(@"finished");
+            NSLog(@"VELOCITY: %f", [sender velocityInView:self.view].y);
+            if([sender velocityInView:self.view].y > 0){
+                //Swipe up
+                [self handleSwipe: (UIPanGestureRecognizer*) sender direction: 1];
+            }else if([sender velocityInView:self.view].y == 0){ //Needs to be set to a <some value so that really slow back swipes dont count
+                if(card.position.y < CGRectGetMidY(self.frame)){
+                    [self handleSwipe: (UIPanGestureRecognizer*) sender direction: 1];
+                }else{
+                    [self handleSwipe: (UIPanGestureRecognizer*) sender direction: 0];
+                }
+            }else{
+                [self handleSwipe: (UIPanGestureRecognizer*) sender direction: 0];
+            }
+        }else if(sender.state == UIGestureRecognizerStateCancelled){
+            card.position = CGPointMake(card.position.x, CGRectGetMidY(self.frame));
+        }else if(sender.state == UIGestureRecognizerStateChanged){
+            int y = [sender translationInView:self.view].y / 3;
+            card.position = CGPointMake(card.position.x, CGRectGetMidY(self.frame) - y);
+        }
+    }else{
+        NSLog(@"Trying to swipe but game is not playing");
+    }
 }
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
@@ -255,11 +306,12 @@ static NSString *FONT = @"Exo 2";
     }
 }
 
--(void) handleSwipe: (UISwipeGestureRecognizer *) sender direction: (int) dir {
+-(void) handleSwipe: (UIGestureRecognizer *) sender direction: (int) dir {
     
     NSLog(@"%f", [sender locationInView:self.view].x);
     if(isPlaying == false && isEnd == false){
         [card flip];
+        [recognizer5 setEnabled:true];
         topLabel.fontName = @"Courier New Bold";
         [(GameViewController *) controller hideButtons];
         isPlaying = true;
@@ -283,6 +335,7 @@ static NSString *FONT = @"Exo 2";
         }
         if([[card name] hasPrefix: @"4"]){
             [card setPixelTexture];
+            [nextCard setPixelTexture];
         }
         if(isShuffleMode){
             sortMode = 0;
@@ -294,30 +347,49 @@ static NSString *FONT = @"Exo 2";
             totalSwipedCorrectly++;
             PlayingCard *overlayCard;
             [overlayCard setPixelTexture];
-            CGPoint location = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
             overlayCard = [[PlayingCard  alloc] initWithName: [card.name substringFromIndex:1]];
             overlayCard.xScale = 0.38;
             overlayCard.yScale = 0.38;
-            overlayCard.position = location;
+            overlayCard.position = card.position;
             [overlayCard flip];
             overlayCard.zPosition = 1; //Brings the sprite node to the front of all others
             [self addChild: overlayCard];
-            double twistAmount = (([sender locationOfTouch:0 inView:self.view].x - self.frame.size.width / 2) + self.view.center.x*2) / 100;
+            double twistAmount = (([sender locationInView:self.view].x - self.frame.size.width / 2) + self.view.center.x*2) / 100;
             SKAction *twistNode = [SKAction rotateByAngle:(twistAmount * ((dir == 0)? 1 : -1)) duration:.3];
             [overlayCard runAction: twistNode]; //NEEDS TO BE STANDARDIZED FOR ALL SCREEN SIZES CURRENTLY GUESS AND CHECK
             SKAction *moveNodeUp = [SKAction moveByX:0.0 y:self.frame.size.height * ((dir == 0)? 1 : -1) duration:.3];
             [overlayCard runAction: moveNodeUp];
+            card.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
             [Sound playSoundWithFileName:@"cardFlip.mp3"];
-            if([deck.arrayOfCards count] != 0){
-                card.name = [[deck getRandomCard: gameMode == 1] name];
+            if([deck.arrayOfCards count] > 0){
+                NSLog(@"COUNT GREATER THAN 1");
+                card.name = nextCard.name;
+                nextCard.name = [[deck getRandomCard: gameMode == 1] name];
+                
                 if(gameMode == 2 && deck.numTaken%10 == 0){
                     penalty -=(10 - 0.5 * marathonBonusCount);  
                     marathonBonusCount++;
                 }
                 [card update];
+                [nextCard update];
+                if([[card name] hasPrefix: @"4"]){
+                    [card setPixelTexture];
+                    [nextCard setPixelTexture];
+                }
+            }else if(gameMode == 1 && ([deck.arrayOfCards count] == 0) && [nextCard isHidden] == false){
+                NSLog(@"COUNT EQUALS 1");
+                card.name = nextCard.name;
+                [nextCard setHidden: true];
+                if(gameMode == 2 && deck.numTaken%10 == 0){
+                    penalty -=(10 - 0.5 * marathonBonusCount);
+                    marathonBonusCount++;
+                }
+                [card update];
+                //[nextCard update];
                 if([[card name] hasPrefix: @"4"])
                     [card setPixelTexture];
             }else if(gameMode == 1){
+                NSLog(@"COUNT EQUALS ZERO");
                 //END GAME
                 [self endGame];
             }
@@ -328,17 +400,18 @@ static NSString *FONT = @"Exo 2";
         }else{
             NSLog(@"PENALTY");
             penalty += 1;
+            [card runAction:[SKAction moveToY: CGRectGetMidY(self.frame) duration:.3]];
             self.backgroundColor = [UIColor redColor];
             reallyBackBackground.texture = [SKTexture textureWithImageNamed:@"bigRedBackground"];
             background.texture = [SKTexture textureWithImageNamed:@"redBackground.jpg"];
             [Sound playSoundWithFileName:@"wrongCard.mp3"];
-            [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.2];
+            [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.3];
             if(gameMode == 2){
                 [self endGame];
             }
         }
     }
-    bottomLabel.text = [NSString stringWithFormat: @"%lu", (gameMode == 1)? (unsigned long)[deck.arrayOfCards count] : (unsigned long)[deck numTaken]];
+    bottomLabel.text = [NSString stringWithFormat: @"%lu", (gameMode == 1)? ((unsigned long)[deck.arrayOfCards count] + 1) : (unsigned long)[deck numTaken]];
 }
 
 - (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
@@ -425,6 +498,7 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) endGame{
+    marathonBonusCount = 0;
     [highscore setHidden: FALSE];
     [highscoreDouble setHidden: FALSE];
     [score setHidden: FALSE];
@@ -433,6 +507,7 @@ static NSString *FONT = @"Exo 2";
     scoreDouble.text = (gameMode == 1)? topLabel.text : [NSString stringWithFormat: @"%d", deck.numTaken];
     topLabel.text = @"Card Sort";
     
+    [nextCard setHidden: true];
     [card setHidden:true];
     isPlaying = false;
     isEnd = true;
@@ -525,6 +600,7 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) moveToNewGame{
+    [recognizer5 setEnabled:false];
     [(GameViewController*) controller showButtons];
     self.backgroundColor = [UIColor lightGrayColor];
     deck = [[Deck alloc] init];
@@ -554,6 +630,7 @@ static NSString *FONT = @"Exo 2";
     [scoreDouble setHidden: TRUE];
     [score setHidden: TRUE];
     [card flip];
+    [nextCard setHidden: false];
     [card setHidden: false];
 }
 
@@ -570,20 +647,6 @@ static NSString *FONT = @"Exo 2";
     }
 }
 
-/*
--(void) playSoundWithFileName: (NSString*) audioName{
-    if([prefs integerForKey: @"audioOn"] == 2){
-        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], audioName]];
-        NSError *error;
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-        audioPlayer.numberOfLoops = 0;
-        //if (audioPlayer == nil)
-        //    NSLog(@"%@",[error description]);
-        //else
-        [audioPlayer play];
-    }
-}
- */
 
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
     GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
