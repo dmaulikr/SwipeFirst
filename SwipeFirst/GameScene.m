@@ -227,7 +227,7 @@ static NSString *FONT = @"Exo 2";
         }else if(sender.state == UIGestureRecognizerStateCancelled){
             card.position = CGPointMake(card.position.x, CGRectGetMidY(self.frame));
         }else if(sender.state == UIGestureRecognizerStateChanged){
-            int y = [sender translationInView:self.view].y / 3;
+            int y = [sender translationInView:self.view].y / 1.5;
             card.position = CGPointMake(card.position.x, CGRectGetMidY(self.frame) - y);
         }
     }else{
