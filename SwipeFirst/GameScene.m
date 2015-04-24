@@ -9,7 +9,7 @@
 /**
 TODO LIST:
  - HW Images
- - Finish Sounds (Wrong card sound and click)
+ - Finish Sounds (wrong card sound and click)
  - Achievements
  - Error: what happens when gamecenter unlocked decks doesn't match the NSUserDefaults info
 **/
@@ -235,7 +235,7 @@ static NSString *FONT = @"Exo 2";
     }
 }
 
-- (void)handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
+-(void) handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
     [self setAchievement: @"deck2unlocked" toDoubleValue:100];
     [self setAchievement: @"deck3unlocked" toDoubleValue:100];
     [self setAchievement: @"deck4unlocked" toDoubleValue:100];
@@ -262,7 +262,7 @@ static NSString *FONT = @"Exo 2";
     }
 }
 
-- (void)handleSwipeRight:(UISwipeGestureRecognizer *)sender{
+-(void) handleSwipeRight:(UISwipeGestureRecognizer *)sender{
     //NSLog(@"Swipe Right");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
@@ -435,11 +435,11 @@ static NSString *FONT = @"Exo 2";
     bottomLabel.text = [NSString stringWithFormat: @"%lu", (gameMode == 1)? ((unsigned long)[deck.arrayOfCards count] + 1) : (unsigned long)[deck numTaken]];
 }
 
-- (void)handleSwipeUp:(UISwipeGestureRecognizer *)sender{
+-(void) handleSwipeUp:(UISwipeGestureRecognizer *)sender{
     [self handleSwipe: sender direction: 0];
 }
 
-- (void)handleSwipeDown:(UISwipeGestureRecognizer *)sender{
+-(void) handleSwipeDown:(UISwipeGestureRecognizer *)sender{
     [self handleSwipe:sender direction: 1];
 }
 
@@ -616,7 +616,6 @@ static NSString *FONT = @"Exo 2";
     return false;
 }
 
-
 -(void) resetGame{
     [self shuffleAnimation];
     [self performSelector:@selector(moveToNewGame) withObject:self afterDelay:.6];
@@ -657,8 +656,7 @@ static NSString *FONT = @"Exo 2";
     [card setHidden: false];
 }
 
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     for (UITouch *touch in touches){
         CGPoint location = [touch locationInNode: self];
@@ -669,7 +667,6 @@ static NSString *FONT = @"Exo 2";
         }
     }
 }
-
 
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
     GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
@@ -683,7 +680,7 @@ static NSString *FONT = @"Exo 2";
     }];
 }
 
--(void)update:(CFTimeInterval)currentTime {
+-(void) update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     if(isPlaying == false)
         return;
