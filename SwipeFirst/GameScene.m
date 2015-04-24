@@ -236,9 +236,7 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) handleSwipeLeft:(UISwipeGestureRecognizer *)sender{
-    [self setAchievement: @"deck2unlocked" toDoubleValue:100];
-    [self setAchievement: @"deck3unlocked" toDoubleValue:100];
-    [self setAchievement: @"deck4unlocked" toDoubleValue:100];
+    
     //NSLog(@"Swipe Left");
     if(!isPlaying){
         //NEED TO SWIPE THROUGH CATEGORIES
@@ -519,6 +517,7 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) endGame{
+    [prefs setInteger:[prefs integerForKey:@"gamesPlayed"]+1 forKey:@"gamesPlayed"];
     marathonBonusCount = 0;
     [highscore setHidden: FALSE];
     [highscoreDouble setHidden: FALSE];
@@ -537,7 +536,6 @@ static NSString *FONT = @"Exo 2";
         [self updateSortMode];
     }
     isShuffleMode = false;
-    [self setAchievement: @"startthegame" toDoubleValue:100];
     double currentScore = (gameMode == 1)? ([NSDate timeIntervalSinceReferenceDate] - startTime) + penalty : [deck numTaken];
     NSLog(@"Current Score at the end of the game is: %f", currentScore);
     if([prefs doubleForKey: [NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]] != 0){
@@ -569,6 +567,43 @@ static NSString *FONT = @"Exo 2";
     
     [prefs setInteger: totalCardsSwiped forKey: @"totalCardsSwiped"];
     [prefs setInteger: totalSwipedCorrectly forKey: @"totalSwipedCorrectly"];
+    
+    [self updateAchievements];
+}
+
+-(void) updateAchievements{
+    int totalCardsSwiped = (int)[prefs integerForKey: @"totalCardsSwiped"];
+    int totalSwipedCorrectly = (int)[prefs integerForKey: @"totalSwipedCorrectly"];
+    double gamesPlayed = (int)[prefs integerForKey:@"gamesPlayed"];
+    double percentage = ((int)(((double) totalSwipedCorrectly / (double) totalCardsSwiped) * 10000) / 100.0);
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS11"]] < 30){ //Sort a deck in under 30s
+        [self setAchievement: @"deck2unlocked" toDoubleValue:100];
+    }
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS10"]] > 69){ //Sort 69 cards in sprint mode
+        [self setAchievement: @"deck3unlocked" toDoubleValue:100];
+    }
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS12"]] > 300){ //Sort 300 cards in marathon mode
+        [self setAchievement: @"deck4unlocked" toDoubleValue:100];
+    }
+    
+    [self setAchievement:@"10games" toDoubleValue:gamesPlayed*10];
+    [self setAchievement:@"25games" toDoubleValue:gamesPlayed*4];
+    [self setAchievement:@"50games" toDoubleValue:gamesPlayed*2];
+    [self setAchievement:@"100games" toDoubleValue:gamesPlayed];
+    [self setAchievement:@"500games" toDoubleValue:gamesPlayed/5];
+    [self setAchievement:@"1000games" toDoubleValue:gamesPlayed/10];
+    
+    [self setAchievement: @"500cards" toDoubleValue:totalCardsSwiped/5];
+    [self setAchievement: @"1000cards" toDoubleValue:totalCardsSwiped/10];
+    [self setAchievement: @"5000cards" toDoubleValue:totalCardsSwiped/50];
+    [self setAchievement: @"10000cards" toDoubleValue:totalCardsSwiped/100];
+    [self setAchievement: @"50000cards" toDoubleValue:totalCardsSwiped/500];
+
+    if(totalCardsSwiped > 100){
+        [self setAchievement:@"75accuracy" toDoubleValue:percentage/75];
+        [self setAchievement:@"95accuracy" toDoubleValue:percentage/95];
+    }
+
 }
 
 -(void) resetAfterPenalty{
