@@ -35,8 +35,8 @@ SKLabelNode *highscore;
 SKLabelNode *highscoreDouble;
 SKLabelNode *score;
 SKLabelNode *scoreDouble;
-SKSpriteNode *background;
-SKSpriteNode *reallyBackBackground;
+//SKSpriteNode *background;
+//SKSpriteNode *reallyBackBackground;
 SKSpriteNode *backgroundRed;
 SKSpriteNode *reallyBackBackgroundRed;
 NSTimeInterval startTime;
@@ -97,13 +97,13 @@ static NSString *FONT = @"Exo 2";
     [self addChild: shuffleButton];
     
     [self updateLabels];
-    background = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"blueBackground.jpg"]];
+    SKSpriteNode *background = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"blueBackground.jpg"]];
     background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     background.xScale = .4;//Guess and Check: Needs to be standardized for all screen sizes
     background.yScale = .4;
     background.zPosition = -99;
     [self addChild:background];
-    reallyBackBackground = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"bigBlueBackground"]];
+    SKSpriteNode *reallyBackBackground = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"bigBlueBackground"]];
     reallyBackBackground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     reallyBackBackground.xScale = 1;//Guess and Check: Needs to be standardized for all screen sizes
     reallyBackBackground.yScale = 1;

@@ -189,7 +189,8 @@
     int totalCardsSwiped = (int)[prefs integerForKey: @"totalCardsSwiped"];
     int totalSwipedCorrectly = (int)[prefs integerForKey: @"totalSwipedCorrectly"];
     if(totalCardsSwiped > 100){
-        double percentage = ((int)(((double) totalSwipedCorrectly / (double) totalCardsSwiped)));
+        double percentage = ((((double) totalSwipedCorrectly / (double) totalCardsSwiped)));
+        NSLog(@"setting accuracy to %f", percentage);
         [self setLeaderboard: @"accuracyleaderboard" withScore: percentage * 100];
     }
 }
