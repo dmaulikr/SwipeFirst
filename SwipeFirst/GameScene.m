@@ -37,6 +37,8 @@ SKLabelNode *score;
 SKLabelNode *scoreDouble;
 SKSpriteNode *background;
 SKSpriteNode *reallyBackBackground;
+SKSpriteNode *backgroundRed;
+SKSpriteNode *reallyBackBackgroundRed;
 NSTimeInterval startTime;
 double penalty = 0;
 int sortMode = 1; // | 0 is even odd | 1 is red black | 2 is face non-face | 3 is shuffle
@@ -107,6 +109,21 @@ static NSString *FONT = @"Exo 2";
     reallyBackBackground.yScale = 1;
     reallyBackBackground.zPosition = -100;
     [self addChild:reallyBackBackground];
+    
+    backgroundRed = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"redBackground.jpg"]];
+    backgroundRed.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    backgroundRed.xScale = .4;//Guess and Check: Needs to be standardized for all screen sizes
+    backgroundRed.yScale = .4;
+    backgroundRed.zPosition = -97;
+    [self addChild:backgroundRed];
+    [backgroundRed setHidden: true];
+    reallyBackBackgroundRed = [[SKSpriteNode alloc] initWithTexture: [SKTexture textureWithImageNamed:@"bigRedBackground"]];
+    reallyBackBackgroundRed.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    reallyBackBackgroundRed.xScale = 1;//Guess and Check: Needs to be standardized for all screen sizes
+    reallyBackBackgroundRed.yScale = 1;
+    reallyBackBackgroundRed.zPosition = -98;
+    [self addChild:reallyBackBackgroundRed];
+    [reallyBackBackgroundRed setHidden: true];
 }
 
 -(void) initializeViewController: (GameViewController*) passedController{
@@ -240,6 +257,7 @@ static NSString *FONT = @"Exo 2";
             [self handleSwipeAnimationWithDirection:-1];
         }
     }else{
+        [self resetGame];
         return;
     }
 }
@@ -261,6 +279,7 @@ static NSString *FONT = @"Exo 2";
             [self handleSwipeAnimationWithDirection:1];
         }
     }else{
+        [self resetGame];
         return;
     }
 }
@@ -400,10 +419,12 @@ static NSString *FONT = @"Exo 2";
         }else{
             NSLog(@"PENALTY");
             penalty += 1;
-            [card runAction:[SKAction moveToY: CGRectGetMidY(self.frame) duration:.3]];
-            self.backgroundColor = [UIColor redColor];
-            reallyBackBackground.texture = [SKTexture textureWithImageNamed:@"bigRedBackground"];
-            background.texture = [SKTexture textureWithImageNamed:@"redBackground.jpg"];
+            [card runAction:[SKAction moveToY: CGRectGetMidY(self.frame) duration:0]];
+            //self.backgroundColor = [UIColor redColor];
+            [backgroundRed setHidden: false];
+            [reallyBackBackgroundRed setHidden: false];
+            //reallyBackBackground.texture = [SKTexture textureWithImageNamed:@"bigRedBackground"];
+            //background.texture = [SKTexture textureWithImageNamed:@"redBackground.jpg"];
             [Sound playSoundWithFileName:@"wrongCard.mp3"];
             [self performSelector:@selector(resetAfterPenalty) withObject:self afterDelay:.3];
             if(gameMode == 2){
@@ -554,9 +575,11 @@ static NSString *FONT = @"Exo 2";
     //ERROR: THIS ENDS FOR THE NEAREST PENALTY TWO IN QUICK SUCCESSION WILL END EARLY
     NSLog(@"RESET");
     //Called half a second after each penalty
-    self.backgroundColor = [UIColor lightGrayColor];
-    reallyBackBackground.texture = [SKTexture textureWithImageNamed:@"bigBlueBackground"];
-    background.texture = [SKTexture textureWithImageNamed:@"blueBackground.jpg"];
+    //self.backgroundColor = [UIColor lightGrayColor];
+    [backgroundRed setHidden: true];
+    [reallyBackBackgroundRed setHidden: true];
+    //reallyBackBackground.texture = [SKTexture textureWithImageNamed:@"bigBlueBackground"];
+    //background.texture = [SKTexture textureWithImageNamed:@"blueBackground.jpg"];
 }
 
 -(BOOL) checkValidCardSwipe: (NSString*) direction{
