@@ -62,7 +62,7 @@ static NSString *FONT = @"Exo 2";
     }if([prefs integerForKey: [NSString stringWithFormat:@"totalSwipedCorrectly"]] != 0){
         totalSwipedCorrectly = [prefs doubleForKey: [NSString stringWithFormat:@"totalSwipedCorrectly"]];
     }
-    self.backgroundColor = [UIColor lightGrayColor];
+    //self.backgroundColor = [UIColor lightGrayColor];
     isPlaying = false;
     [self addLabels];
     deck = [[Deck alloc] init];
@@ -527,6 +527,8 @@ static NSString *FONT = @"Exo 2";
     scoreDouble.text = (gameMode == 1)? topLabel.text : [NSString stringWithFormat: @"%d", deck.numTaken];
     topLabel.text = @"Card Sort";
     
+    [card setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
+    [nextCard setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [nextCard setHidden: true];
     [card setHidden:true];
     isPlaying = false;
@@ -544,7 +546,7 @@ static NSString *FONT = @"Exo 2";
         if((gameMode == 1)? currentScore < currentHS : currentScore > currentHS){
             //New Highscore
             NSLog(@"Setting the new highscore");
-            self.backgroundColor = [UIColor greenColor]; //This color is absolutely disgusting
+            //self.backgroundColor = [UIColor greenColor]; //This color is absolutely disgusting
             highscore.text = @"Previous Highscore";
             [prefs setDouble:currentScore forKey:[NSString stringWithFormat:@"HS%d%d",sortMode, gameMode]];
         }else{
@@ -659,7 +661,7 @@ static NSString *FONT = @"Exo 2";
 -(void) moveToNewGame{
     [recognizer5 setEnabled:false];
     [(GameViewController*) controller showButtons];
-    self.backgroundColor = [UIColor lightGrayColor];
+    //self.backgroundColor = [UIColor lightGrayColor];
     deck = [[Deck alloc] init];
     //topLabel.text = @"< Deck >";
     bottomLabel.text = @" ";
