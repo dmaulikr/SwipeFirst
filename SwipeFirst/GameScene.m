@@ -182,7 +182,6 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) addSwipeGestures{
-    NSLog(@"THIS SHOULD ONLY BE CALLED ONCE GODDAMNIT");
     
     UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
     recognizer.direction = UISwipeGestureRecognizerDirectionUp;
@@ -326,6 +325,7 @@ static NSString *FONT = @"Exo 2";
 -(void) handleSwipe: (UIGestureRecognizer *) sender direction: (int) dir {
     
     NSLog(@"%f", [sender locationInView:self.view].x);
+    bool shouldUpdateBottomLabel = true;
     if(isPlaying == false && isEnd == false){
         [card flip];
         [recognizer5 setEnabled:true];
@@ -402,6 +402,8 @@ static NSString *FONT = @"Exo 2";
                     marathonBonusCount++;
                 }
                 [card update];
+                bottomLabel.text = [NSString stringWithFormat:@"%d", (int)([deck.arrayOfCards count] + 1)];
+                shouldUpdateBottomLabel = false;
                 //[nextCard update];
                 if([[card name] hasPrefix: @"4"])
                     [card setPixelTexture];
@@ -430,7 +432,8 @@ static NSString *FONT = @"Exo 2";
             }
         }
     }
-    bottomLabel.text = [NSString stringWithFormat: @"%lu", (gameMode == 1)? ((unsigned long)[deck.arrayOfCards count] + 1) : (unsigned long)[deck numTaken]];
+    if(shouldUpdateBottomLabel)
+        bottomLabel.text = [NSString stringWithFormat: @"%lu", (gameMode == 1)? ((unsigned long)[deck.arrayOfCards count] + 1) : (unsigned long)[deck numTaken]];
 }
 
 -(void) handleSwipeUp:(UISwipeGestureRecognizer *)sender{
@@ -470,7 +473,6 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) handleSwipeAnimationWithDirection: (int) dir{
-    //-1 for left | 1 for right
     SKAction *moveNodeOffScreen = [SKAction moveToX:self.frame.size.width * ((dir == -1)? 0 : 1) duration:.3];
     [topSort runAction: moveNodeOffScreen];
     [bottomSort runAction: moveNodeOffScreen];

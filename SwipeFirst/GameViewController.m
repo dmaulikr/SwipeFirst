@@ -34,6 +34,12 @@
 {
     [super viewDidLoad];
     
+    self.button1.translatesAutoresizingMaskIntoConstraints = true;
+    self.button2.translatesAutoresizingMaskIntoConstraints = true;
+    self.button3.translatesAutoresizingMaskIntoConstraints = true;
+    self.button4.translatesAutoresizingMaskIntoConstraints = true;
+    self.button5.translatesAutoresizingMaskIntoConstraints = true;
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]/* && false*/)
     {
         // app already launched
