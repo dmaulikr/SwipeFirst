@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Exo2-Regular.ttf">
@@ -454,14 +456,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fantasy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgy-u3-U54">
-                                <rect key="frame" x="135" y="375" width="92" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fantasy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgy-u3-U54">
+                                <rect key="frame" x="135" y="355" width="92" height="21"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0u-2V-U0F">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0u-2V-U0F">
                                 <rect key="frame" x="35" y="68" width="78" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="h0u-2V-U0F" secondAttribute="height" multiplier="39:56" id="48u-wT-c3A"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="130" id="9nq-Sv-epn"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="1CK">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -470,8 +476,11 @@
                                     <action selector="deck1Selected:" destination="yxY-oZ-1QC" eventType="touchUpInside" id="ROh-ar-ywC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwp-Gs-mbb">
-                                <rect key="frame" x="35" y="330" width="78" height="112"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwp-Gs-mbb">
+                                <rect key="frame" x="35" y="310" width="78" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Gwp-Gs-mbb" secondAttribute="height" multiplier="39:56" id="7l1-Hw-ar6"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="3CardBack">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -480,14 +489,17 @@
                                     <action selector="deck3Selected:" destination="yxY-oZ-1QC" eventType="touchUpInside" id="UZb-Ch-mDF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa5-0s-c2C">
-                                <rect key="frame" x="135" y="245" width="69" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Red" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa5-0s-c2C">
+                                <rect key="frame" x="135" y="235" width="69" height="21"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQ8-uO-UgH">
-                                <rect key="frame" x="35" y="200" width="78" height="112"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQ8-uO-UgH">
+                                <rect key="frame" x="35" y="190" width="78" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oQ8-uO-UgH" secondAttribute="height" multiplier="39:56" id="v9H-ds-btu"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="2CardBack">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -496,14 +508,14 @@
                                     <action selector="deck2Selected:" destination="yxY-oZ-1QC" eventType="touchUpInside" id="tPS-FM-rpk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thb-hd-WNI">
-                                <rect key="frame" x="135" y="113" width="69" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thb-hd-WNI">
+                                <rect key="frame" x="135" y="113" width="101" height="21"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ou-ud-X1w">
-                                <rect key="frame" x="35" y="465" width="78" height="112"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ou-ud-X1w">
+                                <rect key="frame" x="35" y="527" width="78" height="112"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" backgroundImage="4CardBack">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -512,14 +524,40 @@
                                     <action selector="deck4Selected:" destination="yxY-oZ-1QC" eventType="touchUpInside" id="aae-ia-egE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8-Bit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvO-d8-n1y">
-                                <rect key="frame" x="135" y="510" width="41" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="8-Bit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvO-d8-n1y">
+                                <rect key="frame" x="135" y="572" width="41" height="21"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oa5-0s-c2C" firstAttribute="leading" secondItem="oQ8-uO-UgH" secondAttribute="trailing" constant="22" id="1N7-CU-IMm"/>
+                            <constraint firstItem="thb-hd-WNI" firstAttribute="leading" secondItem="h0u-2V-U0F" secondAttribute="trailing" constant="22" id="2Ka-1E-8wc"/>
+                            <constraint firstItem="1ou-ud-X1w" firstAttribute="width" secondItem="Gwp-Gs-mbb" secondAttribute="width" id="CgB-3U-UMq"/>
+                            <constraint firstItem="TvO-d8-n1y" firstAttribute="centerY" secondItem="1ou-ud-X1w" secondAttribute="centerY" constant="-0.5" id="Hce-HU-yQB"/>
+                            <constraint firstItem="oQ8-uO-UgH" firstAttribute="centerX" secondItem="h0u-2V-U0F" secondAttribute="centerX" id="IEp-KY-5cH"/>
+                            <constraint firstItem="h0u-2V-U0F" firstAttribute="leading" secondItem="h49-BW-ifV" secondAttribute="leadingMargin" constant="19" id="IdH-87-TKZ"/>
+                            <constraint firstItem="oa5-0s-c2C" firstAttribute="centerY" secondItem="oQ8-uO-UgH" secondAttribute="centerY" constant="-0.5" id="JdD-Ei-5lx"/>
+                            <constraint firstItem="thb-hd-WNI" firstAttribute="centerY" secondItem="h0u-2V-U0F" secondAttribute="centerY" constant="-0.5" id="MxB-Zj-JOM"/>
+                            <constraint firstItem="Lgy-u3-U54" firstAttribute="leading" secondItem="Gwp-Gs-mbb" secondAttribute="trailing" constant="22" id="RgN-km-aFs"/>
+                            <constraint firstItem="TvO-d8-n1y" firstAttribute="leading" secondItem="1ou-ud-X1w" secondAttribute="trailing" constant="22" id="UEv-DL-Sij"/>
+                            <constraint firstItem="1ou-ud-X1w" firstAttribute="height" secondItem="Gwp-Gs-mbb" secondAttribute="height" id="aT8-JN-Wj5"/>
+                            <constraint firstItem="1ou-ud-X1w" firstAttribute="leading" secondItem="h49-BW-ifV" secondAttribute="leadingMargin" constant="19" id="bL0-RY-a9i"/>
+                            <constraint firstItem="1ou-ud-X1w" firstAttribute="top" secondItem="Gwp-Gs-mbb" secondAttribute="bottom" constant="10" id="cIx-g0-MGZ"/>
+                            <constraint firstItem="Gwp-Gs-mbb" firstAttribute="top" secondItem="oQ8-uO-UgH" secondAttribute="bottom" constant="8" id="dhp-9d-RTT"/>
+                            <constraint firstItem="Gwp-Gs-mbb" firstAttribute="width" secondItem="oQ8-uO-UgH" secondAttribute="width" id="dtb-Gb-o4i"/>
+                            <constraint firstItem="Gwp-Gs-mbb" firstAttribute="height" secondItem="oQ8-uO-UgH" secondAttribute="height" id="hYT-Zv-BNk"/>
+                            <constraint firstItem="oQ8-uO-UgH" firstAttribute="top" secondItem="h0u-2V-U0F" secondAttribute="bottom" constant="10" id="hdP-SY-27K"/>
+                            <constraint firstItem="h0u-2V-U0F" firstAttribute="top" secondItem="c3r-gz-mMj" secondAttribute="bottom" constant="48" id="iUb-mp-aTV"/>
+                            <constraint firstItem="Gwp-Gs-mbb" firstAttribute="leading" secondItem="h49-BW-ifV" secondAttribute="leadingMargin" constant="19" id="k8w-cE-j8h"/>
+                            <constraint firstItem="lg4-g4-U0H" firstAttribute="top" secondItem="1ou-ud-X1w" secondAttribute="bottom" constant="28" id="ro5-sX-kau"/>
+                            <constraint firstItem="Gwp-Gs-mbb" firstAttribute="centerY" secondItem="Lgy-u3-U54" secondAttribute="centerY" constant="0.5" id="sDW-ju-Iw0"/>
+                            <constraint firstItem="oQ8-uO-UgH" firstAttribute="height" secondItem="h0u-2V-U0F" secondAttribute="height" id="xM1-FI-B7f"/>
+                            <constraint firstItem="oQ8-uO-UgH" firstAttribute="width" secondItem="h0u-2V-U0F" secondAttribute="width" id="zCd-sR-w6v"/>
+                            <constraint firstItem="oQ8-uO-UgH" firstAttribute="leading" secondItem="h49-BW-ifV" secondAttribute="leadingMargin" constant="19" id="zGG-Il-kjf"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="deck1" destination="h0u-2V-U0F" id="w2B-Av-y9d"/>
@@ -530,7 +568,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPZ-Ow-79j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="578.39999999999998" y="13.726666666666667"/>
+            <point key="canvasLocation" x="577.5" y="13.5"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Olx-qe-89r">
@@ -662,6 +700,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="p2s-34-acm"/>
+        <segue reference="mW9-9W-rg0"/>
     </inferredMetricsTieBreakers>
 </document>
