@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -190,8 +190,8 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f68-MF-riy">
                                 <rect key="frame" x="16" y="217" width="343" height="144"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sprint" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl0-e5-Sx6">
-                                        <rect key="frame" x="68" y="8" width="46" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sprint" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl0-e5-Sx6">
+                                        <rect key="frame" x="148" y="0.0" width="46" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -199,46 +199,41 @@
                                         <rect key="frame" x="122" y="18" width="213" height="2"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Even / Odd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAW-rs-c6U">
-                                        <rect key="frame" x="34" y="37" width="87" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Even / Odd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAW-rs-c6U">
+                                        <rect key="frame" x="34" y="27" width="87" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEx-DF-igw">
-                                        <rect key="frame" x="45" y="66" width="93" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEx-DF-igw">
+                                        <rect key="frame" x="45" y="56" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Face / Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcg-U9-yOH">
-                                        <rect key="frame" x="34" y="100" width="115" height="21"/>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovd-Nn-jUm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovd-Nn-jUm">
                                         <rect key="frame" x="56" y="129" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shuffle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGN-41-ihx">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Shuffle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGN-41-ihx">
                                         <rect key="frame" x="196" y="99" width="53" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDZ-aW-CRc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDZ-aW-CRc">
                                         <rect key="frame" x="208" y="128" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red / Black" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftf-rc-OoG">
-                                        <rect key="frame" x="190" y="38" width="90" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Red / Black" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftf-rc-OoG">
+                                        <rect key="frame" x="190" y="28" width="90" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qb7-Z2-sEb">
-                                        <rect key="frame" x="208" y="66" width="93" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qb7-Z2-sEb">
+                                        <rect key="frame" x="208" y="56" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -247,17 +242,45 @@
                                         <rect key="frame" x="0.0" y="18" width="59" height="2"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Face / Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcg-U9-yOH">
+                                        <rect key="frame" x="34" y="100" width="115" height="21"/>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fAW-rs-c6U" firstAttribute="height" secondItem="EEx-DF-igw" secondAttribute="height" id="14N-RO-rtq"/>
+                                    <constraint firstItem="fAW-rs-c6U" firstAttribute="top" secondItem="Nl0-e5-Sx6" secondAttribute="bottom" constant="1" id="AwG-fy-41H"/>
+                                    <constraint firstItem="qb7-Z2-sEb" firstAttribute="height" secondItem="bGN-41-ihx" secondAttribute="height" id="Hiw-ZH-msk"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ovd-Nn-jUm" secondAttribute="bottom" constant="8" id="IwD-eR-D8z"/>
+                                    <constraint firstItem="hcg-U9-yOH" firstAttribute="leading" secondItem="fAW-rs-c6U" secondAttribute="leading" id="Lpd-X0-Ct7"/>
+                                    <constraint firstItem="Ovd-Nn-jUm" firstAttribute="leading" secondItem="EEx-DF-igw" secondAttribute="leading" id="N4W-m7-0EE"/>
+                                    <constraint firstItem="qb7-Z2-sEb" firstAttribute="top" secondItem="Ftf-rc-OoG" secondAttribute="bottom" constant="8" id="QJJ-cc-8yb"/>
+                                    <constraint firstItem="Nl0-e5-Sx6" firstAttribute="top" secondItem="f68-MF-riy" secondAttribute="top" id="QVo-vH-eNn"/>
+                                    <constraint firstAttribute="bottom" secondItem="xDZ-aW-CRc" secondAttribute="bottom" constant="8" id="QgM-xc-HWV"/>
+                                    <constraint firstItem="bGN-41-ihx" firstAttribute="top" secondItem="qb7-Z2-sEb" secondAttribute="bottom" constant="4" id="RS3-JJ-kuV"/>
+                                    <constraint firstItem="Nl0-e5-Sx6" firstAttribute="height" secondItem="fAW-rs-c6U" secondAttribute="height" id="USs-7p-BCm"/>
+                                    <constraint firstAttribute="centerX" secondItem="Nl0-e5-Sx6" secondAttribute="centerX" constant="0.5" id="WvS-MF-pT8"/>
+                                    <constraint firstItem="Ovd-Nn-jUm" firstAttribute="top" secondItem="hcg-U9-yOH" secondAttribute="bottom" constant="8" id="XnE-jv-Dyk"/>
+                                    <constraint firstItem="bGN-41-ihx" firstAttribute="height" secondItem="xDZ-aW-CRc" secondAttribute="height" id="ZIz-oL-8Z6"/>
+                                    <constraint firstItem="Ftf-rc-OoG" firstAttribute="top" secondItem="Nl0-e5-Sx6" secondAttribute="bottom" constant="1" id="bUE-BG-bs2"/>
+                                    <constraint firstItem="EEx-DF-igw" firstAttribute="top" secondItem="fAW-rs-c6U" secondAttribute="bottom" constant="8" id="dP6-7S-OPg"/>
+                                    <constraint firstItem="Nl0-e5-Sx6" firstAttribute="leading" secondItem="fAW-rs-c6U" secondAttribute="trailing" constant="37" id="h7Z-sq-fhD"/>
+                                    <constraint firstItem="Ftf-rc-OoG" firstAttribute="leading" secondItem="Nl0-e5-Sx6" secondAttribute="trailing" constant="-4" id="keX-CD-6DZ"/>
+                                    <constraint firstItem="qb7-Z2-sEb" firstAttribute="leading" secondItem="xDZ-aW-CRc" secondAttribute="leading" id="nGC-i8-zYw"/>
+                                    <constraint firstItem="qb7-Z2-sEb" firstAttribute="height" secondItem="Ftf-rc-OoG" secondAttribute="height" id="nvB-Fr-8Cc"/>
+                                    <constraint firstItem="bGN-41-ihx" firstAttribute="leading" secondItem="Ftf-rc-OoG" secondAttribute="leading" id="qpm-4j-wdh"/>
+                                    <constraint firstItem="xDZ-aW-CRc" firstAttribute="top" secondItem="bGN-41-ihx" secondAttribute="bottom" constant="8" id="sbA-mS-q4F"/>
+                                    <constraint firstItem="Ftf-rc-OoG" firstAttribute="height" secondItem="Nl0-e5-Sx6" secondAttribute="height" id="ttu-NX-Y7h"/>
+                                    <constraint firstItem="hcg-U9-yOH" firstAttribute="height" secondItem="EEx-DF-igw" secondAttribute="height" id="z3i-s5-Pcg"/>
+                                    <constraint firstItem="hcg-U9-yOH" firstAttribute="top" secondItem="EEx-DF-igw" secondAttribute="bottom" constant="4" id="zcq-Bi-WUO"/>
+                                    <constraint firstItem="hcg-U9-yOH" firstAttribute="height" secondItem="Ovd-Nn-jUm" secondAttribute="height" id="znm-O9-hV9"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vH-e4-caB">
                                 <rect key="frame" x="16" y="410" width="343" height="144"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marathon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWD-xA-iet">
-                                        <rect key="frame" x="71" y="-7" width="74" height="21"/>
-                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="uGG-1l-5l7">
                                         <rect key="frame" x="1" y="3" width="62" height="2"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -266,52 +289,84 @@
                                         <rect key="frame" x="153" y="3" width="182" height="2"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Even / Odd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46C-wi-1cN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Even / Odd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46C-wi-1cN">
                                         <rect key="frame" x="34" y="13" width="87" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDl-fT-eco">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDl-fT-eco">
                                         <rect key="frame" x="52" y="42" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qt-Qa-fbi">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qt-Qa-fbi">
                                         <rect key="frame" x="207" y="42" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red / Black" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2te-xd-zZD">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Red / Black" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2te-xd-zZD">
                                         <rect key="frame" x="191" y="13" width="90" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Face / Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-wB-u1A">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Face / Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-wB-u1A">
                                         <rect key="frame" x="30" y="77" width="115" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Aw-ax-RNL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Aw-ax-RNL">
                                         <rect key="frame" x="52" y="106" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shuffle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0i-9n-9YC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Shuffle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0i-9n-9YC">
                                         <rect key="frame" x="197" y="76" width="53" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-gx-t32">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-gx-t32">
                                         <rect key="frame" x="207" y="105" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Marathon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWD-xA-iet">
+                                        <rect key="frame" x="134" y="0.0" width="74" height="21"/>
+                                        <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="2te-xd-zZD" firstAttribute="height" secondItem="GWD-xA-iet" secondAttribute="height" id="1rq-S2-4mW"/>
+                                    <constraint firstItem="4qt-Qa-fbi" firstAttribute="height" secondItem="B0i-9n-9YC" secondAttribute="height" id="5mW-oA-ofa"/>
+                                    <constraint firstItem="2te-xd-zZD" firstAttribute="leading" secondItem="B0i-9n-9YC" secondAttribute="leading" id="7rQ-yp-HSb"/>
+                                    <constraint firstItem="2te-xd-zZD" firstAttribute="height" secondItem="4qt-Qa-fbi" secondAttribute="height" id="8W4-Fe-KpX"/>
+                                    <constraint firstItem="8Aw-ax-RNL" firstAttribute="top" secondItem="cNX-wB-u1A" secondAttribute="bottom" constant="8" id="8YW-DJ-mKV"/>
+                                    <constraint firstItem="B0i-9n-9YC" firstAttribute="height" secondItem="3B7-gx-t32" secondAttribute="height" id="A00-B6-Ttc"/>
+                                    <constraint firstItem="eDl-fT-eco" firstAttribute="height" secondItem="46C-wi-1cN" secondAttribute="height" id="DEg-Te-2f0"/>
+                                    <constraint firstItem="cNX-wB-u1A" firstAttribute="height" secondItem="8Aw-ax-RNL" secondAttribute="height" id="GWF-1E-E4r"/>
+                                    <constraint firstAttribute="bottom" secondItem="3B7-gx-t32" secondAttribute="bottom" constant="8" id="HEX-x0-0GV"/>
+                                    <constraint firstItem="2te-xd-zZD" firstAttribute="leading" secondItem="GWD-xA-iet" secondAttribute="trailing" constant="-4" id="HYZ-H9-gNz"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Aw-ax-RNL" secondAttribute="bottom" constant="8" id="Hek-NG-L1Z"/>
+                                    <constraint firstItem="eDl-fT-eco" firstAttribute="height" secondItem="cNX-wB-u1A" secondAttribute="height" id="HjF-Zq-aaF"/>
+                                    <constraint firstItem="GWD-xA-iet" firstAttribute="leading" secondItem="46C-wi-1cN" secondAttribute="trailing" constant="37" id="OGJ-hM-52f"/>
+                                    <constraint firstItem="4qt-Qa-fbi" firstAttribute="leading" secondItem="3B7-gx-t32" secondAttribute="leading" id="Qme-is-Zjq"/>
+                                    <constraint firstItem="2te-xd-zZD" firstAttribute="top" secondItem="GWD-xA-iet" secondAttribute="bottom" constant="1" id="S0K-MI-5GE"/>
+                                    <constraint firstItem="GWD-xA-iet" firstAttribute="top" secondItem="4vH-e4-caB" secondAttribute="top" id="Vzk-JX-Wvd"/>
+                                    <constraint firstItem="cNX-wB-u1A" firstAttribute="leading" secondItem="46C-wi-1cN" secondAttribute="leading" id="W8p-2u-b6y"/>
+                                    <constraint firstItem="GWD-xA-iet" firstAttribute="height" secondItem="46C-wi-1cN" secondAttribute="height" id="cbu-sM-bBg"/>
+                                    <constraint firstItem="4qt-Qa-fbi" firstAttribute="top" secondItem="2te-xd-zZD" secondAttribute="bottom" constant="8" id="fBW-J3-s0x"/>
+                                    <constraint firstAttribute="centerX" secondItem="GWD-xA-iet" secondAttribute="centerX" constant="0.5" id="gF1-rl-VsJ"/>
+                                    <constraint firstItem="B0i-9n-9YC" firstAttribute="top" secondItem="4qt-Qa-fbi" secondAttribute="bottom" constant="4" id="gSj-2d-kxb"/>
+                                    <constraint firstItem="cNX-wB-u1A" firstAttribute="top" secondItem="eDl-fT-eco" secondAttribute="bottom" constant="4" id="iww-9K-q1L"/>
+                                    <constraint firstItem="46C-wi-1cN" firstAttribute="top" secondItem="GWD-xA-iet" secondAttribute="bottom" constant="1" id="mpm-Tf-Eww"/>
+                                    <constraint firstItem="eDl-fT-eco" firstAttribute="leading" secondItem="8Aw-ax-RNL" secondAttribute="leading" id="pqH-bS-xwt"/>
+                                    <constraint firstItem="eDl-fT-eco" firstAttribute="top" secondItem="46C-wi-1cN" secondAttribute="bottom" constant="8" id="rDz-Sa-J73"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTg-Yz-wwj">
                                 <rect key="frame" x="16" y="562" width="343" height="91"/>
@@ -364,61 +419,89 @@
                                         <rect key="frame" x="8" y="8" width="58" height="2"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red / Black" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVu-nV-Uqj">
-                                        <rect key="frame" x="195" y="27" width="90" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Red / Black" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVu-nV-Uqj">
+                                        <rect key="frame" x="195" y="22" width="90" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWN-LL-BhH">
-                                        <rect key="frame" x="208" y="56" width="93" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWN-LL-BhH">
+                                        <rect key="frame" x="208" y="51" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shuffle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O48-ue-Hwz">
-                                        <rect key="frame" x="195" y="91" width="53" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Shuffle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O48-ue-Hwz">
+                                        <rect key="frame" x="195" y="76" width="53" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYO-lC-BmJ">
-                                        <rect key="frame" x="208" y="120" width="93" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYO-lC-BmJ">
+                                        <rect key="frame" x="208" y="105" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Even / Odd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8Y-J9-2pU">
-                                        <rect key="frame" x="27" y="29" width="87" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Even / Odd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8Y-J9-2pU">
+                                        <rect key="frame" x="27" y="24" width="87" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkY-8u-2pM">
-                                        <rect key="frame" x="48" y="56" width="93" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkY-8u-2pM">
+                                        <rect key="frame" x="48" y="51" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Face / Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-6k-PNp">
-                                        <rect key="frame" x="27" y="91" width="115" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Face / Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrv-6k-PNp">
+                                        <rect key="frame" x="27" y="76" width="115" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscore 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9q-eJ-OCt">
-                                        <rect key="frame" x="49" y="120" width="93" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Highscore 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9q-eJ-OCt">
+                                        <rect key="frame" x="49" y="105" width="93" height="21"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                         <color key="textColor" red="0.65355160361842091" green="0.85485197368421051" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="b9J-u4-O4U">
-                                        <rect key="frame" x="122" y="8" width="213" height="2"/>
+                                        <rect key="frame" x="199" y="8" width="136" height="2"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deck" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIi-Om-WYu">
-                                        <rect key="frame" x="75" y="0.0" width="40" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Deck" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIi-Om-WYu">
+                                        <rect key="frame" x="151" y="0.0" width="40" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="P8Y-J9-2pU" firstAttribute="top" secondItem="zIi-Om-WYu" secondAttribute="bottom" constant="3" id="DO0-Ce-Edn"/>
+                                    <constraint firstItem="O48-ue-Hwz" firstAttribute="top" secondItem="OWN-LL-BhH" secondAttribute="bottom" constant="4" id="Db1-a8-coD"/>
+                                    <constraint firstItem="l9q-eJ-OCt" firstAttribute="height" secondItem="Vrv-6k-PNp" secondAttribute="height" id="E8z-cQ-1f0"/>
+                                    <constraint firstItem="l9q-eJ-OCt" firstAttribute="leading" secondItem="bkY-8u-2pM" secondAttribute="leading" constant="1" id="Gar-e3-cXV"/>
+                                    <constraint firstItem="KYO-lC-BmJ" firstAttribute="height" secondItem="O48-ue-Hwz" secondAttribute="height" id="HhA-hk-BB1"/>
+                                    <constraint firstItem="sVu-nV-Uqj" firstAttribute="leading" secondItem="O48-ue-Hwz" secondAttribute="leading" id="Jy2-oh-Zcw"/>
+                                    <constraint firstAttribute="bottom" secondItem="l9q-eJ-OCt" secondAttribute="bottom" constant="8" id="KEQ-c8-Nxf"/>
+                                    <constraint firstItem="bkY-8u-2pM" firstAttribute="top" secondItem="P8Y-J9-2pU" secondAttribute="bottom" constant="6" id="Kdi-N1-aMI"/>
+                                    <constraint firstItem="zIi-Om-WYu" firstAttribute="leading" secondItem="P8Y-J9-2pU" secondAttribute="trailing" constant="37" id="Lyu-kS-PT7"/>
+                                    <constraint firstItem="O48-ue-Hwz" firstAttribute="height" secondItem="OWN-LL-BhH" secondAttribute="height" id="MM3-yV-2sE"/>
+                                    <constraint firstAttribute="centerX" secondItem="zIi-Om-WYu" secondAttribute="centerX" constant="0.5" id="Nuw-Wa-uBz"/>
+                                    <constraint firstItem="zIi-Om-WYu" firstAttribute="top" secondItem="wKx-qy-4Bn" secondAttribute="top" id="UBQ-K5-0od"/>
+                                    <constraint firstItem="OWN-LL-BhH" firstAttribute="top" secondItem="sVu-nV-Uqj" secondAttribute="bottom" constant="8" id="Ubp-KF-gdN"/>
+                                    <constraint firstItem="KYO-lC-BmJ" firstAttribute="leading" secondItem="OWN-LL-BhH" secondAttribute="leading" id="cQ0-nA-sBR"/>
+                                    <constraint firstItem="zIi-Om-WYu" firstAttribute="height" secondItem="P8Y-J9-2pU" secondAttribute="height" id="fQn-5S-dFG"/>
+                                    <constraint firstItem="KYO-lC-BmJ" firstAttribute="top" secondItem="O48-ue-Hwz" secondAttribute="bottom" constant="8" id="fS9-B5-G83"/>
+                                    <constraint firstItem="sVu-nV-Uqj" firstAttribute="leading" secondItem="zIi-Om-WYu" secondAttribute="trailing" constant="4" id="ffd-30-5aF"/>
+                                    <constraint firstItem="bkY-8u-2pM" firstAttribute="height" secondItem="P8Y-J9-2pU" secondAttribute="height" id="j9Y-t6-uw8"/>
+                                    <constraint firstItem="sVu-nV-Uqj" firstAttribute="top" secondItem="zIi-Om-WYu" secondAttribute="bottom" constant="1" id="mdJ-3I-6dl"/>
+                                    <constraint firstItem="zIi-Om-WYu" firstAttribute="height" secondItem="sVu-nV-Uqj" secondAttribute="height" id="nnn-JV-jhb"/>
+                                    <constraint firstItem="Vrv-6k-PNp" firstAttribute="leading" secondItem="P8Y-J9-2pU" secondAttribute="leading" id="oSV-6X-t74"/>
+                                    <constraint firstItem="OWN-LL-BhH" firstAttribute="height" secondItem="sVu-nV-Uqj" secondAttribute="height" id="oml-oh-zWr"/>
+                                    <constraint firstItem="Vrv-6k-PNp" firstAttribute="top" secondItem="bkY-8u-2pM" secondAttribute="bottom" constant="4" id="qjY-Y8-MWd"/>
+                                    <constraint firstAttribute="bottom" secondItem="KYO-lC-BmJ" secondAttribute="bottom" constant="8" id="tQK-EE-cFW"/>
+                                    <constraint firstItem="l9q-eJ-OCt" firstAttribute="top" secondItem="Vrv-6k-PNp" secondAttribute="bottom" constant="8" id="wFe-cL-TJn"/>
+                                    <constraint firstItem="bkY-8u-2pM" firstAttribute="height" secondItem="Vrv-6k-PNp" secondAttribute="height" id="zoF-0s-D0R"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Highscores" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meY-He-VEg">
                                 <rect key="frame" x="68" y="26" width="150" height="24"/>
@@ -634,41 +717,44 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3SV-Nd-kqn">
                                 <rect key="frame" x="16" y="73" width="343" height="176"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qky-un-PTx">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigBlueBackground" translatesAutoresizingMaskIntoConstraints="NO" id="9Ep-97-MeZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="176"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qky-un-PTx">
                                         <rect key="frame" x="21" y="8" width="75" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jared Weinstein" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkt-Jv-Pnf">
-                                        <rect key="frame" x="53" y="25" width="122" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Jared Weinstein" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkt-Jv-Pnf">
+                                        <rect key="frame" x="53" y="24" width="122" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ian Johnson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-rj-doc">
-                                        <rect key="frame" x="53" y="54" width="94" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ian Johnson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-rj-doc">
+                                        <rect key="frame" x="53" y="52" width="94" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image Art" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHF-Qh-Xtc">
-                                        <rect key="frame" x="21" y="77" width="75" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Art" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHF-Qh-Xtc">
+                                        <rect key="frame" x="21" y="75" width="75" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Allison Qiang" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-cF-8V5">
-                                        <rect key="frame" x="53" y="107" width="149" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Allison Qiang" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-cF-8V5">
+                                        <rect key="frame" x="53" y="103" width="149" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rest of the Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt3-Q2-uvm">
-                                        <rect key="frame" x="21" y="130" width="130" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rest of the Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt3-Q2-uvm">
+                                        <rect key="frame" x="21" y="125" width="130" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connor Sendel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3s-3C-z19">
-                                        <rect key="frame" x="53" y="155" width="115" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Connor Sendel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3s-3C-z19">
+                                        <rect key="frame" x="53" y="149" width="115" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -677,37 +763,67 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="0LC-zq-2G6"/>
+                                    <constraint firstItem="fHF-Qh-Xtc" firstAttribute="height" secondItem="Dem-rj-doc" secondAttribute="height" id="1rC-OO-xVL"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Ep-97-MeZ" secondAttribute="trailing" id="2tT-aO-rbQ"/>
+                                    <constraint firstItem="9Ep-97-MeZ" firstAttribute="top" secondItem="3SV-Nd-kqn" secondAttribute="top" id="3v5-53-Itl"/>
+                                    <constraint firstItem="A3s-3C-z19" firstAttribute="top" secondItem="dt3-Q2-uvm" secondAttribute="bottom" constant="3" id="6w6-04-8IO"/>
+                                    <constraint firstItem="Nkt-Jv-Pnf" firstAttribute="top" secondItem="qky-un-PTx" secondAttribute="bottom" constant="-5" id="8Ck-sh-ypp"/>
+                                    <constraint firstItem="dt3-Q2-uvm" firstAttribute="top" secondItem="gA5-cF-8V5" secondAttribute="bottom" constant="1" id="ARI-JI-vsC"/>
+                                    <constraint firstItem="A3s-3C-z19" firstAttribute="leading" secondItem="gA5-cF-8V5" secondAttribute="leading" id="Bfm-jX-5J4"/>
+                                    <constraint firstItem="Nkt-Jv-Pnf" firstAttribute="leading" secondItem="qky-un-PTx" secondAttribute="trailing" constant="-43" id="CeG-bz-wib"/>
+                                    <constraint firstItem="Dem-rj-doc" firstAttribute="leading" secondItem="gA5-cF-8V5" secondAttribute="leading" id="Do8-9P-RjD"/>
+                                    <constraint firstItem="fHF-Qh-Xtc" firstAttribute="top" secondItem="Dem-rj-doc" secondAttribute="bottom" constant="2" id="JLN-3P-ENf"/>
+                                    <constraint firstItem="fHF-Qh-Xtc" firstAttribute="leading" secondItem="dt3-Q2-uvm" secondAttribute="leading" id="Lbv-Rk-V6F"/>
+                                    <constraint firstItem="qky-un-PTx" firstAttribute="leading" secondItem="fHF-Qh-Xtc" secondAttribute="leading" id="PbT-d2-Utu"/>
+                                    <constraint firstItem="Nkt-Jv-Pnf" firstAttribute="leading" secondItem="Dem-rj-doc" secondAttribute="leading" id="R4r-tO-7xL"/>
+                                    <constraint firstItem="Nkt-Jv-Pnf" firstAttribute="height" secondItem="Dem-rj-doc" secondAttribute="height" id="RZh-jx-nUy"/>
+                                    <constraint firstItem="Dem-rj-doc" firstAttribute="top" secondItem="Nkt-Jv-Pnf" secondAttribute="bottom" constant="7" id="Td9-ss-khz"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Ep-97-MeZ" secondAttribute="bottom" id="Zku-BP-vYv"/>
+                                    <constraint firstItem="qky-un-PTx" firstAttribute="leading" secondItem="3SV-Nd-kqn" secondAttribute="leading" constant="21" id="boy-d4-tcR"/>
+                                    <constraint firstItem="dt3-Q2-uvm" firstAttribute="height" secondItem="gA5-cF-8V5" secondAttribute="height" id="cLT-KE-Qxw"/>
+                                    <constraint firstItem="fHF-Qh-Xtc" firstAttribute="height" secondItem="gA5-cF-8V5" secondAttribute="height" id="cWm-5K-MwA"/>
+                                    <constraint firstItem="A3s-3C-z19" firstAttribute="height" secondItem="qky-un-PTx" secondAttribute="height" id="dtD-zB-AH6"/>
                                     <constraint firstAttribute="height" constant="176" id="fCd-Om-VBH"/>
+                                    <constraint firstAttribute="bottom" secondItem="A3s-3C-z19" secondAttribute="bottom" constant="6" id="g7Z-pe-InF"/>
+                                    <constraint firstItem="9Ep-97-MeZ" firstAttribute="leading" secondItem="3SV-Nd-kqn" secondAttribute="leading" id="hhZ-TV-aNo"/>
+                                    <constraint firstItem="qky-un-PTx" firstAttribute="top" secondItem="3SV-Nd-kqn" secondAttribute="top" constant="8" id="ho1-wC-mj7"/>
+                                    <constraint firstItem="A3s-3C-z19" firstAttribute="height" secondItem="dt3-Q2-uvm" secondAttribute="height" id="ohb-Ir-cbb"/>
+                                    <constraint firstItem="qky-un-PTx" firstAttribute="height" secondItem="Nkt-Jv-Pnf" secondAttribute="height" id="rrj-tM-khQ"/>
+                                    <constraint firstItem="gA5-cF-8V5" firstAttribute="top" secondItem="fHF-Qh-Xtc" secondAttribute="bottom" constant="7" id="vm2-Nv-V0N"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPu-Bt-SzL">
                                 <rect key="frame" x="16" y="257" width="343" height="373"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Modes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbt-5u-nXO">
-                                        <rect key="frame" x="117" y="61" width="109" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Game Modes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbt-5u-nXO">
+                                        <rect key="frame" x="117" y="27" width="109" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deck: Each card shows up only once. Sort the entire deck in the shortest possible time. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qua-7r-tEV">
-                                        <rect key="frame" x="31" y="206" width="286" height="67"/>
+                                        <rect key="frame" x="35" y="206" width="286" height="67"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marathon: All about finger endurance. You have 10 seconds to sort the first 10 cards but the time steadily decreases. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXl-XP-Mmm">
-                                        <rect key="frame" x="31" y="281" width="300" height="67"/>
+                                        <rect key="frame" x="35" y="281" width="300" height="67"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sprint: You have 30 seconds to sort as many cards as humanly possible. 1s penalty for each wrong card. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwk-N4-HCQ">
-                                        <rect key="frame" x="31" y="136" width="281" height="62"/>
+                                        <rect key="frame" x="35" y="136" width="281" height="62"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Pbt-5u-nXO" firstAttribute="top" secondItem="wPu-Bt-SzL" secondAttribute="top" constant="27" id="BzY-jg-HQn"/>
+                                    <constraint firstAttribute="centerX" secondItem="Pbt-5u-nXO" secondAttribute="centerX" id="yY8-im-PbA"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw0-zP-rUj">
                                 <rect key="frame" x="0.0" y="5" width="60" height="60"/>
@@ -761,6 +877,7 @@
         <image name="ChangeSortMode" width="3854" height="1924"/>
         <image name="Play" width="1285" height="641"/>
         <image name="audioon" width="60" height="60"/>
+        <image name="bigBlueBackground" width="2160" height="3840"/>
         <image name="gamecenter" width="60" height="60"/>
         <image name="highscore" width="60" height="60"/>
         <image name="info" width="60" height="60"/>
@@ -773,6 +890,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="p2s-34-acm"/>
+        <segue reference="gqg-nO-vp8"/>
     </inferredMetricsTieBreakers>
 </document>
