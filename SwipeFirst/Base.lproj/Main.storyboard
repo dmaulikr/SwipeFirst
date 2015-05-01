@@ -870,25 +870,40 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPu-Bt-SzL">
                                 <rect key="frame" x="16" y="257" width="343" height="373"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Game Modes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbt-5u-nXO">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigBlueBackground" translatesAutoresizingMaskIntoConstraints="NO" id="NyP-Hu-8Zk">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="373"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Game Modes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbt-5u-nXO">
                                         <rect key="frame" x="117" y="27" width="109" height="21"/>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deck: Each card shows up only once. Sort the entire deck in the shortest possible time. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qua-7r-tEV">
-                                        <rect key="frame" x="35" y="206" width="286" height="67"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Marathon: All about finger endurance. You get additional time every 10 cards." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXl-XP-Mmm">
+                                        <rect key="frame" x="21" y="306" width="300" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="aSX-KV-Jla"/>
+                                            <constraint firstAttribute="height" constant="43" id="n73-q6-iK5"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marathon: All about finger endurance. You have 10 seconds to sort the first 10 cards but the time steadily decreases. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXl-XP-Mmm">
-                                        <rect key="frame" x="35" y="281" width="300" height="67"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Sprint: You have 30 seconds to sort as many cards as humanly possible. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwk-N4-HCQ">
+                                        <rect key="frame" x="21" y="107" width="300" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="4dH-am-kqN"/>
+                                            <constraint firstAttribute="width" constant="300" id="u0k-X9-Rp4"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sprint: You have 30 seconds to sort as many cards as humanly possible. 1s penalty for each wrong card. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwk-N4-HCQ">
-                                        <rect key="frame" x="35" y="136" width="281" height="62"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Deck: Sort the entire deck in the shortest possible time. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qua-7r-tEV">
+                                        <rect key="frame" x="21" y="204" width="300" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="3a0-BY-eE3"/>
+                                            <constraint firstAttribute="width" constant="300" id="vgh-Kb-WYp"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -896,7 +911,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Pbt-5u-nXO" firstAttribute="top" secondItem="wPu-Bt-SzL" secondAttribute="top" constant="27" id="BzY-jg-HQn"/>
+                                    <constraint firstItem="Pbt-5u-nXO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wPu-Bt-SzL" secondAttribute="top" id="BzY-jg-HQn"/>
+                                    <constraint firstItem="YXl-XP-Mmm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Qua-7r-tEV" secondAttribute="bottom" id="EIT-mW-cRh"/>
+                                    <constraint firstAttribute="centerX" secondItem="Qua-7r-tEV" secondAttribute="centerX" constant="0.5" id="HQJ-29-KEz"/>
+                                    <constraint firstAttribute="bottom" secondItem="NyP-Hu-8Zk" secondAttribute="bottom" id="JMv-6g-yeD"/>
+                                    <constraint firstItem="Qua-7r-tEV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vwk-N4-HCQ" secondAttribute="bottom" id="d5q-kC-Y9T"/>
+                                    <constraint firstAttribute="centerX" secondItem="YXl-XP-Mmm" secondAttribute="centerX" constant="0.5" id="esY-vv-Fcs"/>
+                                    <constraint firstAttribute="centerX" secondItem="vwk-N4-HCQ" secondAttribute="centerX" constant="0.5" id="f5o-2k-YTF"/>
+                                    <constraint firstAttribute="trailing" secondItem="NyP-Hu-8Zk" secondAttribute="trailing" id="j9p-fV-x5w"/>
+                                    <constraint firstItem="NyP-Hu-8Zk" firstAttribute="top" secondItem="wPu-Bt-SzL" secondAttribute="top" id="kdd-Ws-pvB"/>
+                                    <constraint firstItem="NyP-Hu-8Zk" firstAttribute="leading" secondItem="wPu-Bt-SzL" secondAttribute="leading" id="na1-Q4-DTd"/>
+                                    <constraint firstItem="vwk-N4-HCQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Pbt-5u-nXO" secondAttribute="bottom" id="svz-Ok-Qhx"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YXl-XP-Mmm" secondAttribute="bottom" id="uO0-9U-3HW"/>
                                     <constraint firstAttribute="centerX" secondItem="Pbt-5u-nXO" secondAttribute="centerX" id="yY8-im-PbA"/>
                                 </constraints>
                             </view>
@@ -965,6 +991,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gqg-nO-vp8"/>
+        <segue reference="p2s-34-acm"/>
     </inferredMetricsTieBreakers>
 </document>
