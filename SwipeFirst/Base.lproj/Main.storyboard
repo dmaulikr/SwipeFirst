@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -896,10 +896,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Marathon: All about finger endurance. You get additional time every 10 cards." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXl-XP-Mmm">
-                                        <rect key="frame" x="21" y="306" width="300" height="43"/>
+                                        <rect key="frame" x="21" y="308" width="300" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="aSX-KV-Jla"/>
-                                            <constraint firstAttribute="height" constant="43" id="n73-q6-iK5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -908,7 +907,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Sprint: You have 30 seconds to sort as many cards as humanly possible. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwk-N4-HCQ">
                                         <rect key="frame" x="21" y="107" width="300" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="4dH-am-kqN"/>
                                             <constraint firstAttribute="width" constant="300" id="u0k-X9-Rp4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
@@ -916,9 +914,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Deck: Sort the entire deck in the shortest possible time. " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qua-7r-tEV">
-                                        <rect key="frame" x="21" y="204" width="300" height="42"/>
+                                        <rect key="frame" x="21" y="171" width="300" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="3a0-BY-eE3"/>
                                             <constraint firstAttribute="width" constant="300" id="vgh-Kb-WYp"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
@@ -929,7 +926,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Pbt-5u-nXO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wPu-Bt-SzL" secondAttribute="top" id="BzY-jg-HQn"/>
-                                    <constraint firstItem="YXl-XP-Mmm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Qua-7r-tEV" secondAttribute="bottom" id="EIT-mW-cRh"/>
+                                    <constraint firstItem="YXl-XP-Mmm" firstAttribute="top" relation="lessThanOrEqual" secondItem="Qua-7r-tEV" secondAttribute="bottom" constant="20" id="EIT-mW-cRh"/>
                                     <constraint firstAttribute="centerX" secondItem="Qua-7r-tEV" secondAttribute="centerX" constant="0.5" id="HQJ-29-KEz"/>
                                     <constraint firstAttribute="bottom" secondItem="NyP-Hu-8Zk" secondAttribute="bottom" id="JMv-6g-yeD"/>
                                     <constraint firstItem="Qua-7r-tEV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vwk-N4-HCQ" secondAttribute="bottom" id="d5q-kC-Y9T"/>
@@ -939,7 +936,6 @@
                                     <constraint firstItem="NyP-Hu-8Zk" firstAttribute="top" secondItem="wPu-Bt-SzL" secondAttribute="top" id="kdd-Ws-pvB"/>
                                     <constraint firstItem="NyP-Hu-8Zk" firstAttribute="leading" secondItem="wPu-Bt-SzL" secondAttribute="leading" id="na1-Q4-DTd"/>
                                     <constraint firstItem="vwk-N4-HCQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Pbt-5u-nXO" secondAttribute="bottom" id="svz-Ok-Qhx"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YXl-XP-Mmm" secondAttribute="bottom" id="uO0-9U-3HW"/>
                                     <constraint firstAttribute="centerX" secondItem="Pbt-5u-nXO" secondAttribute="centerX" id="yY8-im-PbA"/>
                                 </constraints>
                             </view>
@@ -1012,6 +1008,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mW9-9W-rg0"/>
+        <segue reference="p2s-34-acm"/>
     </inferredMetricsTieBreakers>
 </document>
