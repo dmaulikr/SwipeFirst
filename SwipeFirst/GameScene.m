@@ -581,14 +581,10 @@ static NSString *FONT = @"Exo 2";
     double gamesPlayed = (int)[prefs integerForKey:@"gamesPlayed"];
     double percentage = ((int)(((double) totalSwipedCorrectly / (double) totalCardsSwiped) * 10000) / 100.0);
     
-    [self setAchievement: @"deck2unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]]/30];
-    [self setAchievement: @"deck3unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS10"]]/69];
-    [self setAchievement: @"deck4unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/200];
+    [self setAchievement: @"deck2unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]]*100/30];
+    [self setAchievement: @"deck3unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS10"]]*100/69];
+    [self setAchievement: @"deck4unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]*100/200];
 
-    [self setAchievement: @"beatjared" toDoubleValue:20/[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]]]; //Choose some high score somewhere
-    [self setAchievement: @"beatconnor" toDoubleValue:20/[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]]]; //Choose some high score somewhere
-    [self setAchievement: @"beatian" toDoubleValue:20/[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]]]; //Choose some high score somewhere
-    [self setAchievement: @"beatnoah" toDoubleValue:20/[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]]]; //Choose some high score somewhere
     
     [self setAchievement:@"10games" toDoubleValue:gamesPlayed*10];
     [self setAchievement:@"25games" toDoubleValue:gamesPlayed*4];
@@ -608,7 +604,7 @@ static NSString *FONT = @"Exo 2";
     if(maxSprint < sprint2) maxSprint = sprint2;
     double sprint3 = [prefs doubleForKey: [NSString stringWithFormat:@"HS21"]]/80;
     if(maxSprint < sprint3) maxSprint = sprint3;
-    [self setAchievement: @"sprint80" toDoubleValue:maxSprint];
+    [self setAchievement: @"sprint80" toDoubleValue:maxSprint*100];
     
     [self setAchievement: @"marathon300" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300]; //Add marathon mode scores for other sorts
     double maxMarathon = [prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300;
@@ -616,25 +612,27 @@ static NSString *FONT = @"Exo 2";
     if(maxMarathon < marathon2) maxMarathon = marathon2;
     double marathon3 = [prefs doubleForKey: [NSString stringWithFormat:@"HS22"]]/300;
     if(maxMarathon < marathon3) maxMarathon = marathon3;
-    [self setAchievement: @"marathon300" toDoubleValue:maxMarathon];
+    [self setAchievement: @"marathon300" toDoubleValue:maxMarathon*100];
     
-    double maxDeck = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS10"]];
-    double deck2 = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS00"]];
+    double maxDeck = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]];
+    double deck2 = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS01"]];
     if(maxDeck < deck2) maxDeck = deck2;
-    double deck3 = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS20"]];
+    double deck3 = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS21"]];
     if(maxDeck < deck3) maxDeck = deck3;
-    [self setAchievement: @"deck20" toDoubleValue:maxDeck];
     
-    double maxShuffle = 25/[prefs doubleForKey: [NSString stringWithFormat:@"HS30"]];
-    double sprintShuffle = [prefs doubleForKey: [NSString stringWithFormat:@"HS31"]]/60;
+    [self setAchievement: @"deck20" toDoubleValue:maxDeck*100];
+    
+    double maxShuffle = 25/[prefs doubleForKey: [NSString stringWithFormat:@"HS31"]];
+    double sprintShuffle = [prefs doubleForKey: [NSString stringWithFormat:@"HS30"]]/60;
     if(maxShuffle < sprintShuffle) maxShuffle = sprintShuffle;
     double marathonShuffle = [prefs doubleForKey: [NSString stringWithFormat:@"HS32"]]/150;
     if(maxShuffle < marathonShuffle) maxShuffle = marathonShuffle;
-    [self setAchievement: @"shuffle" toDoubleValue:maxShuffle];
+    
+    [self setAchievement: @"shuffle" toDoubleValue:maxShuffle*100];
 
     if(totalCardsSwiped > 100){
-        [self setAchievement:@"75accuracy" toDoubleValue:percentage/75];
-        [self setAchievement:@"95accuracy" toDoubleValue:percentage/95];
+        [self setAchievement:@"75accuracy" toDoubleValue:(percentage/75)*100];
+        [self setAchievement:@"95accuracy" toDoubleValue:(percentage/95)*100];
     }
 
 }
@@ -737,8 +735,26 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
-    GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
-    [achieve setShowsCompletionBanner:true];
+    __block bool hasBeenCompleted = false;
+    __block GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
+    [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error)
+    {
+        if(error != NULL) { /* error handling */ }
+        for (GKAchievement* achievement in scores) {
+            if(achievement.completed == true){
+                hasBeenCompleted = true;
+                NSLog(@"IM A DIRTY SLUT");
+            }
+        }
+        
+    }];
+    if (hasBeenCompleted == false){
+        NSLog(@"HAS NOT BEEN ACHIEVED BEFORE: %@", identifier);
+        [achieve setShowsCompletionBanner:true];
+    }else{
+        NSLog(@"HAS BEEN ACHIEVED ALREADY %@", identifier);
+        [achieve setShowsCompletionBanner:false];
+    }
     achieve.percentComplete = val;
     [achieve setPercentComplete:val];
     [GKAchievement reportAchievements:@[achieve] withCompletionHandler:^(NSError *error) {
