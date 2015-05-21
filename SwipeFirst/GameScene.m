@@ -573,6 +573,7 @@ static NSString *FONT = @"Exo 2";
     [prefs setInteger: totalSwipedCorrectly forKey: @"totalSwipedCorrectly"];
     
     [self updateAchievements];
+     [(GameViewController *) controller updateAllLeaderboards];
 }
 
 -(void) updateAchievements{
@@ -735,31 +736,32 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
-    __block bool hasBeenCompleted = false;
-    __block GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
     [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error)
     {
+        GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
+        bool hasBeenCompleted = false;
         if(error != NULL) { /* error handling */ }
         for (GKAchievement* achievement in scores) {
-            if(achievement.completed == true){
-                hasBeenCompleted = true;
-                NSLog(@"IM A DIRTY SLUT");
+            if([achievement.identifier isEqualToString:identifier]){
+                if(achievement.completed == true){
+                    hasBeenCompleted = true;
+                    NSLog(@"ACHIEVEMENT COMPLETED");
+                }
             }
         }
-        
-    }];
-    if (hasBeenCompleted == false){
-        NSLog(@"HAS NOT BEEN ACHIEVED BEFORE: %@", identifier);
-        [achieve setShowsCompletionBanner:true];
-    }else{
-        NSLog(@"HAS BEEN ACHIEVED ALREADY %@", identifier);
-        [achieve setShowsCompletionBanner:false];
-    }
-    achieve.percentComplete = val;
-    [achieve setPercentComplete:val];
-    [GKAchievement reportAchievements:@[achieve] withCompletionHandler:^(NSError *error) {
-        if(error != nil){
-            NSLog(@"%@", [error localizedDescription]);
+        if (hasBeenCompleted == false){
+            NSLog(@"HAS NOT BEEN ACHIEVED BEFORE: %@", identifier);
+            [achieve setShowsCompletionBanner:true];
+            achieve.percentComplete = val;
+            [achieve setPercentComplete:val];
+            [GKAchievement reportAchievements:@[achieve] withCompletionHandler:^(NSError *error) {
+                if(error != nil){
+                    NSLog(@"%@", [error localizedDescription]);
+                }
+            }];
+        }else{
+            NSLog(@"HAS BEEN ACHIEVED ALREADY %@", identifier);
+            [achieve setShowsCompletionBanner:false];
         }
     }];
 }

@@ -158,9 +158,11 @@
 
 - (IBAction)gamecenterButton:(id)sender {
     [self showLeaderboardAndAchievements:YES];
-    
+    [self updateAllLeaderboards];
+}
+
+-(void) updateAllLeaderboards{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
     //Deck Game Mode
     if([prefs doubleForKey: (NSString*)[self getHighest: @"HS01" with: @"HS11" and: @"HS21" prefs: prefs]] != 0){
         NSLog(@"setting red black leaderboard");

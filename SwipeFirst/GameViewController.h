@@ -16,6 +16,7 @@
 
 -(void) hideButtons;
 -(void) showButtons;
+-(void) updateAllLeaderboards;
 
 @property (weak, nonatomic) IBOutlet UIImageView *play;
 @property (weak, nonatomic) IBOutlet UIImageView *gameMode;
