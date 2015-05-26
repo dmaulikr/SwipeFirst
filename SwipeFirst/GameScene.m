@@ -53,6 +53,7 @@ static NSString *FONT = @"Exo 2";
 
 
 -(void)didMoveToView:(SKView *)view {
+    //[self resetAchievements];
     prefs = [NSUserDefaults standardUserDefaults];
     /* Setup your scene here */
     marathonBonusCount = 0;
@@ -209,8 +210,8 @@ static NSString *FONT = @"Exo 2";
 -(void) handlePan: (UIPanGestureRecognizer*)sender{
     if(isPlaying){
         if(sender.state == UIGestureRecognizerStateEnded){
-            NSLog(@"finished");
-            NSLog(@"VELOCITY: %f", [sender velocityInView:self.view].y);
+            //NSLog(@"finished");
+            //NSLog(@"VELOCITY: %f", [sender velocityInView:self.view].y);
             if([sender velocityInView:self.view].y > 0){
                 //Swipe up
                 [self handleSwipe: (UIPanGestureRecognizer*) sender direction: 1];
@@ -379,7 +380,7 @@ static NSString *FONT = @"Exo 2";
             card.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
             [Sound playSoundWithFileName:@"cardFlip.mp3"];
             if([deck.arrayOfCards count] > 0){
-                NSLog(@"COUNT GREATER THAN 1");
+                //NSLog(@"COUNT GREATER THAN 1");
                 card.name = nextCard.name;
                 nextCard.name = [[deck getRandomCard: gameMode == 1] name];
                 
@@ -394,7 +395,7 @@ static NSString *FONT = @"Exo 2";
                     [nextCard setPixelTexture];
                 }
             }else if(gameMode == 1 && ([deck.arrayOfCards count] == 0) && [nextCard isHidden] == false){
-                NSLog(@"COUNT EQUALS 1");
+                //NSLog(@"COUNT EQUALS 1");
                 card.name = nextCard.name;
                 [nextCard setHidden: true];
                 if(gameMode == 2 && deck.numTaken%10 == 0){
@@ -408,7 +409,7 @@ static NSString *FONT = @"Exo 2";
                 if([[card name] hasPrefix: @"4"])
                     [card setPixelTexture];
             }else if(gameMode == 1){
-                NSLog(@"COUNT EQUALS ZERO");
+                //NSLog(@"COUNT EQUALS ZERO");
                 //END GAME
                 [self endGame];
             }
@@ -417,7 +418,7 @@ static NSString *FONT = @"Exo 2";
                 [self updateSortMode];
             }
         }else{
-            NSLog(@"PENALTY");
+            //NSLog(@"PENALTY");
             penalty += 1;
             [card runAction:[SKAction moveToY: CGRectGetMidY(self.frame) duration:0]];
             //self.backgroundColor = [UIColor redColor];
@@ -576,57 +577,68 @@ static NSString *FONT = @"Exo 2";
      [(GameViewController *) controller updateAllLeaderboards];
 }
 
+
+#warning issue with achievements
 -(void) updateAchievements{
     int totalCardsSwiped = (int)[prefs integerForKey: @"totalCardsSwiped"];
     int totalSwipedCorrectly = (int)[prefs integerForKey: @"totalSwipedCorrectly"];
     double gamesPlayed = (int)[prefs integerForKey:@"gamesPlayed"];
     double percentage = ((int)(((double) totalSwipedCorrectly / (double) totalCardsSwiped) * 10000) / 100.0);
     
-    [self setAchievement: @"deck2unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]]*100/30];
-    [self setAchievement: @"deck3unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS10"]]*100/69];
-    [self setAchievement: @"deck4unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]*100/200];
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS11"]] != 0)
+        [self setAchievement: @"deck2unlocked" toDoubleValue:(30.0 / [prefs doubleForKey: [NSString stringWithFormat:@"HS11"]])*100];
+    [self setAchievement: @"deck3unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS10"]]*100/69.0];
+    [self setAchievement: @"deck4unlocked" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]*100/200.0];
 
     
     [self setAchievement:@"10games" toDoubleValue:gamesPlayed*10];
     [self setAchievement:@"25games" toDoubleValue:gamesPlayed*4];
     [self setAchievement:@"50games" toDoubleValue:gamesPlayed*2];
     [self setAchievement:@"100games" toDoubleValue:gamesPlayed];
-    [self setAchievement:@"500games" toDoubleValue:gamesPlayed/5];
-    [self setAchievement:@"1000games" toDoubleValue:gamesPlayed/10];
+    [self setAchievement:@"500games" toDoubleValue:gamesPlayed/5.0];
+    [self setAchievement:@"1000games" toDoubleValue:gamesPlayed/10.0];
     
-    [self setAchievement: @"500cards" toDoubleValue:totalCardsSwiped/5];
-    [self setAchievement: @"1000cards" toDoubleValue:totalCardsSwiped/10];
-    [self setAchievement: @"5000cards" toDoubleValue:totalCardsSwiped/50];
-    [self setAchievement: @"10000cards" toDoubleValue:totalCardsSwiped/100];
-    [self setAchievement: @"50000cards" toDoubleValue:totalCardsSwiped/500];
+    [self setAchievement: @"500cards" toDoubleValue:totalCardsSwiped/5.0];
+    [self setAchievement: @"1000cards" toDoubleValue:totalCardsSwiped/10.0];
+    [self setAchievement: @"5000cards" toDoubleValue:totalCardsSwiped/50.0];
+    [self setAchievement: @"10000cards" toDoubleValue:totalCardsSwiped/100.0];
+    [self setAchievement: @"50000cards" toDoubleValue:totalCardsSwiped/500.0];
     
-    double maxSprint = [prefs doubleForKey: [NSString stringWithFormat:@"HS11"]]/80;
-    double sprint2 = [prefs doubleForKey: [NSString stringWithFormat:@"HS01"]]/80;
+    double maxSprint = [prefs doubleForKey: [NSString stringWithFormat:@"HS10"]]/80.0;
+    double sprint2 = [prefs doubleForKey: [NSString stringWithFormat:@"HS00"]]/80.0;
     if(maxSprint < sprint2) maxSprint = sprint2;
-    double sprint3 = [prefs doubleForKey: [NSString stringWithFormat:@"HS21"]]/80;
+    double sprint3 = [prefs doubleForKey: [NSString stringWithFormat:@"HS20"]]/80.0;
     if(maxSprint < sprint3) maxSprint = sprint3;
     [self setAchievement: @"sprint80" toDoubleValue:maxSprint*100];
     
-    [self setAchievement: @"marathon300" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300]; //Add marathon mode scores for other sorts
-    double maxMarathon = [prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300;
-    double marathon2 = [prefs doubleForKey: [NSString stringWithFormat:@"HS02"]]/300;
+    [self setAchievement: @"marathon300" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300.0]; //Add marathon mode scores for other sorts
+    double maxMarathon = [prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300.0;
+    double marathon2 = [prefs doubleForKey: [NSString stringWithFormat:@"HS02"]]/300.0;
     if(maxMarathon < marathon2) maxMarathon = marathon2;
-    double marathon3 = [prefs doubleForKey: [NSString stringWithFormat:@"HS22"]]/300;
+    double marathon3 = [prefs doubleForKey: [NSString stringWithFormat:@"HS22"]]/300.0;
     if(maxMarathon < marathon3) maxMarathon = marathon3;
     [self setAchievement: @"marathon300" toDoubleValue:maxMarathon*100];
     
-    double maxDeck = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS11"]];
-    double deck2 = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS01"]];
+    double maxDeck = 0;
+    double deck2 = 0;
+    double deck3 = 0;
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS11"]] != 0)
+        maxDeck = 20.0 / [prefs doubleForKey: [NSString stringWithFormat:@"HS11"]];
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS01"]] != 0)
+        deck2 = 20.0 / [prefs doubleForKey: [NSString stringWithFormat:@"HS01"]];
     if(maxDeck < deck2) maxDeck = deck2;
-    double deck3 = 20/[prefs doubleForKey: [NSString stringWithFormat:@"HS21"]];
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS21"]] != 0)
+        deck3 = 20.0 / [prefs doubleForKey: [NSString stringWithFormat:@"HS21"]];
     if(maxDeck < deck3) maxDeck = deck3;
     
     [self setAchievement: @"deck20" toDoubleValue:maxDeck*100];
     
-    double maxShuffle = 25/[prefs doubleForKey: [NSString stringWithFormat:@"HS31"]];
-    double sprintShuffle = [prefs doubleForKey: [NSString stringWithFormat:@"HS30"]]/60;
+    double maxShuffle = 0;
+    if([prefs doubleForKey: [NSString stringWithFormat:@"HS31"]] != 0)
+        maxShuffle = 25.0 / [prefs doubleForKey: [NSString stringWithFormat:@"HS31"]];
+    double sprintShuffle = [prefs doubleForKey: [NSString stringWithFormat:@"HS30"]]/60.0;
     if(maxShuffle < sprintShuffle) maxShuffle = sprintShuffle;
-    double marathonShuffle = [prefs doubleForKey: [NSString stringWithFormat:@"HS32"]]/150;
+    double marathonShuffle = [prefs doubleForKey: [NSString stringWithFormat:@"HS32"]]/150.0;
     if(maxShuffle < marathonShuffle) maxShuffle = marathonShuffle;
     
     [self setAchievement: @"shuffle" toDoubleValue:maxShuffle*100];
@@ -635,7 +647,6 @@ static NSString *FONT = @"Exo 2";
         [self setAchievement:@"75accuracy" toDoubleValue:(percentage/75)*100];
         [self setAchievement:@"95accuracy" toDoubleValue:(percentage/95)*100];
     }
-
 }
 
 -(void) resetAfterPenalty{
@@ -735,7 +746,23 @@ static NSString *FONT = @"Exo 2";
     }
 }
 
+- (void) resetAchievements
+{
+    // Clear all locally saved achievement objects.
+    // Clear all progress saved on Game Center.
+    [GKAchievement resetAchievementsWithCompletionHandler:^(NSError *error)
+     {
+         if (error != nil){
+             
+         }
+             // handle the error.
+    }];
+}
+
+#warning issue with setting achievements here
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
+    if(val > 100)
+        val = 100;
     [GKAchievement loadAchievementsWithCompletionHandler: ^(NSArray *scores, NSError *error)
     {
         GKAchievement *achieve = [[GKAchievement alloc] initWithIdentifier:identifier];
@@ -749,20 +776,22 @@ static NSString *FONT = @"Exo 2";
                 }
             }
         }
-        if (hasBeenCompleted == false){
+        if (hasBeenCompleted == false && val >= 100){
             NSLog(@"HAS NOT BEEN ACHIEVED BEFORE: %@", identifier);
             [achieve setShowsCompletionBanner:true];
-            achieve.percentComplete = val;
-            [achieve setPercentComplete:val];
-            [GKAchievement reportAchievements:@[achieve] withCompletionHandler:^(NSError *error) {
-                if(error != nil){
-                    NSLog(@"%@", [error localizedDescription]);
-                }
-            }];
         }else{
             NSLog(@"HAS BEEN ACHIEVED ALREADY %@", identifier);
             [achieve setShowsCompletionBanner:false];
         }
+        
+        achieve.percentComplete = val;
+        NSLog(@"AFTER SETTING PERCENT COMPLETE TO %f THE ACHIEVEMENT.COMPLETED RETURNS %d", val, achieve.completed);
+        //achieve.completed = YES;
+        [GKAchievement reportAchievements:@[achieve] withCompletionHandler:^(NSError *error) {
+            if(error != nil){
+                NSLog(@"%@", [error localizedDescription]);
+            }
+        }];
     }];
 }
 

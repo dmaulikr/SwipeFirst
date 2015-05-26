@@ -69,7 +69,7 @@ int selectedDeck;
         for (GKAchievement* achievement in scores) {
             if([achievement.identifier  isEqual: @"deck2unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
-                if([achievement isCompleted] == true){
+                if([achievement isCompleted] == true && [prefs boolForKey:@"deck2unlocked"] == false){
                     [self.deck2 setEnabled:true];
                     [self.deck2 setBackgroundImage: [UIImage imageNamed: @"2CardBack.png"] forState: UIControlStateNormal];
                     [prefs setBool:true forKey:@"deck2unlocked"];
@@ -77,7 +77,7 @@ int selectedDeck;
             }
             if([achievement.identifier  isEqual: @"deck3unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
-                if([achievement isCompleted] == true){
+                if([achievement isCompleted] == true && [prefs boolForKey:@"deck3unlocked"] == false){
                     [self.deck3 setEnabled:true];
                     [self.deck3 setBackgroundImage: [UIImage imageNamed: @"3CardBack.png"] forState: UIControlStateNormal];
                     [prefs setBool:true forKey:@"deck3unlocked"];
@@ -86,7 +86,7 @@ int selectedDeck;
             }
             if([achievement.identifier  isEqual: @"deck4unlocked"]){
                 NSLog(@"%d%@", [achievement isCompleted], achievement.identifier);
-                if([achievement isCompleted] == true){
+                if([achievement isCompleted] == true && [prefs boolForKey:@"deck4unlocked"] == false){
                     [self.deck4 setEnabled:true];
                     [self.deck4 setBackgroundImage: [UIImage imageNamed: @"4CardBack.png"] forState: UIControlStateNormal];
                     [prefs setBool:true forKey:@"deck4unlocked"];
@@ -183,6 +183,8 @@ int selectedDeck;
             break;
         */
         default:
+            [self.deck1 setBackgroundImage:[UIImage imageNamed: @"1CK.png"] forState: UIControlStateNormal];
+            selectedDeck = 1;
             break;
             
         
