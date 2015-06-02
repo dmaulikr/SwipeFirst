@@ -611,7 +611,7 @@ static NSString *FONT = @"Exo 2";
     if(maxSprint < sprint3) maxSprint = sprint3;
     [self setAchievement: @"sprint80" toDoubleValue:maxSprint*100];
     
-    [self setAchievement: @"marathon300" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300.0]; //Add marathon mode scores for other sorts
+    //[self setAchievement: @"marathon300" toDoubleValue:[prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300.0]; //Add marathon mode scores for other sorts
     double maxMarathon = [prefs doubleForKey: [NSString stringWithFormat:@"HS12"]]/300.0;
     double marathon2 = [prefs doubleForKey: [NSString stringWithFormat:@"HS02"]]/300.0;
     if(maxMarathon < marathon2) maxMarathon = marathon2;

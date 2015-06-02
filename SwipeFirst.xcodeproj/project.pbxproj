@@ -25,6 +25,7 @@
 		7F4A78691B15269F00B2F657 /* AppIcon@57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4A78681B15269E00B2F657 /* AppIcon@57.png */; };
 		7F4D0AEB1AC708A20041768B /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4D0AEA1AC708A20041768B /* GameKit.framework */; };
 		7F6020351AE82C7500483A27 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7F6020341AE82C7500483A27 /* click.mp3 */; };
+		7F697B411B1E697900CEB5DC /* bigBlueBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F697B401B1E697900CEB5DC /* bigBlueBackground.jpg */; };
 		7FA988321ACC58A5006C4C5F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA988311ACC58A5006C4C5F /* SettingViewController.m */; };
 		7FAC0E781AC1C8D200126858 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAC0E771AC1C8D200126858 /* AVFoundation.framework */; };
 		7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FAC0E791AC1CAEA00126858 /* cardMove.mp3 */; };
@@ -81,6 +82,7 @@
 		7F4A78681B15269E00B2F657 /* AppIcon@57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@57.png"; sourceTree = "<group>"; };
 		7F4D0AEA1AC708A20041768B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		7F6020341AE82C7500483A27 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
+		7F697B401B1E697900CEB5DC /* bigBlueBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bigBlueBackground.jpg; sourceTree = "<group>"; };
 		7FA988301ACC58A4006C4C5F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		7FA988311ACC58A5006C4C5F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		7FAC0E771AC1C8D200126858 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +175,7 @@
 				EF2FBDD61AE5383600EAFF1C /* clickSound.mp3 */,
 				7F6020341AE82C7500483A27 /* click.mp3 */,
 				7F4A78681B15269E00B2F657 /* AppIcon@57.png */,
+				7F697B401B1E697900CEB5DC /* bigBlueBackground.jpg */,
 				7F4853961AE30EF9009CA6BC /* AppIcon.png */,
 				7F285A551AE2C7C200DEA2AE /* play again.png */,
 				EF0D26131AE2140900D25097 /* redBackground.jpg */,
@@ -316,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F697B411B1E697900CEB5DC /* bigBlueBackground.jpg in Resources */,
 				EF2FBDD71AE5383600EAFF1C /* clickSound.mp3 in Resources */,
 				EF0D26171AE2140900D25097 /* blueBackground.jpg in Resources */,
 				7FAC0E7A1AC1CAEA00126858 /* cardMove.mp3 in Resources */,
@@ -489,7 +493,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwipeFirst/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -505,7 +509,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwipeFirst/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

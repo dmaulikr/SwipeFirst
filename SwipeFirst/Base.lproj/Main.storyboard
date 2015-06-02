@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -287,7 +288,7 @@
                                     <constraint firstItem="Ftf-rc-OoG" firstAttribute="leading" secondItem="Nl0-e5-Sx6" secondAttribute="trailing" constant="-4" id="keX-CD-6DZ"/>
                                     <constraint firstItem="qb7-Z2-sEb" firstAttribute="leading" secondItem="xDZ-aW-CRc" secondAttribute="leading" id="nGC-i8-zYw"/>
                                     <constraint firstItem="qb7-Z2-sEb" firstAttribute="height" secondItem="Ftf-rc-OoG" secondAttribute="height" id="nvB-Fr-8Cc"/>
-                                    <constraint firstItem="9mn-Af-p3Z" firstAttribute="top" secondItem="f68-MF-riy" secondAttribute="top" id="o0f-FA-aJT"/>
+                                    <constraint firstItem="9mn-Af-p3Z" firstAttribute="top" secondItem="f68-MF-riy" secondAttribute="top" constant="-1" id="o0f-FA-aJT"/>
                                     <constraint firstItem="bGN-41-ihx" firstAttribute="leading" secondItem="Ftf-rc-OoG" secondAttribute="leading" id="qpm-4j-wdh"/>
                                     <constraint firstItem="xDZ-aW-CRc" firstAttribute="top" secondItem="bGN-41-ihx" secondAttribute="bottom" constant="8" id="sbA-mS-q4F"/>
                                     <constraint firstItem="Ftf-rc-OoG" firstAttribute="height" secondItem="Nl0-e5-Sx6" secondAttribute="height" id="ttu-NX-Y7h"/>
@@ -471,7 +472,6 @@
                                     <constraint firstItem="OWN-LL-BhH" firstAttribute="leading" secondItem="sVu-nV-Uqj" secondAttribute="trailing" constant="-77" id="60r-Rr-DbB"/>
                                     <constraint firstItem="KaZ-ZT-0Rw" firstAttribute="leading" secondItem="wKx-qy-4Bn" secondAttribute="leading" id="86c-i8-DPE"/>
                                     <constraint firstItem="zIi-Om-WYu" firstAttribute="leading" secondItem="aGs-eO-Co9" secondAttribute="trailing" constant="10" id="87x-Zf-NRF"/>
-                                    <constraint firstAttribute="trailing" secondItem="KaZ-ZT-0Rw" secondAttribute="trailing" id="Ayl-ql-BGW"/>
                                     <constraint firstItem="P8Y-J9-2pU" firstAttribute="top" secondItem="zIi-Om-WYu" secondAttribute="bottom" constant="3" id="DO0-Ce-Edn"/>
                                     <constraint firstItem="O48-ue-Hwz" firstAttribute="top" secondItem="OWN-LL-BhH" secondAttribute="bottom" constant="4" id="Db1-a8-coD"/>
                                     <constraint firstItem="l9q-eJ-OCt" firstAttribute="height" secondItem="Vrv-6k-PNp" secondAttribute="height" id="E8z-cQ-1f0"/>
