@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>84393D33-F66C-475F-819B-360D26A25B8F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>SwipeFirst</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5AEAA52CEE081B57FB0BAADC44CACF3F4B34A796</key>
 		<string>https://github.com/ianjjohnson/SwipeFirst.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SwipeFirst.xcodeproj</string>
+	<string>SwipeFirst.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5AEAA52CEE081B57FB0BAADC44CACF3F4B34A796</key>
