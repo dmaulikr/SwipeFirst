@@ -28,10 +28,13 @@
 
 @end
 
+GameScene* scene;
+
 @implementation GameViewController
 
 - (void)viewDidLoad
 {
+    NSLog(@"VIEW DID LOAD IN GAMEVIEWCONTROLLER");
     [super viewDidLoad];
     
     self.button1.translatesAutoresizingMaskIntoConstraints = true;
@@ -75,7 +78,7 @@
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    scene = [GameScene unarchiveFromFile:@"GameScene"];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
@@ -157,8 +160,8 @@
 }
 
 - (IBAction)gamecenterButton:(id)sender {
-    [self showLeaderboardAndAchievements:YES];
     [self updateAllLeaderboards];
+    [self showLeaderboardAndAchievements:YES];
 }
 
 -(void) updateAllLeaderboards{
@@ -204,7 +207,7 @@
 }
 
 - (IBAction)backgroundPressed:(id)sender {
-    //NSLog(@"BACKGROUND PRESSED");
+    NSLog(@"BACKGROUND PRESSED");
     [self.transparentView removeFromSuperview];
     [self.instructionsView removeFromSuperview];
     self.instructionsView.hidden = true;
@@ -260,11 +263,29 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    /*
+    if ([self isViewLoaded] && self.view.window == nil) {
+        NSLog(@"UNLOADING");
+        self.view = nil;
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
+     */
     // Release any cached data, images, etc that aren't in use.
+}
+
+/*
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+}
+ */
+
+-(void) viewDidAppear:(BOOL)animated{
+    [scene updateCardFront];
 }
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
 
 @end

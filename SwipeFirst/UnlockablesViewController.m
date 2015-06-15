@@ -17,6 +17,8 @@
 int selectedDeck;
 
 - (IBAction)backButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+    //[self.view setHidden:true];
     [Sound playClick];
 }
 
@@ -109,6 +111,13 @@ int selectedDeck;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    /*
+    if ([self isViewLoaded] && self.view.window == nil) {
+        NSLog(@"UNLOADING");
+        self.view = nil;
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
+     */
     // Dispose of any resources that can be recreated.
 }
 
@@ -190,6 +199,8 @@ int selectedDeck;
         
             
     }}
+
+
 
 /*
 #pragma mark - Navigation

@@ -84,6 +84,7 @@
 }
 - (IBAction)backButtonPressed:(id)sender {
     [Sound playClick];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 /*

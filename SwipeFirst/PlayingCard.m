@@ -16,12 +16,7 @@ int CARD_HEIGHT = 1400 * 3/4;
 
 -(id) initWithName: (NSString*) me{
     
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    if([prefs integerForKey: @"selectedDeck"] != 0){
-        self.selectedDeck = (int)[prefs integerForKey: @"selectedDeck"];
-    }else{
-        self.selectedDeck = 1;
-    }
+    [self updateSelectedDeck];
     
     self = [super initWithImageNamed: [NSString stringWithFormat:@"%dCardBack", self.selectedDeck]];
     //self.texture = [SKTexture textureWithImageNamed: @"CardBack"];
@@ -44,14 +39,19 @@ int CARD_HEIGHT = 1400 * 3/4;
 }
 
 -(void) update{
+    [self updateSelectedDeck];
+    
     if(self.isFrontFancing){
         self.texture = [SKTexture textureWithImageNamed:self.name];
     } else {
+        NSLog(@"Updating back texture");
         self.texture = [SKTexture textureWithImageNamed: [NSString stringWithFormat:@"%dCardBack", self.selectedDeck]];
     }
 }
 
 -(void) flip{
+    [self updateSelectedDeck];
+    
     if (self.isFrontFancing == YES) {
         self.texture = [SKTexture textureWithImageNamed: [NSString stringWithFormat:@"%dCardBack", self.selectedDeck]];
         [self setFrontFacing:NO];
@@ -60,6 +60,15 @@ int CARD_HEIGHT = 1400 * 3/4;
         self.texture.filteringMode = SKTextureFilteringNearest;
         self.texture = [SKTexture textureWithImageNamed: self.name];
         [self setFrontFacing:YES];
+    }
+}
+
+-(void)updateSelectedDeck{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if([prefs integerForKey: @"selectedDeck"] != 0){
+        self.selectedDeck = (int)[prefs integerForKey: @"selectedDeck"];
+    }else{
+        self.selectedDeck = 1;
     }
 }
 

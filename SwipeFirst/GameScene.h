@@ -15,6 +15,7 @@
 
 -(void) resetGame;
 -(void) initializeViewController: (UIViewController *) passedController;
+-(void) updateCardFront;
 
 @end
 

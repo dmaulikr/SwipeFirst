@@ -97,7 +97,7 @@
                                 </state>
                                 <connections>
                                     <action selector="sendCommandToScene:" destination="BV1-FR-VrT" eventType="touchUpInside" id="stA-VT-oFD"/>
-                                    <segue destination="yxY-oZ-1QC" kind="modal" animates="NO" id="04T-hq-6a6"/>
+                                    <segue destination="yxY-oZ-1QC" kind="modal" animates="NO" id="OcS-4h-oFv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2va-7s-lxK">
@@ -188,7 +188,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="AVF-ui-lT1" eventType="touchUpInside" id="NR5-IG-ozg"/>
-                                    <segue destination="BV1-FR-VrT" kind="modal" animates="NO" id="gqg-nO-vp8"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f68-MF-riy">
@@ -634,10 +633,10 @@
             </objects>
             <point key="canvasLocation" x="59.5" y="-770.5"/>
         </scene>
-        <!--Unlockables View Controller-->
+        <!--unlockable-->
         <scene sceneID="e8t-s8-9zR">
             <objects>
-                <viewController id="yxY-oZ-1QC" customClass="UnlockablesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="unlockable" title="unlockable" id="yxY-oZ-1QC" customClass="UnlockablesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c3r-gz-mMj"/>
                         <viewControllerLayoutGuide type="bottom" id="lg4-g4-U0H"/>
@@ -661,7 +660,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="yxY-oZ-1QC" eventType="touchUpInside" id="3Mc-b9-OaN"/>
-                                    <segue destination="BV1-FR-VrT" kind="modal" animates="NO" id="mW9-9W-rg0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unlockables" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ii4-aj-nxE">
@@ -723,7 +721,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thb-hd-WNI">
-                                <rect key="frame" x="135" y="113" width="101" height="21"/>
+                                <rect key="frame" x="135" y="125" width="101" height="21"/>
                                 <fontDescription key="fontDescription" name="Exo2-Regular" family="Exo 2" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -951,7 +949,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="zzy-Ut-IHo" eventType="touchUpInside" id="TZJ-nf-yS3"/>
-                                    <segue destination="BV1-FR-VrT" kind="modal" animates="NO" id="p2s-34-acm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="© 2015. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jXY-R4-pSD">
@@ -1010,7 +1007,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="gqg-nO-vp8"/>
-    </inferredMetricsTieBreakers>
 </document>

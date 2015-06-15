@@ -53,6 +53,7 @@ static NSString *FONT = @"Exo 2";
 
 
 -(void)didMoveToView:(SKView *)view {
+    NSLog(@"LOADING IN GAMESCENE");
     //[self resetAchievements];
     prefs = [NSUserDefaults standardUserDefaults];
     /* Setup your scene here */
@@ -796,6 +797,7 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) update:(CFTimeInterval)currentTime {
+    NSLog(@"Render");
     /* Called before each frame is rendered */
     if(isPlaying == false)
         return;
@@ -840,6 +842,11 @@ static NSString *FONT = @"Exo 2";
             topLabel.text = [NSString stringWithFormat:@"%d:%07.4f", minutes, seconds];
         }
     }
+}
+
+-(void) updateCardFront{
+    [card update];
+    [nextCard update];
 }
 
 @end
