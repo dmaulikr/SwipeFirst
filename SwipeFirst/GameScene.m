@@ -184,6 +184,9 @@ static NSString *FONT = @"Exo 2";
 }
 
 -(void) addSwipeGestures{
+    UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    tapgesture.numberOfTouchesRequired = 3;
+    [[self view] addGestureRecognizer:tapgesture];
     
     UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUp:)];
     recognizer.direction = UISwipeGestureRecognizerDirectionUp;
@@ -206,6 +209,12 @@ static NSString *FONT = @"Exo 2";
     recognizer5.maximumNumberOfTouches = 1;
     [recognizer5 setEnabled: NO];
     [[self view] addGestureRecognizer:recognizer5];
+}
+
+-(void) handleTap: (UITapGestureRecognizer*)sender{
+    if(isPlaying){
+        [self resetGame];
+    }
 }
 
 -(void) handlePan: (UIPanGestureRecognizer*)sender{
@@ -760,7 +769,7 @@ static NSString *FONT = @"Exo 2";
     }];
 }
 
-#warning issue with setting achievements here
+
 -(void) setAchievement: (NSString*) identifier toDoubleValue: (double) val{
     if(val > 100)
         val = 100;

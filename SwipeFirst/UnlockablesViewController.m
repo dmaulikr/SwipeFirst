@@ -19,7 +19,7 @@ int selectedDeck;
 - (IBAction)backButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
     //[self.view setHidden:true];
-    [Sound playClick];
+    //[Sound playClick];
 }
 
 - (void)viewDidLoad {

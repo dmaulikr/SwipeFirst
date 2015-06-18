@@ -24,7 +24,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)backButtonPressed:(id)sender {
-    [Sound playClick];
+    //[Sound playClick];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

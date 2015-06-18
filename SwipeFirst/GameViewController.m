@@ -280,6 +280,7 @@ GameScene* scene;
  */
 
 -(void) viewDidAppear:(BOOL)animated{
+    [Sound playClick];
     [scene updateCardFront];
 }
 
